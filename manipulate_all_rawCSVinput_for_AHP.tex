@@ -1,0 +1,454 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Preparing raw CSV input data from survey for analytical hierarchy process (AHP)},
+  pdfauthor={Björn Kasper; Henriette John},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{255,255,255}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{\textbf{\colorbox[rgb]{0.97,0.90,0.90}{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.79,0.38,0.79}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.39,0.29,0.61}{\textbf{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.57,0.30,0.62}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.54,0.53,0.53}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.58,1.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.67,0.33,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.38,0.47,0.50}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{\underline{#1}}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.58,1.00}{\textbf{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.39,0.29,0.61}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{1.00,0.33,0.00}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.43,0.16}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.00,0.43,0.16}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{\colorbox[rgb]{0.88,0.91,0.97}{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.24,0.68,0.91}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{1.00,0.33,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Preparing raw CSV input data from survey for analytical hierarchy
+process (AHP)}
+\author{Björn Kasper\footnote{BG ETEM,
+  \href{mailto:kasper.bjoern@bgetem.de}{\nolinkurl{kasper.bjoern@bgetem.de}}} \and Henriette
+John\footnote{IOER,
+  \href{mailto:h.john@ioer.de}{\nolinkurl{h.john@ioer.de}}}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{install-and-load-dependencies}{%
+\section{Install and load
+dependencies}\label{install-and-load-dependencies}}
+
+\hypertarget{load-data.table}{%
+\subsection{\texorpdfstring{Load
+\emph{data.table}}{Load data.table}}\label{load-data.table}}
+
+The package \emph{data.table} is used for read and manipulate tables.
+Install and load it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("data.table")}
+\FunctionTok{library}\NormalTok{(data.table)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-data-frame-table-handling-the-file-names-of-input-csv-data}{%
+\section{Create data frame (table) handling the file names of input CSV
+data}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_csvInputFiles }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
+  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
+  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"all"}\NormalTok{, }\StringTok{"CA"}\NormalTok{, }\StringTok{"NGO"}\NormalTok{, }\StringTok{"PE"}\NormalTok{),}
+  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_all\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
+               \StringTok{"rdata\_CA\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
+               \StringTok{"rdata\_NGO\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
+               \StringTok{"rdata\_PE\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{),}
+  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"all target groups together"}\NormalTok{,}
+                   \StringTok{"from city administrations"}\NormalTok{,}
+                   \StringTok{"from non{-}governmental organisations"}\NormalTok{,}
+                   \StringTok{"practitioners and experts"}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{df\_csvInputFiles}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    file_idx keys                                        filenames
+## 1:        1  all rdata_all_AHP_essbare_Stadt_2022-03-18_09-53.csv
+## 2:        2   CA  rdata_CA_AHP_essbare_Stadt_2022-03-18_10-28.csv
+## 3:        3  NGO rdata_NGO_AHP_essbare_Stadt_2022-03-18_10-40.csv
+## 4:        4   PE  rdata_PE_AHP_essbare_Stadt_2022-03-18_10-41.csv
+##                           descriptions
+## 1:          all target groups together
+## 2:           from city administrations
+## 3: from non-governmental organisations
+## 4:           practitioners and experts
+\end{verbatim}
+
+\hypertarget{functions-for-manipulation-of-raw-csv-input-data-of-survey}{%
+\section{Functions for manipulation of raw CSV input data of
+survey}\label{functions-for-manipulation-of-raw-csv-input-data-of-survey}}
+
+\hypertarget{function-for-reading-in-survey-data-from-csv-files-to-data-frame-objects}{%
+\subsection{Function for reading in survey data from CSV files to data
+frame
+objects}\label{function-for-reading-in-survey-data-from-csv-files-to-data-frame-objects}}
+
+Define a function for reading in a CSV file to 4 different date frames
+by selecting different columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_readCSVdata\_to\_dataframes }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(str\_CSVfilename) \{}
+  
+\NormalTok{  df\_mySurvey\_1 }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}
+    \AttributeTok{file =}\NormalTok{ str\_CSVfilename, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{,}
+    \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \StringTok{"}\SpecialCharTok{\textbackslash{}"}\StringTok{"}\NormalTok{,}
+    \CommentTok{\# dec = ".", row.names = "CASE",}
+    \AttributeTok{select =} \FunctionTok{c}\NormalTok{(}\StringTok{"CASE"}\NormalTok{, }\StringTok{"AU01"}\NormalTok{, }\StringTok{"AU02"}\NormalTok{, }\StringTok{"AU03"}\NormalTok{, }
+               \StringTok{"RU01\_01"}\NormalTok{, }\StringTok{"RU02\_01"}\NormalTok{, }\StringTok{"RU03\_01"}\NormalTok{, }\StringTok{"RU04\_01"}\NormalTok{, }\StringTok{"RU05\_01"}\NormalTok{, }\StringTok{"RU06\_01"}\NormalTok{)}
+\NormalTok{    )}
+  
+\NormalTok{  df\_mySurvey\_2 }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}
+    \AttributeTok{file =}\NormalTok{ str\_CSVfilename, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{,}
+    \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \StringTok{"}\SpecialCharTok{\textbackslash{}"}\StringTok{"}\NormalTok{,}
+    \CommentTok{\# dec = ".", row.names = "CASE",}
+    \AttributeTok{select =} \FunctionTok{c}\NormalTok{(}\StringTok{"CASE"}\NormalTok{, }\StringTok{"AS01"}\NormalTok{, }\StringTok{"AS02"}\NormalTok{, }\StringTok{"AS03"}\NormalTok{, }
+               \StringTok{"RS01\_01"}\NormalTok{, }\StringTok{"RS02\_01"}\NormalTok{, }\StringTok{"RS03\_01"}\NormalTok{, }\StringTok{"RS04\_01"}\NormalTok{, }\StringTok{"RS05\_01"}\NormalTok{, }\StringTok{"RS06\_01"}\NormalTok{)}
+\NormalTok{    )}
+  
+\NormalTok{  df\_mySurvey\_3 }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}
+    \AttributeTok{file =}\NormalTok{ str\_CSVfilename, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{,}
+    \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \StringTok{"}\SpecialCharTok{\textbackslash{}"}\StringTok{"}\NormalTok{,}
+    \CommentTok{\# dec = ".", row.names = "CASE",}
+    \AttributeTok{select =} \FunctionTok{c}\NormalTok{(}\StringTok{"CASE"}\NormalTok{, }\StringTok{"AW01"}\NormalTok{, }\StringTok{"AW02"}\NormalTok{, }\StringTok{"AW03"}\NormalTok{, }
+               \StringTok{"RW01\_01"}\NormalTok{, }\StringTok{"RW02\_01"}\NormalTok{, }\StringTok{"RW03\_01"}\NormalTok{, }\StringTok{"RW04\_01"}\NormalTok{, }\StringTok{"RW05\_01"}\NormalTok{, }\StringTok{"RW06\_01"}\NormalTok{)}
+\NormalTok{    )}
+  
+\NormalTok{  df\_mySurvey\_4 }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}
+    \AttributeTok{file =}\NormalTok{ str\_CSVfilename, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{,}
+    \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \StringTok{"}\SpecialCharTok{\textbackslash{}"}\StringTok{"}\NormalTok{,}
+    \CommentTok{\# dec = ".", row.var = "CASE",}
+    \AttributeTok{select =} \FunctionTok{c}\NormalTok{(}\StringTok{"CASE"}\NormalTok{, }\StringTok{"AK01"}\NormalTok{, }\StringTok{"AK02"}\NormalTok{, }\StringTok{"AK03"}\NormalTok{, }
+               \StringTok{"RK01\_01"}\NormalTok{, }\StringTok{"RK02\_01"}\NormalTok{, }\StringTok{"RK03\_01"}\NormalTok{, }\StringTok{"RK04\_01"}\NormalTok{, }\StringTok{"RK05\_01"}\NormalTok{, }\StringTok{"RK06\_01"}\NormalTok{)}
+\NormalTok{    )}
+  
+\NormalTok{  output }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(df\_mySurvey\_1, df\_mySurvey\_2, df\_mySurvey\_3, df\_mySurvey\_4)}
+  
+  \FunctionTok{return}\NormalTok{(output)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-manipulation-of-the-read-in-data-and-store-in-new-data-frame}{%
+\subsection{Function for manipulation of the read in data and store in
+new data
+frame}\label{function-for-manipulation-of-the-read-in-data-and-store-in-new-data-frame}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_scrambleData }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_inputData, vec\_colnames\_search\_1, vec\_colnames\_search\_2, vec\_colnames\_out) \{}
+  \CommentTok{\# Generate new data frame ...}
+\NormalTok{  df\_outputData }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{ncol =} \DecValTok{3}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{0}\NormalTok{))}
+  \CommentTok{\# ... and name the columns}
+  \FunctionTok{colnames}\NormalTok{(df\_outputData) }\OtherTok{\textless{}{-}}\NormalTok{ vec\_colnames\_out}
+  
+  \CommentTok{\# Generate 1. column}
+  \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_inputData) ) \{}
+    \CommentTok{\# filter column names by vector element}
+    \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{1}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_2[}\DecValTok{1}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{])}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val }\SpecialCharTok{*} \SpecialCharTok{{-}}\DecValTok{1} \SpecialCharTok{{-}} \DecValTok{1}
+
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{1}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val}
+\NormalTok{    \}}
+    \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{1}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) \{}
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{1}\NormalTok{]] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{    \}}
+    \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{1}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \DecValTok{2}\NormalTok{) \{}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_2[}\DecValTok{2}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{])}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val }\SpecialCharTok{+} \DecValTok{1}
+
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{1}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Generate 2. column}
+  \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_inputData) ) \{}
+    \CommentTok{\# filter column names by vector element}
+    \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{2}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_2[}\DecValTok{3}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{])}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val }\SpecialCharTok{*} \SpecialCharTok{{-}}\DecValTok{1} \SpecialCharTok{{-}} \DecValTok{1}
+      
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{2}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val}
+\NormalTok{    \} }
+    \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{2}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) \{}
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{2}\NormalTok{]] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{    \} }
+    \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{2}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \DecValTok{2}\NormalTok{) \{}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_2[}\DecValTok{4}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{])}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val }\SpecialCharTok{+} \DecValTok{1}
+      
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{2}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \CommentTok{\# Generate 3. column}
+  \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_inputData) ) \{}
+    \CommentTok{\# filter column names by vector element}
+    \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{3}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) \{}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_2[}\DecValTok{5}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{])}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val }\SpecialCharTok{*} \SpecialCharTok{{-}}\DecValTok{1} \SpecialCharTok{{-}} \DecValTok{1}
+      
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{3}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val}
+\NormalTok{    \} }
+    \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{3}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) \{}
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{3}\NormalTok{]] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{    \} }
+    \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_1[}\DecValTok{3}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{] }\SpecialCharTok{==} \DecValTok{2}\NormalTok{) \{}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(df\_inputData[row\_idx, }\FunctionTok{colnames}\NormalTok{(df\_inputData) }\SpecialCharTok{\%in\%}\NormalTok{ vec\_colnames\_search\_2[}\DecValTok{6}\NormalTok{], }\AttributeTok{with=}\ConstantTok{FALSE}\NormalTok{])}
+\NormalTok{      int\_tmp\_val }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val }\SpecialCharTok{+} \DecValTok{1}
+      
+\NormalTok{      df\_outputData[row\_idx, vec\_colnames\_out[}\DecValTok{3}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ int\_tmp\_val}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \CommentTok{\# return scrambled data frame}
+  \FunctionTok{return}\NormalTok{(df\_outputData)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Function for writing resulting data frame to CSV file:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_writeDataframe\_to\_CSVfile }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(str\_path, str\_CSVfilename, df\_dataframe, str\_filenameExtension) \{}
+  \CommentTok{\# Split file name on second underscore, found here: }
+  \CommentTok{\# https://stackoverflow.com/questions/32398427/r{-}split{-}a{-}character{-}string{-}on{-}the{-}second{-}underscore/32398489\#32398489}
+\NormalTok{  list\_str\_split }\OtherTok{\textless{}{-}} \FunctionTok{strsplit}\NormalTok{(}\FunctionTok{sub}\NormalTok{(}\StringTok{\textquotesingle{}(\^{}[\^{}\_]+\_[\^{}\_]+)\_(.*)$\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{1 }\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{2\textquotesingle{}}\NormalTok{, str\_CSVfilename), }\StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{)}
+  
+  \CommentTok{\# extend the file name prefix and glue together with old suffix}
+\NormalTok{  str\_CSVfilename\_extended }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(list\_str\_split[[}\DecValTok{1}\NormalTok{]][}\DecValTok{1}\NormalTok{], str\_filenameExtension, list\_str\_split[[}\DecValTok{1}\NormalTok{]][}\DecValTok{2}\NormalTok{], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+  
+  \CommentTok{\# extend file name by path}
+\NormalTok{  str\_CSVfilename\_extended }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_path, str\_CSVfilename\_extended, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+  
+  \FunctionTok{write.table}\NormalTok{(df\_dataframe, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_extended,}
+              \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
+              \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{environmental-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}{%
+\section{Environmental sub-criteria: manipulate the data and store in
+new data
+frame}\label{environmental-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}}
+
+Walk over all input CSV files, manipulate the data, and write the
+results to output CSV files:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AU01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AU02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AU03\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RU01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU06\_01\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Klima\_BioV\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Klima\_KlW\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BioV\_KlW\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
+
+\ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
+  \CommentTok{\# create list of data frames from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles[row\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  list\_dataframes }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframes}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# scramble the data frames}
+\NormalTok{  df\_scrambledData }\OtherTok{\textless{}{-}} \FunctionTok{func\_scrambleData}\NormalTok{(list\_dataframes[[}\DecValTok{1}\NormalTok{]], vec\_colnames\_search\_1, vec\_colnames\_search\_2, vec\_colnames\_out)}
+  
+  \CommentTok{\# write scrambled data frames to output CSV file}
+  \FunctionTok{func\_writeDataframe\_to\_CSVfile}\NormalTok{(str\_output\_path, df\_csvInputFiles[row\_idx, filenames], df\_scrambledData, }\StringTok{"env"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{social-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}{%
+\section{Social sub-criteria: manipulate the data and store in new data
+frame}\label{social-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}}
+
+Walk over all input CSV files, manipulate the data, and write the
+results to output CSV files:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AS01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AS02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AS03\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RS01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS06\_01\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Wiss\_Gem\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Wiss\_Bet\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Gem\_Bet\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
+
+\ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
+  \CommentTok{\# create list of data frames from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles[row\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  list\_dataframes }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframes}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# scramble the data frames}
+\NormalTok{  df\_scrambledData }\OtherTok{\textless{}{-}} \FunctionTok{func\_scrambleData}\NormalTok{(list\_dataframes[[}\DecValTok{2}\NormalTok{]], vec\_colnames\_search\_1, vec\_colnames\_search\_2, vec\_colnames\_out)}
+  
+  \CommentTok{\# write scrambled data frames to output CSV file}
+  \FunctionTok{func\_writeDataframe\_to\_CSVfile}\NormalTok{(str\_output\_path, df\_csvInputFiles[row\_idx, filenames], df\_scrambledData, }\StringTok{"soc"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{economic-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}{%
+\section{Economic sub-criteria: manipulate the data and store in new
+data
+frame}\label{economic-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}}
+
+Walk over all input CSV files, manipulate the data, and write the
+results to output CSV files:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AW01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AW02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AW03\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RW01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW06\_01\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Quali\_WSK\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Quali\_Bez\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}WSK\_Bez\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
+
+\ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
+  \CommentTok{\# create list of data frames from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles[row\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  list\_dataframes }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframes}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# scramble the data frames}
+\NormalTok{  df\_scrambledData }\OtherTok{\textless{}{-}} \FunctionTok{func\_scrambleData}\NormalTok{(list\_dataframes[[}\DecValTok{3}\NormalTok{]], vec\_colnames\_search\_1, vec\_colnames\_search\_2, vec\_colnames\_out)}
+  
+  \CommentTok{\# write scrambled data frames to output CSV file}
+  \FunctionTok{func\_writeDataframe\_to\_CSVfile}\NormalTok{(str\_output\_path, df\_csvInputFiles[row\_idx, filenames], df\_scrambledData, }\StringTok{"eco"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{criteria-manipulate-the-data-and-store-in-new-data-frame}{%
+\section{Criteria: manipulate the data and store in new data
+frame}\label{criteria-manipulate-the-data-and-store-in-new-data-frame}}
+
+Walk over all input CSV files, manipulate the data, and write the
+results to output CSV files:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AK01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AK02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AK03\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RK01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK06\_01\textquotesingle{}}\NormalTok{)}
+\NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Oeko\_Soz\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Oeko\_Wirt\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Soz\_Wirt\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
+
+\ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
+  \CommentTok{\# create list of data frames from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles[row\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  list\_dataframes }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframes}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# scramble the data frames}
+\NormalTok{  df\_scrambledData }\OtherTok{\textless{}{-}} \FunctionTok{func\_scrambleData}\NormalTok{(list\_dataframes[[}\DecValTok{4}\NormalTok{]], vec\_colnames\_search\_1, vec\_colnames\_search\_2, vec\_colnames\_out)}
+  
+  \CommentTok{\# write scrambled data frames to output CSV file}
+  \FunctionTok{func\_writeDataframe\_to\_CSVfile}\NormalTok{(str\_output\_path, df\_csvInputFiles[row\_idx, filenames], df\_scrambledData, }\StringTok{"crit"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
