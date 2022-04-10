@@ -39,16 +39,23 @@ The package `data.table` is used for reading and manipulating tables (`data.tabl
 library(data.table)
 ```
 
-## Create data frame (table) handling the file names of input CSV data
+## Set globally used input and output folders
+
+```{r}
+str_input_path = "./input_data_from_survey"
+str_output_path = "./output_data_manipulated"
+```
+
+## Create data frame (table) handling the file names of input CSV data (raw data from survey)
 
 ```{r}
 df_csvInputFiles <- data.table(
   file_idx = 1:4,
   keys = c("all", "CA", "NGO", "PE"),
   filenames = c("rdata_all_AHP_essbare_Stadt_2022-03-18_09-53.csv",
-               "rdata_CA_AHP_essbare_Stadt_2022-03-18_10-28.csv",
-               "rdata_NGO_AHP_essbare_Stadt_2022-03-18_10-40.csv",
-               "rdata_PE_AHP_essbare_Stadt_2022-03-18_10-41.csv"),
+                "rdata_CA_AHP_essbare_Stadt_2022-03-18_10-28.csv",
+                "rdata_NGO_AHP_essbare_Stadt_2022-03-18_10-40.csv",
+                "rdata_PE_AHP_essbare_Stadt_2022-03-18_10-41.csv"),
   descriptions = c("all target groups together",
                    "from city administrations",
                    "from non-governmental organisations",
@@ -57,14 +64,6 @@ df_csvInputFiles <- data.table(
 
 df_csvInputFiles
 ```
-
-## Set globally used input an doutput folders
-
-```{r}
-str_input_path = "./input_data_from_survey"
-str_output_path = "./output_data_manipulated"
-```
-
 
 # Functions for manipulation of raw CSV input data of survey
 
@@ -207,7 +206,7 @@ func_writeDataframe_to_CSVfile <- function(str_path, str_CSVfilename, df_datafra
 }
 ```
 
-# Manipulate the data and store in new data frames for each criteria
+# Manipulate the data and store in new CSV files for each criteria
 
 ## Environmental sub-criteria
 
