@@ -28,18 +28,18 @@ editor_options:
   chunk_output_type: inline
 ---
 
-# Install and load dependencies
+# Global settings and dependencies
 
-## Load *data.table*
+## Load package `data.table`
 
-The package *data.table* is used for read and manipulate tables. Install and load it:
+The package `data.table` is used for reading and manipulating tables (`data.table` inherits from `data.frame`). Install and load it:
 
 ```{r}
 # install.packages("data.table")
 library(data.table)
 ```
 
-# Create data frame (table) handling the file names of input CSV data
+## Create data frame (table) handling the file names of input CSV data
 
 ```{r}
 df_csvInputFiles <- data.table(
@@ -57,6 +57,14 @@ df_csvInputFiles <- data.table(
 
 df_csvInputFiles
 ```
+
+## Set globally used input an doutput folders
+
+```{r}
+str_input_path = "./input_data_from_survey"
+str_output_path = "./output_data_manipulated"
+```
+
 
 # Functions for manipulation of raw CSV input data of survey
 
@@ -199,7 +207,9 @@ func_writeDataframe_to_CSVfile <- function(str_path, str_CSVfilename, df_datafra
 }
 ```
 
-# Environmental sub-criteria: manipulate the data and store in new data frame
+# Manipulate the data and store in new data frames for each criteria
+
+## Environmental sub-criteria
 
 Walk over all input CSV files, manipulate the data, and write the results to output CSV files:
 
@@ -207,9 +217,6 @@ Walk over all input CSV files, manipulate the data, and write the results to out
 vec_colnames_search_1 <- c('AU01', 'AU02', 'AU03')
 vec_colnames_search_2 <- c('RU01_01', 'RU02_01', 'RU03_01', 'RU04_01', 'RU05_01', 'RU06_01')
 vec_colnames_out <- c('Klima_BioV', 'Klima_KlW', 'BioV_KlW')
-
-str_input_path = "./input_data_from_survey"
-str_output_path = "./output_data_manipulated"
 
 for ( row_idx in 1:nrow(df_csvInputFiles) ) {
   # create list of data frames from current input CSV file
@@ -224,7 +231,7 @@ for ( row_idx in 1:nrow(df_csvInputFiles) ) {
 }
 ```
 
-# Social sub-criteria: manipulate the data and store in new data frame
+## Social sub-criteria
 
 Walk over all input CSV files, manipulate the data, and write the results to output CSV files:
 
@@ -232,9 +239,6 @@ Walk over all input CSV files, manipulate the data, and write the results to out
 vec_colnames_search_1 <- c('AS01', 'AS02', 'AS03')
 vec_colnames_search_2 <- c('RS01_01', 'RS02_01', 'RS03_01', 'RS04_01', 'RS05_01', 'RS06_01')
 vec_colnames_out <- c('Wiss_Gem', 'Wiss_Bet', 'Gem_Bet')
-
-str_input_path = "./input_data_from_survey"
-str_output_path = "./output_data_manipulated"
 
 for ( row_idx in 1:nrow(df_csvInputFiles) ) {
   # create list of data frames from current input CSV file
@@ -249,7 +253,7 @@ for ( row_idx in 1:nrow(df_csvInputFiles) ) {
 }
 ```
 
-# Economic sub-criteria: manipulate the data and store in new data frame
+## Economic sub-criteria
 
 Walk over all input CSV files, manipulate the data, and write the results to output CSV files:
 
@@ -257,9 +261,6 @@ Walk over all input CSV files, manipulate the data, and write the results to out
 vec_colnames_search_1 <- c('AW01', 'AW02', 'AW03')
 vec_colnames_search_2 <- c('RW01_01', 'RW02_01', 'RW03_01', 'RW04_01', 'RW05_01', 'RW06_01')
 vec_colnames_out <- c('Quali_WSK', 'Quali_Bez', 'WSK_Bez')
-
-str_input_path = "./input_data_from_survey"
-str_output_path = "./output_data_manipulated"
 
 for ( row_idx in 1:nrow(df_csvInputFiles) ) {
   # create list of data frames from current input CSV file
@@ -274,7 +275,7 @@ for ( row_idx in 1:nrow(df_csvInputFiles) ) {
 }
 ```
 
-# Criteria: manipulate the data and store in new data frame
+## Criteria (main criteria)
 
 Walk over all input CSV files, manipulate the data, and write the results to output CSV files:
 
@@ -282,9 +283,6 @@ Walk over all input CSV files, manipulate the data, and write the results to out
 vec_colnames_search_1 <- c('AK01', 'AK02', 'AK03')
 vec_colnames_search_2 <- c('RK01_01', 'RK02_01', 'RK03_01', 'RK04_01', 'RK05_01', 'RK06_01')
 vec_colnames_out <- c('Oeko_Soz', 'Oeko_Wirt', 'Soz_Wirt')
-
-str_input_path = "./input_data_from_survey"
-str_output_path = "./output_data_manipulated"
 
 for ( row_idx in 1:nrow(df_csvInputFiles) ) {
   # create list of data frames from current input CSV file

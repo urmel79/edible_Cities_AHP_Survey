@@ -118,16 +118,17 @@ John\footnote{IOER,
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{install-and-load-dependencies}{%
-\section{Install and load
-dependencies}\label{install-and-load-dependencies}}
+\hypertarget{global-settings-and-dependencies}{%
+\section{Global settings and
+dependencies}\label{global-settings-and-dependencies}}
 
-\hypertarget{load-data.table}{%
-\subsection{\texorpdfstring{Load
-\emph{data.table}}{Load data.table}}\label{load-data.table}}
+\hypertarget{load-package-data.table}{%
+\subsection{\texorpdfstring{Load package
+\texttt{data.table}}{Load package data.table}}\label{load-package-data.table}}
 
-The package \emph{data.table} is used for read and manipulate tables.
-Install and load it:
+The package \texttt{data.table} is used for reading and manipulating
+tables (\texttt{data.table} inherits from \texttt{data.frame}). Install
+and load it:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -137,7 +138,8 @@ Install and load it:
 \end{Shaded}
 
 \hypertarget{create-data-frame-table-handling-the-file-names-of-input-csv-data}{%
-\section{Create data frame (table) handling the file names of input CSV
+\subsection{Create data frame (table) handling the file names of input
+CSV
 data}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data}}
 
 \begin{Shaded}
@@ -171,6 +173,17 @@ data}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data}}
 ## 3: from non-governmental organisations
 ## 4:           practitioners and experts
 \end{verbatim}
+
+\hypertarget{set-globally-used-input-an-doutput-folders}{%
+\subsection{Set globally used input an doutput
+folders}\label{set-globally-used-input-an-doutput-folders}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data\_from\_survey"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data\_manipulated"}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{functions-for-manipulation-of-raw-csv-input-data-of-survey}{%
 \section{Functions for manipulation of raw CSV input data of
@@ -328,10 +341,13 @@ Function for writing resulting data frame to CSV file:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{environmental-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}{%
-\section{Environmental sub-criteria: manipulate the data and store in
-new data
-frame}\label{environmental-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}}
+\hypertarget{manipulate-the-data-and-store-in-new-data-frames-for-each-criteria}{%
+\section{Manipulate the data and store in new data frames for each
+criteria}\label{manipulate-the-data-and-store-in-new-data-frames-for-each-criteria}}
+
+\hypertarget{environmental-sub-criteria}{%
+\subsection{Environmental
+sub-criteria}\label{environmental-sub-criteria}}
 
 Walk over all input CSV files, manipulate the data, and write the
 results to output CSV files:
@@ -341,9 +357,6 @@ results to output CSV files:
 \NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AU01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AU02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AU03\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RU01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RU06\_01\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Klima\_BioV\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Klima\_KlW\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}BioV\_KlW\textquotesingle{}}\NormalTok{)}
-
-\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
-\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
 
 \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
   \CommentTok{\# create list of data frames from current input CSV file}
@@ -359,9 +372,8 @@ results to output CSV files:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{social-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}{%
-\section{Social sub-criteria: manipulate the data and store in new data
-frame}\label{social-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}}
+\hypertarget{social-sub-criteria}{%
+\subsection{Social sub-criteria}\label{social-sub-criteria}}
 
 Walk over all input CSV files, manipulate the data, and write the
 results to output CSV files:
@@ -371,9 +383,6 @@ results to output CSV files:
 \NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AS01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AS02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AS03\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RS01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RS06\_01\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Wiss\_Gem\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Wiss\_Bet\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Gem\_Bet\textquotesingle{}}\NormalTok{)}
-
-\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
-\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
 
 \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
   \CommentTok{\# create list of data frames from current input CSV file}
@@ -389,10 +398,8 @@ results to output CSV files:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{economic-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}{%
-\section{Economic sub-criteria: manipulate the data and store in new
-data
-frame}\label{economic-sub-criteria-manipulate-the-data-and-store-in-new-data-frame}}
+\hypertarget{economic-sub-criteria}{%
+\subsection{Economic sub-criteria}\label{economic-sub-criteria}}
 
 Walk over all input CSV files, manipulate the data, and write the
 results to output CSV files:
@@ -402,9 +409,6 @@ results to output CSV files:
 \NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AW01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AW02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AW03\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RW01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RW06\_01\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Quali\_WSK\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Quali\_Bez\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}WSK\_Bez\textquotesingle{}}\NormalTok{)}
-
-\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
-\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
 
 \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
   \CommentTok{\# create list of data frames from current input CSV file}
@@ -420,9 +424,8 @@ results to output CSV files:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{criteria-manipulate-the-data-and-store-in-new-data-frame}{%
-\section{Criteria: manipulate the data and store in new data
-frame}\label{criteria-manipulate-the-data-and-store-in-new-data-frame}}
+\hypertarget{criteria-main-criteria}{%
+\subsection{Criteria (main criteria)}\label{criteria-main-criteria}}
 
 Walk over all input CSV files, manipulate the data, and write the
 results to output CSV files:
@@ -432,9 +435,6 @@ results to output CSV files:
 \NormalTok{vec\_colnames\_search\_1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}AK01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AK02\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}AK03\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_search\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}RK01\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK02\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK03\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK04\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK05\_01\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RK06\_01\textquotesingle{}}\NormalTok{)}
 \NormalTok{vec\_colnames\_out }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Oeko\_Soz\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Oeko\_Wirt\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Soz\_Wirt\textquotesingle{}}\NormalTok{)}
-
-\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data"}
-\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data"}
 
 \ControlFlowTok{for}\NormalTok{ ( row\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles) ) \{}
   \CommentTok{\# create list of data frames from current input CSV file}
