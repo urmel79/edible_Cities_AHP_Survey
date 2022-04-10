@@ -186,7 +186,7 @@ func_scrambleData <- function(df_inputData, vec_colnames_search_1, vec_colnames_
 }
 ```
 
-Function for writing resulting data frame to CSV file:
+## Function for writing resulting data frame to CSV file
 
 ```{r}
 func_writeDataframe_to_CSVfile <- function(str_path, str_CSVfilename, df_dataframe, str_filenameExtension) {

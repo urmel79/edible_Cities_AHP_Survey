@@ -137,10 +137,21 @@ and load it:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{create-data-frame-table-handling-the-file-names-of-input-csv-data}{%
+\hypertarget{set-globally-used-input-and-output-folders}{%
+\subsection{Set globally used input and output
+folders}\label{set-globally-used-input-and-output-folders}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data\_from\_survey"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data\_manipulated"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-data-frame-table-handling-the-file-names-of-input-csv-data-raw-data-from-survey}{%
 \subsection{Create data frame (table) handling the file names of input
-CSV
-data}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data}}
+CSV data (raw data from
+survey)}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data-raw-data-from-survey}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -148,9 +159,9 @@ data}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data}}
   \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
   \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"all"}\NormalTok{, }\StringTok{"CA"}\NormalTok{, }\StringTok{"NGO"}\NormalTok{, }\StringTok{"PE"}\NormalTok{),}
   \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_all\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
-               \StringTok{"rdata\_CA\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
-               \StringTok{"rdata\_NGO\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
-               \StringTok{"rdata\_PE\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{),}
+                \StringTok{"rdata\_CA\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
+                \StringTok{"rdata\_NGO\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
+                \StringTok{"rdata\_PE\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{),}
   \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"all target groups together"}\NormalTok{,}
                    \StringTok{"from city administrations"}\NormalTok{,}
                    \StringTok{"from non{-}governmental organisations"}\NormalTok{,}
@@ -173,17 +184,6 @@ data}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data}}
 ## 3: from non-governmental organisations
 ## 4:           practitioners and experts
 \end{verbatim}
-
-\hypertarget{set-globally-used-input-an-doutput-folders}{%
-\subsection{Set globally used input an doutput
-folders}\label{set-globally-used-input-an-doutput-folders}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./input\_data\_from\_survey"}
-\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data\_manipulated"}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{functions-for-manipulation-of-raw-csv-input-data-of-survey}{%
 \section{Functions for manipulation of raw CSV input data of
@@ -319,7 +319,9 @@ frame}\label{function-for-manipulation-of-the-read-in-data-and-store-in-new-data
 \end{Highlighting}
 \end{Shaded}
 
-Function for writing resulting data frame to CSV file:
+\hypertarget{function-for-writing-resulting-data-frame-to-csv-file}{%
+\subsection{Function for writing resulting data frame to CSV
+file}\label{function-for-writing-resulting-data-frame-to-csv-file}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -341,9 +343,9 @@ Function for writing resulting data frame to CSV file:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{manipulate-the-data-and-store-in-new-data-frames-for-each-criteria}{%
-\section{Manipulate the data and store in new data frames for each
-criteria}\label{manipulate-the-data-and-store-in-new-data-frames-for-each-criteria}}
+\hypertarget{manipulate-the-data-and-store-in-new-csv-files-for-each-criteria}{%
+\section{Manipulate the data and store in new CSV files for each
+criteria}\label{manipulate-the-data-and-store-in-new-csv-files-for-each-criteria}}
 
 \hypertarget{environmental-sub-criteria}{%
 \subsection{Environmental
