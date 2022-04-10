@@ -6,3 +6,4 @@
 # RStudio workspace artefacts
 .RData
 .Rhistory
+.Rproj.user
