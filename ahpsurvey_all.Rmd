@@ -28,6 +28,164 @@ editor_options:
   chunk_output_type: inline
 ---
 
+# Global settings and dependencies
+
+## Load `ggplot2`
+
+The package `ggplot2` is used for plotting diagrams. Install and load it:
+
+```{r}
+# install.packages("ggplot2")
+library(ggplot2)
+```
+
+## Load `tidyr` for *gather()* function
+
+```{r}
+# install.packages("tidyr")
+library(tidyr)
+```
+
+## Load `dplyr` for data manipulation
+
+Load necessary library `dplyr` for data manipulation with functions like `select()`, `mutate()` and `left_join()`.
+
+```{r}
+# install.packages("dplyr")
+library(dplyr)
+```
+
+## Use pipes for better coding
+
+**HINT:** The pipe functionality is already available by loading the library `tidyr` - so you don't have to load it explicitly.
+
+What pipes like '%>%' are and how to use them is described here: [https://statistik-dresden.de/archives/15679](https://statistik-dresden.de/archives/15679).
+
+Before using pipes in R, you have to install and load the package `magrittr`:
+
+```{r}
+# install.packages("magrittr")
+library(magrittr)
+```
+
+## Load package `ahpsurvey`
+
+The package `ahpsurvey` contains all the necessary mathematical and statistical methods to run the analytical hierarchy process (AHP).
+
+```{r}
+# install.packages("ahpsurvey")
+library(ahpsurvey)
+```
+
+## Set globally used input and output folders
+
+```{r}
+str_input_path = "./output_data_manipulated"
+str_output_path = "./output_data_AHP"
+```
+
+## Create data frames (tables) handling the file names of processed survey data
+
+### Data table for all participants
+
+```{r}
+df_csvInputFiles_all <- data.table(
+  file_idx = 1:4,
+  keys = c("env", "soc", "eco", "crit"),
+  filenames = c("rdata_all_env_AHP_essbare_Stadt_2022-03-18_09-53.csv",
+                "rdata_all_soc_AHP_essbare_Stadt_2022-03-18_09-53.csv",
+                "rdata_all_eco_AHP_essbare_Stadt_2022-03-18_09-53.csv",
+                "rdata_all_crit_AHP_essbare_Stadt_2022-03-18_09-53.csv"),
+  descriptions = c("environmental sub-criteria",
+                   "social sub-criteria",
+                   "economic sub-criteria",
+                   "criteria (main criteria)")
+)
+
+df_csvInputFiles_all
+```
+
+### Data table for city administrations
+
+```{r}
+df_csvInputFiles_CA <- data.table(
+  file_idx = 1:4,
+  keys = c("env", "soc", "eco", "crit"),
+  filenames = c("rdata_CA_env_AHP_essbare_Stadt_2022-03-18_10-28.csv",
+                "rdata_CA_soc_AHP_essbare_Stadt_2022-03-18_10-28.csv",
+                "rdata_CA_eco_AHP_essbare_Stadt_2022-03-18_10-28.csv",
+                "rdata_CA_crit_AHP_essbare_Stadt_2022-03-18_10-28.csv"),
+  descriptions = c("environmental sub-criteria",
+                   "social sub-criteria",
+                   "economic sub-criteria",
+                   "criteria (main criteria)")
+)
+
+df_csvInputFiles_CA
+```
+
+### Data table for non-governmental organisations
+
+```{r}
+df_csvInputFiles_NGO <- data.table(
+  file_idx = 1:4,
+  keys = c("env", "soc", "eco", "crit"),
+  filenames = c("rdata_NGO_env_AHP_essbare_Stadt_2022-03-18_10-40.csv",
+                "rdata_NGO_soc_AHP_essbare_Stadt_2022-03-18_10-40.csv",
+                "rdata_NGO_eco_AHP_essbare_Stadt_2022-03-18_10-40.csv",
+                "rdata_NGO_crit_AHP_essbare_Stadt_2022-03-18_10-40.csv"),
+  descriptions = c("environmental sub-criteria",
+                   "social sub-criteria",
+                   "economic sub-criteria",
+                   "criteria (main criteria)")
+)
+
+df_csvInputFiles_NGO
+```
+
+### Data table for practitioners and experts
+
+```{r}
+df_csvInputFiles_PE <- data.table(
+  file_idx = 1:4,
+  keys = c("env", "soc", "eco", "crit"),
+  filenames = c("rdata_PE_env_AHP_essbare_Stadt_2022-03-18_10-41.csv",
+                "rdata_PE_soc_AHP_essbare_Stadt_2022-03-18_10-41.csv",
+                "rdata_PE_eco_AHP_essbare_Stadt_2022-03-18_10-41.csv",
+                "rdata_PE_crit_AHP_essbare_Stadt_2022-03-18_10-41.csv"),
+  descriptions = c("environmental sub-criteria",
+                   "social sub-criteria",
+                   "economic sub-criteria",
+                   "criteria (main criteria)")
+)
+
+df_csvInputFiles_PE
+```
+
+# Exploit datasets of own survey with package `ahpsurvey`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
