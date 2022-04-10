@@ -1,0 +1,53 @@
+---
+title: "Application of the processed survey data in the analytical hierarchy process (AHP)"
+author:
+  - "Björn Kasper^[BG ETEM, kasper.bjoern@bgetem.de]"
+  - "Henriette John^[IÖR, h.john@ioer.de]"
+date: \today
+output:
+  pdf_document: 
+    toc: yes
+    fig_caption: yes
+    number_sections: yes
+    keep_tex: yes
+    highlight: kate
+  html_notebook: 
+    toc: yes
+    highlight: kate
+    number_sections: yes
+  html_document: 
+    toc: yes
+    theme: cerulean
+    fig_caption: yes
+    number_sections: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    highlight: kate
+editor_options:
+  chunk_output_type: inline
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
