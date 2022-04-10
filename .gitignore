@@ -7,3 +7,6 @@
 .RData
 .Rhistory
 .Rproj.user
+
+# tmp folder from Knit
+ahpsurvey_all_files/

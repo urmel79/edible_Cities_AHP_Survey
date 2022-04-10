@@ -1,0 +1,828 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Application of the processed survey data in the analytical hierarchy process (AHP)},
+  pdfauthor={Björn Kasper; Henriette John},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{255,255,255}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{\textbf{\colorbox[rgb]{0.97,0.90,0.90}{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.79,0.38,0.79}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.39,0.29,0.61}{\textbf{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.57,0.30,0.62}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.54,0.53,0.53}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.58,1.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.67,0.33,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.38,0.47,0.50}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{\underline{#1}}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.58,1.00}{\textbf{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.39,0.29,0.61}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{1.00,0.33,0.00}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.43,0.16}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.00,0.43,0.16}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{\colorbox[rgb]{0.88,0.91,0.97}{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.24,0.68,0.91}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{1.00,0.33,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Application of the processed survey data in the analytical
+hierarchy process (AHP)}
+\author{Björn Kasper\footnote{BG ETEM,
+  \href{mailto:kasper.bjoern@bgetem.de}{\nolinkurl{kasper.bjoern@bgetem.de}}} \and Henriette
+John\footnote{IÖR,
+  \href{mailto:h.john@ioer.de}{\nolinkurl{h.john@ioer.de}}}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{global-settings-and-dependencies}{%
+\section{Global settings and
+dependencies}\label{global-settings-and-dependencies}}
+
+\hypertarget{load-package-data.table}{%
+\subsection{\texorpdfstring{Load package
+\texttt{data.table}}{Load package data.table}}\label{load-package-data.table}}
+
+The package \texttt{data.table} is used for reading and manipulating
+tables (\texttt{data.table} inherits from \texttt{data.frame}). Install
+and load it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("data.table")}
+\FunctionTok{library}\NormalTok{(data.table)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{load-ggplot2}{%
+\subsection{\texorpdfstring{Load
+\texttt{ggplot2}}{Load ggplot2}}\label{load-ggplot2}}
+
+The package \texttt{ggplot2} is used for plotting diagrams. Install and
+load it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("ggplot2")}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{load-tidyr-for-gather-function}{%
+\subsection{\texorpdfstring{Load \texttt{tidyr} for \emph{gather()}
+function}{Load tidyr for gather() function}}\label{load-tidyr-for-gather-function}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("tidyr")}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{load-dplyr-for-data-manipulation}{%
+\subsection{\texorpdfstring{Load \texttt{dplyr} for data
+manipulation}{Load dplyr for data manipulation}}\label{load-dplyr-for-data-manipulation}}
+
+Load necessary library \texttt{dplyr} for data manipulation with
+functions like \texttt{select()}, \texttt{mutate()} and
+\texttt{left\_join()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("dplyr")}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attache Paket: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## Die folgenden Objekte sind maskiert von 'package:data.table':
+## 
+##     between, first, last
+\end{verbatim}
+
+\begin{verbatim}
+## Die folgenden Objekte sind maskiert von 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## Die folgenden Objekte sind maskiert von 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\hypertarget{load-magick-for-image-manipulation}{%
+\subsection{\texorpdfstring{Load \texttt{magick} for image
+manipulation}{Load magick for image manipulation}}\label{load-magick-for-image-manipulation}}
+
+The library \texttt{magick} is the R API to \emph{ImageMagick}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages(\textquotesingle{}magick\textquotesingle{})}
+\FunctionTok{library}\NormalTok{(magick)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Linking to ImageMagick 6.9.10.23
+## Enabled features: fontconfig, freetype, fftw, lcms, pango, webp, x11
+## Disabled features: cairo, ghostscript, heic, raw, rsvg
+\end{verbatim}
+
+\begin{verbatim}
+## Using 4 threads
+\end{verbatim}
+
+\hypertarget{use-pipes-for-better-coding}{%
+\subsection{Use pipes for better
+coding}\label{use-pipes-for-better-coding}}
+
+\textbf{HINT:} The pipe functionality is already available by loading
+the library \texttt{tidyr} - so you don't have to load it explicitly.
+
+What pipes like `\%\textgreater\%' are and how to use them is described
+here: \url{https://statistik-dresden.de/archives/15679}.
+
+Before using pipes in R, you have to install and load the package
+\texttt{magrittr}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("magrittr")}
+\FunctionTok{library}\NormalTok{(magrittr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attache Paket: 'magrittr'
+\end{verbatim}
+
+\begin{verbatim}
+## Das folgende Objekt ist maskiert 'package:tidyr':
+## 
+##     extract
+\end{verbatim}
+
+\hypertarget{load-package-ahpsurvey}{%
+\subsection{\texorpdfstring{Load package
+\texttt{ahpsurvey}}{Load package ahpsurvey}}\label{load-package-ahpsurvey}}
+
+The package \texttt{ahpsurvey} contains all the necessary mathematical
+and statistical methods to run the analytical hierarchy process (AHP).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("ahpsurvey")}
+\FunctionTok{library}\NormalTok{(ahpsurvey)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{functions-for-processing-ahp}{%
+\section{Functions for processing
+AHP}\label{functions-for-processing-ahp}}
+
+\hypertarget{set-globally-used-input-and-output-folders}{%
+\subsection{Set globally used input and output
+folders}\label{set-globally-used-input-and-output-folders}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./output\_data\_manipulated"}
+\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data\_AHP"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}{%
+\subsection{Function for reading in processed survey data from CSV files
+to data
+frames}\label{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}}
+
+Define a function for reading in a CSV file to a date frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_readCSVdata\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(str\_CSVfilename) \{}
+  
+\NormalTok{  df\_CSVdata }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}
+    \AttributeTok{file =}\NormalTok{ str\_CSVfilename, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{,}
+    \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \StringTok{"}\SpecialCharTok{\textbackslash{}"}\StringTok{"}
+\NormalTok{    )}
+  
+  \FunctionTok{return}\NormalTok{(df\_CSVdata)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-generating-a-data-frame-with-eigentrue-values-weights}{%
+\subsection{\texorpdfstring{Function for generating a data frame with
+\emph{eigentrue values}
+(weights)}{Function for generating a data frame with eigentrue values (weights)}}\label{function-for-generating-a-data-frame-with-eigentrue-values-weights}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_genEigentrue\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes) \{}
+\NormalTok{  my\_cr\_eigen }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{)}
+  
+\NormalTok{  df\_eigentrue }\OtherTok{\textless{}{-}} \FunctionTok{ahp.indpref}\NormalTok{(my\_cr\_eigen, vec\_attributes, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{)}
+
+  \FunctionTok{return}\NormalTok{(df\_eigentrue)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-generating-an-array-with-consistency-ratios}{%
+\subsection{Function for generating an array with consistency
+ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_genCR\_to\_arr }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes) \{}
+\NormalTok{  arr\_cr }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{ahp.cr}\NormalTok{(vec\_attributes, }\AttributeTok{ri=}\FloatTok{0.58}\NormalTok{)}
+
+  \FunctionTok{return}\NormalTok{(arr\_cr)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-generating-a-data-frame-with-consistency-ratios}{%
+\subsection{Function for generating a data frame with consistency
+ratios}\label{function-for-generating-a-data-frame-with-consistency-ratios}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_genCR\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes, arr\_cr, }\AttributeTok{consistency\_thres=}\FloatTok{0.1}\NormalTok{, str\_CRlabel) \{}
+\NormalTok{  df\_cr }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{ahp.cr}\NormalTok{(vec\_attributes, }\AttributeTok{ri=}\FloatTok{0.58}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rowid =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(arr\_cr), }\AttributeTok{arr\_cr.dum =} \FunctionTok{as.factor}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(arr\_cr }\SpecialCharTok{\textless{}=}\NormalTok{ consistency\_thres, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)))}
+  
+  \CommentTok{\# rename column with consistency ratios}
+  \FunctionTok{colnames}\NormalTok{(df\_cr)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ str\_CRlabel}
+
+  \FunctionTok{return}\NormalTok{(df\_cr)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-visualising-individual-priorities-and-consistency-ratios}{%
+\subsection{Function for visualising individual priorities and
+consistency
+ratios}\label{function-for-visualising-individual-priorities-and-consistency-ratios}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_visuPriosCRs }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, df\_cr, arr\_cr, }\AttributeTok{consistency\_thres=}\FloatTok{0.1}\NormalTok{, vec\_attributes, df\_eigentrue, vec\_labels, str\_image\_filename) \{}
+\NormalTok{  df\_cr\_sel }\OtherTok{\textless{}{-}}\NormalTok{ df\_cr }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{select}\NormalTok{(arr\_cr.dum, rowid)}
+
+\NormalTok{  df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ahp.mat}\NormalTok{(}\AttributeTok{atts =}\NormalTok{ vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ahp.indpref}\NormalTok{(vec\_attributes, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rowid =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_eigentrue)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(df\_cr\_sel, }\AttributeTok{by =} \StringTok{\textquotesingle{}rowid\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gather}\NormalTok{(}\FunctionTok{all\_of}\NormalTok{(vec\_attributes), }\AttributeTok{key =} \StringTok{"var"}\NormalTok{, }\AttributeTok{value =} \StringTok{"pref"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ var, }\AttributeTok{y =}\NormalTok{ pref)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{color =} \StringTok{"transparent"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"gray"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{height =} \DecValTok{0}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.1}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ arr\_cr.dum)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \DecValTok{0}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.3}\NormalTok{, }\AttributeTok{color =} \StringTok{"\#808080"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_discrete}\NormalTok{(}\StringTok{"Attribute"}\NormalTok{, }\AttributeTok{label =}\NormalTok{ vec\_labels) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\StringTok{"Weight (dominant eigenvalue)"}\NormalTok{, }
+                     \AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\NormalTok{percent, }
+                     \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.7}\NormalTok{,}\FloatTok{0.1}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}\AttributeTok{color=}\FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title=}\ConstantTok{NULL}\NormalTok{))}\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_discrete}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{), }
+                       \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"CR \textgreater{}"}\NormalTok{, consistency\_thres), }
+                                  \FunctionTok{paste}\NormalTok{(}\StringTok{"CR \textless{}"}\NormalTok{, consistency\_thres))) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{caption =} \FunctionTok{paste}\NormalTok{(}\StringTok{"n ="}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(df\_surveyData), }\StringTok{","}\NormalTok{, }\StringTok{"Mean CR ="}\NormalTok{,}
+                           \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(arr\_cr),}\DecValTok{3}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Violins displaying priorities and consistency ratios"}\NormalTok{)}
+  
+  \CommentTok{\# save generated ggplot graphic to a PNG image file}
+  \CommentTok{\# ggsave(str\_image\_filename)}
+  \FunctionTok{ggsave}\NormalTok{(}\AttributeTok{filename =}\NormalTok{ str\_image\_filename, }\AttributeTok{width =} \DecValTok{7}\NormalTok{, }\AttributeTok{height =} \DecValTok{7}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-data-frames-tables-handling-the-file-names-of-processed-survey-data}{%
+\section{Create data frames (tables) handling the file names of
+processed survey
+data}\label{create-data-frames-tables-handling-the-file-names-of-processed-survey-data}}
+
+\hypertarget{file-table-for-all-participants}{%
+\subsection{File table for all
+participants}\label{file-table-for-all-participants}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_csvInputFiles\_all }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
+  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
+  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
+  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_all\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
+                \StringTok{"rdata\_all\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
+                \StringTok{"rdata\_all\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
+                \StringTok{"rdata\_all\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{),}
+  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{file-table-for-city-administrations}{%
+\subsection{File table for city
+administrations}\label{file-table-for-city-administrations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_csvInputFiles\_CA }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
+  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
+  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
+  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_CA\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
+                \StringTok{"rdata\_CA\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
+                \StringTok{"rdata\_CA\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
+                \StringTok{"rdata\_CA\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{),}
+  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{file-table-for-non-governmental-organisations}{%
+\subsection{File table for non-governmental
+organisations}\label{file-table-for-non-governmental-organisations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_csvInputFiles\_NGO }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
+  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
+  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
+  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_NGO\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
+                \StringTok{"rdata\_NGO\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
+                \StringTok{"rdata\_NGO\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
+                \StringTok{"rdata\_NGO\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{),}
+  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{file-table-for-practitioners-and-experts}{%
+\subsection{File table for practitioners and
+experts}\label{file-table-for-practitioners-and-experts}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_csvInputFiles\_PE }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
+  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
+  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
+  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_PE\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{,}
+                \StringTok{"rdata\_PE\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{,}
+                \StringTok{"rdata\_PE\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{,}
+                \StringTok{"rdata\_PE\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{),}
+  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
+                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}{%
+\section{\texorpdfstring{Exploit datasets of own survey with package
+\texttt{ahpsurvey} for each group of
+participants}{Exploit datasets of own survey with package ahpsurvey for each group of participants}}\label{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_attributes\_labels\_all }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
+  \AttributeTok{idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{,}
+  \AttributeTok{attr =} \FunctionTok{c}\NormalTok{(}\StringTok{"Klima"}\NormalTok{, }\StringTok{"BioV"}\NormalTok{, }\StringTok{"KlW"}\NormalTok{,}
+           \StringTok{"Wiss"}\NormalTok{, }\StringTok{"Gem"}\NormalTok{, }\StringTok{"Bet"}\NormalTok{,}
+           \StringTok{"Quali"}\NormalTok{, }\StringTok{"WSK"}\NormalTok{, }\StringTok{"Bez"}\NormalTok{,}
+           \StringTok{"Oeko"}\NormalTok{, }\StringTok{"Soz"}\NormalTok{, }\StringTok{"Wirt"}\NormalTok{),}
+  \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Klima"}\NormalTok{, }\StringTok{"Biologische Vielfalt"}\NormalTok{, }\StringTok{"Kreislaufwirtschaft"}\NormalTok{,}
+             \StringTok{"Wissensvermittlung"}\NormalTok{, }\StringTok{"Gemeinschaftsbildung"}\NormalTok{, }\StringTok{"Beteiligung"}\NormalTok{,}
+             \StringTok{"Lebensmittelqualitaet"}\NormalTok{, }\StringTok{"lokale Wertschoepfungsketten"}\NormalTok{, }\StringTok{"Bezahlbarkeit"}\NormalTok{,}
+             \StringTok{"Oekologisch"}\NormalTok{, }\StringTok{"Sozial"}\NormalTok{, }\StringTok{"Wirtschaftlich"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{all-participants}{%
+\subsection{All participants}\label{all-participants}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
+\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+
+\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"all"}
+
+\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_all) ) \{}
+  \CommentTok{\# create data frame from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_all[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
+\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
+\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
+  \CommentTok{\# shift row interval for next iteration}
+\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
+\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  
+  \CommentTok{\# generate data frame with eigentrue values (weights) }
+\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  
+  \CommentTok{\# generate an array with consistency ratios}
+\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+
+  \CommentTok{\# generate a extended data frame with consistency ratios}
+\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
+\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_all[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  
+  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
+  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
+\NormalTok{\}}
+
+\CommentTok{\# extend file name by path}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+
+\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
+\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
+            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
+            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{participants-of-city-administrations}{%
+\subsection{Participants of city
+administrations}\label{participants-of-city-administrations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
+\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+
+\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"CA"}
+
+\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_CA) ) \{}
+  \CommentTok{\# create data frame from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_CA[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
+\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
+\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
+  \CommentTok{\# shift row interval for next iteration}
+\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
+\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  
+  \CommentTok{\# generate data frame with eigentrue values (weights) }
+\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  
+  \CommentTok{\# generate an array with consistency ratios}
+\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+
+  \CommentTok{\# generate a extended data frame with consistency ratios}
+\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
+\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_CA[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  
+  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
+  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
+\NormalTok{\}}
+
+\CommentTok{\# extend file name by path}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+
+\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
+\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
+            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
+            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{participants-of-non-governmental-organisations}{%
+\subsection{Participants of non-governmental
+organisations}\label{participants-of-non-governmental-organisations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
+\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+
+\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"NGO"}
+
+\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_NGO) ) \{}
+  \CommentTok{\# create data frame from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_NGO[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
+\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
+\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
+  \CommentTok{\# shift row interval for next iteration}
+\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
+\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  
+  \CommentTok{\# generate data frame with eigentrue values (weights) }
+\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  
+  \CommentTok{\# generate an array with consistency ratios}
+\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+
+  \CommentTok{\# generate a extended data frame with consistency ratios}
+\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
+\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_NGO[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  
+  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
+  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
+\NormalTok{\}}
+
+\CommentTok{\# extend file name by path}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+
+\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
+\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
+            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
+            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{participants-of-practitioners-and-experts}{%
+\subsection{Participants of practitioners and
+experts}\label{participants-of-practitioners-and-experts}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
+\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+
+\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"PE"}
+
+\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_PE) ) \{}
+  \CommentTok{\# create data frame from current input CSV file}
+\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_PE[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+  
+  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
+\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
+\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
+  \CommentTok{\# shift row interval for next iteration}
+\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
+\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  
+  \CommentTok{\# generate data frame with eigentrue values (weights) }
+\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  
+  \CommentTok{\# generate an array with consistency ratios}
+\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+
+  \CommentTok{\# generate a extended data frame with consistency ratios}
+\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
+\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  
+\NormalTok{  img }\OtherTok{\textless{}{-}} \FunctionTok{image\_graph}\NormalTok{(}\AttributeTok{width =} \DecValTok{800}\NormalTok{, }\AttributeTok{height =} \DecValTok{800}\NormalTok{, }\AttributeTok{res =} \DecValTok{24}\NormalTok{)}
+\NormalTok{  img }\OtherTok{\textless{}{-}} \FunctionTok{image\_read}\NormalTok{(str\_image\_filename)}
+  \FunctionTok{print}\NormalTok{(img)}
+  
+  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
+  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
+\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   format width height colorspace matte filesize density
+##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
+## 1 PNG     2100   2100 sRGB       TRUE    189485 118x118
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   format width height colorspace matte filesize density
+##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
+## 1 PNG     2100   2100 sRGB       TRUE    194715 118x118
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   format width height colorspace matte filesize density
+##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
+## 1 PNG     2100   2100 sRGB       TRUE    188161 118x118
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 1 x 7
+##   format width height colorspace matte filesize density
+##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
+## 1 PNG     2100   2100 sRGB       TRUE    176500 118x118
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# extend file name by path}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+
+\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
+\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
+            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
+            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{playground-for-inserting-images}{%
+\subsection{Playground for inserting
+images}\label{playground-for-inserting-images}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \# install.packages(\textquotesingle{}magick\textquotesingle{})}
+\CommentTok{\# library(magick)}
+\CommentTok{\# }
+\CommentTok{\# \# img \textless{}{-} image\_read(str\_image\_filename)}
+\CommentTok{\# \# image\_info(img)}
+\CommentTok{\# \# img \textless{}{-} image\_scale(img, "600")}
+\CommentTok{\# img \textless{}{-} image\_graph(width = 800, height = 800, res = 24)}
+\CommentTok{\# img \textless{}{-} image\_read(str\_image\_filename)}
+\CommentTok{\# }
+\CommentTok{\# print(img) \# or print(img)}
+\CommentTok{\# \# image\_display(img)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
+\CommentTok{\# }
+\CommentTok{\# \# Produce graphic}
+\CommentTok{\# fig \textless{}{-} image\_graph(width = 800, height = 600, res = 96)}
+\CommentTok{\# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
+\CommentTok{\# invisible(dev.off())}
+\CommentTok{\# }
+\CommentTok{\# print(fig)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# library(ggplot2)}
+\CommentTok{\# }
+\CommentTok{\# ggdraw() +}
+\CommentTok{\#   draw\_image(str\_image\_filename)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

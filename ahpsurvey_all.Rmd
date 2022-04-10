@@ -30,6 +30,15 @@ editor_options:
 
 # Global settings and dependencies
 
+## Load package `data.table`
+
+The package `data.table` is used for reading and manipulating tables (`data.table` inherits from `data.frame`). Install and load it:
+
+```{r}
+# install.packages("data.table")
+library(data.table)
+```
+
 ## Load `ggplot2`
 
 The package `ggplot2` is used for plotting diagrams. Install and load it:
@@ -55,6 +64,15 @@ Load necessary library `dplyr` for data manipulation with functions like `select
 library(dplyr)
 ```
 
+## Load `magick` for image manipulation
+
+The library `magick` is the R API to *ImageMagick*.
+
+```{r}
+# install.packages('magick')
+library(magick)
+```
+
 ## Use pipes for better coding
 
 **HINT:** The pipe functionality is already available by loading the library `tidyr` - so you don't have to load it explicitly.
@@ -77,6 +95,8 @@ The package `ahpsurvey` contains all the necessary mathematical and statistical 
 library(ahpsurvey)
 ```
 
+# Functions for processing AHP
+
 ## Set globally used input and output folders
 
 ```{r}
@@ -84,9 +104,102 @@ str_input_path = "./output_data_manipulated"
 str_output_path = "./output_data_AHP"
 ```
 
-## Create data frames (tables) handling the file names of processed survey data
+## Function for reading in processed survey data from CSV files to data frames
 
-### Data table for all participants
+Define a function for reading in a CSV file to a date frame.
+
+```{r}
+func_readCSVdata_to_dataframe <- function(str_CSVfilename) {
+  
+  df_CSVdata <- fread(
+    file = str_CSVfilename, encoding = "UTF-8",
+    header = TRUE, sep = "\t", quote = "\""
+    )
+  
+  return(df_CSVdata)
+}
+```
+
+## Function for generating a data frame with *eigentrue values* (weights)
+
+```{r}
+func_genEigentrue_to_dataframe <- function(df_surveyData, vec_attributes) {
+  my_cr_eigen <- df_surveyData %>% 
+    ahp.mat(vec_attributes, negconvert = TRUE)
+  
+  df_eigentrue <- ahp.indpref(my_cr_eigen, vec_attributes, method = "eigen")
+
+  return(df_eigentrue)
+}
+```
+
+## Function for generating an array with consistency ratios
+
+```{r}
+func_genCR_to_arr <- function(df_surveyData, vec_attributes) {
+  arr_cr <- df_surveyData %>%
+    ahp.mat(vec_attributes, negconvert = TRUE) %>% 
+    ahp.cr(vec_attributes, ri=0.58)
+
+  return(arr_cr)
+}
+```
+
+## Function for generating a data frame with consistency ratios
+
+```{r}
+func_genCR_to_dataframe <- function(df_surveyData, vec_attributes, arr_cr, consistency_thres=0.1, str_CRlabel) {
+  df_cr <- df_surveyData %>%
+    ahp.mat(vec_attributes, negconvert = TRUE) %>% 
+    ahp.cr(vec_attributes, ri=0.58) %>% 
+    data.frame() %>%
+    mutate(rowid = 1:length(arr_cr), arr_cr.dum = as.factor(ifelse(arr_cr <= consistency_thres, 1, 0)))
+  
+  # rename column with consistency ratios
+  colnames(df_cr)[1] <- str_CRlabel
+
+  return(df_cr)
+}
+```
+
+## Function for visualising individual priorities and consistency ratios
+
+```{r}
+func_visuPriosCRs <- function(df_surveyData, df_cr, arr_cr, consistency_thres=0.1, vec_attributes, df_eigentrue, vec_labels, str_image_filename) {
+  df_cr_sel <- df_cr %>%
+    select(arr_cr.dum, rowid)
+
+  df_surveyData %>%
+  ahp.mat(atts = vec_attributes, negconvert = TRUE) %>% 
+  ahp.indpref(vec_attributes, method = "eigen") %>% 
+  mutate(rowid = 1:nrow(df_eigentrue)) %>%
+  left_join(df_cr_sel, by = 'rowid') %>%
+  gather(all_of(vec_attributes), key = "var", value = "pref") %>%
+  ggplot(aes(x = var, y = pref)) + 
+  geom_violin(alpha = 0.6, width = 0.8, color = "transparent", fill = "gray") +
+  geom_jitter(alpha = 0.6, height = 0, width = 0.1, aes(color = arr_cr.dum)) +
+  geom_boxplot(alpha = 0, width = 0.3, color = "#808080") +
+  scale_x_discrete("Attribute", label = vec_labels) +
+  scale_y_continuous("Weight (dominant eigenvalue)", 
+                     labels = scales::percent, 
+                     breaks = c(seq(0,0.7,0.1))) +
+  guides(color=guide_legend(title=NULL))+
+  scale_color_discrete(breaks = c(0,1), 
+                       labels = c(paste("CR >", consistency_thres), 
+                                  paste("CR <", consistency_thres))) +
+  labs(NULL, caption = paste("n =", nrow(df_surveyData), ",", "Mean CR =",
+                           round(mean(arr_cr),3))) +
+  theme_minimal() +
+  ggtitle("Violins displaying priorities and consistency ratios")
+  
+  # save generated ggplot graphic to a PNG image file
+  ggsave(filename = str_image_filename, width = 7, height = 7, dpi = 300)
+}
+```
+
+# Create data frames (tables) handling the file names of processed survey data
+
+## File table for all participants
 
 ```{r}
 df_csvInputFiles_all <- data.table(
@@ -101,11 +214,9 @@ df_csvInputFiles_all <- data.table(
                    "economic sub-criteria",
                    "criteria (main criteria)")
 )
-
-df_csvInputFiles_all
 ```
 
-### Data table for city administrations
+## File table for city administrations
 
 ```{r}
 df_csvInputFiles_CA <- data.table(
@@ -120,11 +231,9 @@ df_csvInputFiles_CA <- data.table(
                    "economic sub-criteria",
                    "criteria (main criteria)")
 )
-
-df_csvInputFiles_CA
 ```
 
-### Data table for non-governmental organisations
+## File table for non-governmental organisations
 
 ```{r}
 df_csvInputFiles_NGO <- data.table(
@@ -139,11 +248,9 @@ df_csvInputFiles_NGO <- data.table(
                    "economic sub-criteria",
                    "criteria (main criteria)")
 )
-
-df_csvInputFiles_NGO
 ```
 
-### Data table for practitioners and experts
+## File table for practitioners and experts
 
 ```{r}
 df_csvInputFiles_PE <- data.table(
@@ -158,27 +265,282 @@ df_csvInputFiles_PE <- data.table(
                    "economic sub-criteria",
                    "criteria (main criteria)")
 )
-
-df_csvInputFiles_PE
 ```
 
-# Exploit datasets of own survey with package `ahpsurvey`
+# Exploit datasets of own survey with package `ahpsurvey` for each group of participants
+
+```{r}
+df_attributes_labels_all <- data.table(
+  idx = 1:12,
+  attr = c("Klima", "BioV", "KlW",
+           "Wiss", "Gem", "Bet",
+           "Quali", "WSK", "Bez",
+           "Oeko", "Soz", "Wirt"),
+  labels = c("Klima", "Biologische Vielfalt", "Kreislaufwirtschaft",
+             "Wissensvermittlung", "Gemeinschaftsbildung", "Beteiligung",
+             "Lebensmittelqualitaet", "lokale Wertschoepfungsketten", "Bezahlbarkeit",
+             "Oekologisch", "Sozial", "Wirtschaftlich")
+)
+```
+
+## All participants
+
+```{r}
+row_start = 1
+row_end = 3
+
+str_participants_group = "all"
+
+df_outputTable <- data.table()
+
+for ( file_idx in 1:nrow(df_csvInputFiles_all) ) {
+  # create data frame from current input CSV file
+  str_filename <- paste(str_input_path, df_csvInputFiles_all[file_idx, filenames], sep="/")
+  df_processed_survey_data <- func_readCSVdata_to_dataframe(str_filename)
+  
+  # create vectors for attributes and labels from a subset of data frame 'df_attributes_labels_all'
+  vec_atts <- df_attributes_labels_all[c(row_start:row_end), attr]
+  vec_labels <- df_attributes_labels_all[c(row_start:row_end), labels]
+  # shift row interval for next iteration
+  row_start = row_start + 3
+  row_end = row_end + 3
+  
+  # generate data frame with eigentrue values (weights) 
+  df_eigentrue_weights <- func_genEigentrue_to_dataframe(df_processed_survey_data, vec_atts)
+  
+  # generate an array with consistency ratios
+  arr_CRs <- func_genCR_to_arr(df_processed_survey_data, vec_atts)
+
+  # generate a extended data frame with consistency ratios
+  consistency_thres = 0.1
+  str_CRlabel <- paste("CR", df_csvInputFiles_all[file_idx, keys], sep="_")
+  df_CRs <- func_genCR_to_dataframe(df_processed_survey_data, vec_atts, arr_CRs, consistency_thres, str_CRlabel)
+  
+  str_image_filename <- paste("ahp_violin", str_participants_group, df_csvInputFiles_PE[file_idx, keys], sep="_")
+  str_image_filename <- paste(str_image_filename, ".png", sep="")
+  str_image_filename <- paste(str_output_path, str_image_filename, sep="/")
+  func_visuPriosCRs(df_processed_survey_data, df_CRs, arr_CRs, consistency_thres, vec_atts, df_eigentrue_weights, vec_labels, str_image_filename)
+  
+  # combine data frames of eigentrue values (weights) with consistency ratios
+  df_outputTable <- cbind(df_outputTable, df_eigentrue_weights)
+  # add only specific columns of 'df_CRs' (omit column 'row_id')
+  df_outputTable <- cbind(df_outputTable, df_CRs[c(1, 3)])
+}
+
+# extend file name by path
+str_CSVfilename_output <- paste("rdata", str_participants_group, "eigentrue_CRs", sep="_")
+str_CSVfilename_output <- paste(str_CSVfilename_output, ".csv", sep="")
+str_CSVfilename_output <- paste(str_output_path, str_CSVfilename_output, sep="/")
+
+# write data frame 'df_outputTable' to CSV file
+write.table(df_outputTable, file = str_CSVfilename_output,
+            fileEncoding = "UTF-8", row.names = FALSE,
+            col.names = TRUE, sep = "\t", quote = TRUE)
+```
+
+## Participants of city administrations
+
+```{r}
+row_start = 1
+row_end = 3
+
+str_participants_group = "CA"
+
+df_outputTable <- data.table()
+
+for ( file_idx in 1:nrow(df_csvInputFiles_CA) ) {
+  # create data frame from current input CSV file
+  str_filename <- paste(str_input_path, df_csvInputFiles_CA[file_idx, filenames], sep="/")
+  df_processed_survey_data <- func_readCSVdata_to_dataframe(str_filename)
+  
+  # create vectors for attributes and labels from a subset of data frame 'df_attributes_labels_all'
+  vec_atts <- df_attributes_labels_all[c(row_start:row_end), attr]
+  vec_labels <- df_attributes_labels_all[c(row_start:row_end), labels]
+  # shift row interval for next iteration
+  row_start = row_start + 3
+  row_end = row_end + 3
+  
+  # generate data frame with eigentrue values (weights) 
+  df_eigentrue_weights <- func_genEigentrue_to_dataframe(df_processed_survey_data, vec_atts)
+  
+  # generate an array with consistency ratios
+  arr_CRs <- func_genCR_to_arr(df_processed_survey_data, vec_atts)
+
+  # generate a extended data frame with consistency ratios
+  consistency_thres = 0.1
+  str_CRlabel <- paste("CR", df_csvInputFiles_CA[file_idx, keys], sep="_")
+  df_CRs <- func_genCR_to_dataframe(df_processed_survey_data, vec_atts, arr_CRs, consistency_thres, str_CRlabel)
+  
+  str_image_filename <- paste("ahp_violin", str_participants_group, df_csvInputFiles_PE[file_idx, keys], sep="_")
+  str_image_filename <- paste(str_image_filename, ".png", sep="")
+  str_image_filename <- paste(str_output_path, str_image_filename, sep="/")
+  func_visuPriosCRs(df_processed_survey_data, df_CRs, arr_CRs, consistency_thres, vec_atts, df_eigentrue_weights, vec_labels, str_image_filename)
+  
+  # combine data frames of eigentrue values (weights) with consistency ratios
+  df_outputTable <- cbind(df_outputTable, df_eigentrue_weights)
+  # add only specific columns of 'df_CRs' (omit column 'row_id')
+  df_outputTable <- cbind(df_outputTable, df_CRs[c(1, 3)])
+}
+
+# extend file name by path
+str_CSVfilename_output <- paste("rdata", str_participants_group, "eigentrue_CRs", sep="_")
+str_CSVfilename_output <- paste(str_CSVfilename_output, ".csv", sep="")
+str_CSVfilename_output <- paste(str_output_path, str_CSVfilename_output, sep="/")
+
+# write data frame 'df_outputTable' to CSV file
+write.table(df_outputTable, file = str_CSVfilename_output,
+            fileEncoding = "UTF-8", row.names = FALSE,
+            col.names = TRUE, sep = "\t", quote = TRUE)
+```
+
+## Participants of non-governmental organisations
+
+```{r}
+row_start = 1
+row_end = 3
+
+str_participants_group = "NGO"
+
+df_outputTable <- data.table()
+
+for ( file_idx in 1:nrow(df_csvInputFiles_NGO) ) {
+  # create data frame from current input CSV file
+  str_filename <- paste(str_input_path, df_csvInputFiles_NGO[file_idx, filenames], sep="/")
+  df_processed_survey_data <- func_readCSVdata_to_dataframe(str_filename)
+  
+  # create vectors for attributes and labels from a subset of data frame 'df_attributes_labels_all'
+  vec_atts <- df_attributes_labels_all[c(row_start:row_end), attr]
+  vec_labels <- df_attributes_labels_all[c(row_start:row_end), labels]
+  # shift row interval for next iteration
+  row_start = row_start + 3
+  row_end = row_end + 3
+  
+  # generate data frame with eigentrue values (weights) 
+  df_eigentrue_weights <- func_genEigentrue_to_dataframe(df_processed_survey_data, vec_atts)
+  
+  # generate an array with consistency ratios
+  arr_CRs <- func_genCR_to_arr(df_processed_survey_data, vec_atts)
+
+  # generate a extended data frame with consistency ratios
+  consistency_thres = 0.1
+  str_CRlabel <- paste("CR", df_csvInputFiles_NGO[file_idx, keys], sep="_")
+  df_CRs <- func_genCR_to_dataframe(df_processed_survey_data, vec_atts, arr_CRs, consistency_thres, str_CRlabel)
+  
+  str_image_filename <- paste("ahp_violin", str_participants_group, df_csvInputFiles_PE[file_idx, keys], sep="_")
+  str_image_filename <- paste(str_image_filename, ".png", sep="")
+  str_image_filename <- paste(str_output_path, str_image_filename, sep="/")
+  func_visuPriosCRs(df_processed_survey_data, df_CRs, arr_CRs, consistency_thres, vec_atts, df_eigentrue_weights, vec_labels, str_image_filename)
+  
+  # combine data frames of eigentrue values (weights) with consistency ratios
+  df_outputTable <- cbind(df_outputTable, df_eigentrue_weights)
+  # add only specific columns of 'df_CRs' (omit column 'row_id')
+  df_outputTable <- cbind(df_outputTable, df_CRs[c(1, 3)])
+}
+
+# extend file name by path
+str_CSVfilename_output <- paste("rdata", str_participants_group, "eigentrue_CRs", sep="_")
+str_CSVfilename_output <- paste(str_CSVfilename_output, ".csv", sep="")
+str_CSVfilename_output <- paste(str_output_path, str_CSVfilename_output, sep="/")
+
+# write data frame 'df_outputTable' to CSV file
+write.table(df_outputTable, file = str_CSVfilename_output,
+            fileEncoding = "UTF-8", row.names = FALSE,
+            col.names = TRUE, sep = "\t", quote = TRUE)
+```
+
+## Participants of practitioners and experts
+
+```{r}
+row_start = 1
+row_end = 3
+
+str_participants_group = "PE"
+
+df_outputTable <- data.table()
+
+for ( file_idx in 1:nrow(df_csvInputFiles_PE) ) {
+  # create data frame from current input CSV file
+  str_filename <- paste(str_input_path, df_csvInputFiles_PE[file_idx, filenames], sep="/")
+  df_processed_survey_data <- func_readCSVdata_to_dataframe(str_filename)
+  
+  # create vectors for attributes and labels from a subset of data frame 'df_attributes_labels_all'
+  vec_atts <- df_attributes_labels_all[c(row_start:row_end), attr]
+  vec_labels <- df_attributes_labels_all[c(row_start:row_end), labels]
+  # shift row interval for next iteration
+  row_start = row_start + 3
+  row_end = row_end + 3
+  
+  # generate data frame with eigentrue values (weights) 
+  df_eigentrue_weights <- func_genEigentrue_to_dataframe(df_processed_survey_data, vec_atts)
+  
+  # generate an array with consistency ratios
+  arr_CRs <- func_genCR_to_arr(df_processed_survey_data, vec_atts)
+
+  # generate a extended data frame with consistency ratios
+  consistency_thres = 0.1
+  str_CRlabel <- paste("CR", df_csvInputFiles_PE[file_idx, keys], sep="_")
+  df_CRs <- func_genCR_to_dataframe(df_processed_survey_data, vec_atts, arr_CRs, consistency_thres, str_CRlabel)
+  
+  str_image_filename <- paste("ahp_violin", str_participants_group, df_csvInputFiles_PE[file_idx, keys], sep="_")
+  str_image_filename <- paste(str_image_filename, ".png", sep="")
+  str_image_filename <- paste(str_output_path, str_image_filename, sep="/")
+  func_visuPriosCRs(df_processed_survey_data, df_CRs, arr_CRs, consistency_thres, vec_atts, df_eigentrue_weights, vec_labels, str_image_filename)
+  
+  # img <- image_graph(width = 800, height = 800, res = 24)
+  # img <- image_read(str_image_filename)
+  # print(img)
+  
+  # combine data frames of eigentrue values (weights) with consistency ratios
+  df_outputTable <- cbind(df_outputTable, df_eigentrue_weights)
+  # add only specific columns of 'df_CRs' (omit column 'row_id')
+  df_outputTable <- cbind(df_outputTable, df_CRs[c(1, 3)])
+}
+
+# extend file name by path
+str_CSVfilename_output <- paste("rdata", str_participants_group, "eigentrue_CRs", sep="_")
+str_CSVfilename_output <- paste(str_CSVfilename_output, ".csv", sep="")
+str_CSVfilename_output <- paste(str_output_path, str_CSVfilename_output, sep="/")
+
+# write data frame 'df_outputTable' to CSV file
+write.table(df_outputTable, file = str_CSVfilename_output,
+            fileEncoding = "UTF-8", row.names = FALSE,
+            col.names = TRUE, sep = "\t", quote = TRUE)
+```
 
 
+## Playground for inserting images
 
+```{r}
+# # install.packages('magick')
+# library(magick)
+# 
+# # img <- image_read(str_image_filename)
+# # image_info(img)
+# # img <- image_scale(img, "600")
+# img <- image_graph(width = 800, height = 800, res = 24)
+# img <- image_read(str_image_filename)
+# 
+# print(img) # or print(img)
+# # image_display(img)
+```
 
+```{r}
+# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))
+# 
+# # Produce graphic
+# fig <- image_graph(width = 800, height = 600, res = 96)
+# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))
+# invisible(dev.off())
+# 
+# print(fig)
+```
 
-
-
-
-
-
-
-
-
-
-
-
+```{r}
+# library(ggplot2)
+# 
+# ggdraw() +
+#   draw_image(str_image_filename)
+```
 
 
 
