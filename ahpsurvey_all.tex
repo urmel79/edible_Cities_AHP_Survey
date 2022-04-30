@@ -312,10 +312,10 @@ Define a function for reading in a CSV file to a date frame.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{func\_genEigentrue\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes) \{}
-\NormalTok{  my\_cr\_eigen }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  list\_mat\_judgement }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%} 
     \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{)}
   
-\NormalTok{  df\_eigentrue }\OtherTok{\textless{}{-}} \FunctionTok{ahp.indpref}\NormalTok{(my\_cr\_eigen, vec\_attributes, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{)}
+\NormalTok{  df\_eigentrue }\OtherTok{\textless{}{-}} \FunctionTok{ahp.indpref}\NormalTok{(list\_mat\_judgement, vec\_attributes, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{)}
 
   \FunctionTok{return}\NormalTok{(df\_eigentrue)}
 \NormalTok{\}}
@@ -392,11 +392,79 @@ ratios}\label{function-for-visualising-individual-priorities-and-consistency-rat
                            \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(arr\_cr),}\DecValTok{3}\NormalTok{))) }\SpecialCharTok{+}
   \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
   \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Violins displaying priorities and consistency ratios"}\NormalTok{)}
-  
-  \CommentTok{\# save generated ggplot graphic to a PNG image file}
-  \CommentTok{\# ggsave(str\_image\_filename)}
-  \FunctionTok{ggsave}\NormalTok{(}\AttributeTok{filename =}\NormalTok{ str\_image\_filename, }\AttributeTok{width =} \DecValTok{7}\NormalTok{, }\AttributeTok{height =} \DecValTok{7}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
 
+  \CommentTok{\# save generated ggplot graphic to a PNG image file}
+  \FunctionTok{ggsave}\NormalTok{(}\AttributeTok{filename =}\NormalTok{ str\_image\_filename, }\AttributeTok{width =} \DecValTok{7}\NormalTok{, }\AttributeTok{height =} \DecValTok{7}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}{%
+\subsection{Function for generating geometric mean values from
+individual judgement
+matrices}\label{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_aggpref\_gmean }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes, arr\_cr, }\AttributeTok{consistency\_thres=}\FloatTok{0.1}\NormalTok{, str\_CRlabel) \{}
+\NormalTok{  df\_cr }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{ahp.cr}\NormalTok{(vec\_attributes, }\AttributeTok{ri=}\FloatTok{0.58}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rowid =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(arr\_cr), }\AttributeTok{arr\_cr.dum =} \FunctionTok{as.factor}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(arr\_cr }\SpecialCharTok{\textless{}=}\NormalTok{ consistency\_thres, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)))}
+  
+  \CommentTok{\# rename column with consistency ratios}
+  \FunctionTok{colnames}\NormalTok{(df\_cr)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ str\_CRlabel}
+
+  \CommentTok{\# combine data frame \textquotesingle{}df\_cr\textquotesingle{} with raw survey data (\textquotesingle{}df\_surveyData\textquotesingle{})}
+\NormalTok{  df\_cr\_wRaw }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_cr, df\_surveyData)}
+  
+  \CommentTok{\# remove rows, where \textquotesingle{}arr\_cr.dum\textquotesingle{} == 0 (inconsistent data)}
+\NormalTok{  df\_cr\_wRaw\_cons }\OtherTok{\textless{}{-}}\NormalTok{ df\_cr\_wRaw[df\_cr\_wRaw}\SpecialCharTok{$}\NormalTok{arr\_cr.dum }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{, ]}
+  
+  \CommentTok{\# get individual judgement matrices from last 3 columns}
+\NormalTok{  list\_mat\_judgement }\OtherTok{\textless{}{-}}\NormalTok{ df\_cr\_wRaw\_cons[}\FunctionTok{tail}\NormalTok{(}\FunctionTok{names}\NormalTok{(df\_cr\_wRaw\_cons), }\DecValTok{3}\NormalTok{)] }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{ahp.mat}\NormalTok{(vec\_atts, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{)}
+  
+  \CommentTok{\# get geometric mean values from judgement matrices}
+\NormalTok{  list\_gmean\_l }\OtherTok{\textless{}{-}} \FunctionTok{ahp.aggpref}\NormalTok{(list\_mat\_judgement, vec\_atts, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{, }\AttributeTok{aggmethod =} \StringTok{"geometric"}\NormalTok{)}
+  
+  \FunctionTok{return}\NormalTok{(list\_gmean\_l)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-for-normalizing-the-geometric-mean-values}{%
+\subsection{Function for normalizing the geometric mean
+values}\label{function-for-normalizing-the-geometric-mean-values}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_norm\_gmean }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(list\_gmeans) \{}
+  \CommentTok{\# normalization so that the sum of the geometric mean values is 1 (corresponds to 100\%)}
+\NormalTok{  df\_gmean\_l }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(list\_gmeans)}
+  \CommentTok{\# rename column with geometric mean values (raw)}
+  \FunctionTok{colnames}\NormalTok{(df\_gmean\_l)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"gmean.raw"}
+  
+\NormalTok{  gmean\_sum }\OtherTok{\textless{}{-}} \DecValTok{0}
+  \ControlFlowTok{for}\NormalTok{ ( val }\ControlFlowTok{in}\NormalTok{ list\_gmeans ) \{}
+\NormalTok{    gmean\_sum }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum }\SpecialCharTok{+}\NormalTok{ val}
+\NormalTok{  \}}
+\NormalTok{  df\_gmean\_l[}\StringTok{"Sum"}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum}
+  
+  \ControlFlowTok{for}\NormalTok{ (idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(list\_gmeans)) \{}
+\NormalTok{    gmean\_norm }\OtherTok{\textless{}{-}}\NormalTok{ list\_gmeans[[idx]] }\SpecialCharTok{/}\NormalTok{ gmean\_sum}
+\NormalTok{    df\_gmean\_l[idx, }\StringTok{"gmean.norm"}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_norm}
+\NormalTok{  \}}
+  
+\NormalTok{  gmean\_sum\_norm }\OtherTok{\textless{}{-}} \DecValTok{0}
+  \CommentTok{\# iterate over all rows except the last, because this is the sum itself}
+  \ControlFlowTok{for}\NormalTok{ ( row }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(df\_gmean\_l)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) ) \{}
+\NormalTok{    gmean\_sum\_norm }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum\_norm }\SpecialCharTok{+}\NormalTok{ df\_gmean\_l[row, }\DecValTok{2}\NormalTok{]}
+\NormalTok{  \}}
+\NormalTok{  df\_gmean\_l[}\StringTok{"Sum"}\NormalTok{, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum\_norm}
+  
+  \FunctionTok{return}\NormalTok{(df\_gmean\_l)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -569,6 +637,24 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 \end{Highlighting}
 \end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{list\_gmean }\OtherTok{\textless{}{-}} \FunctionTok{func\_aggpref\_gmean}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+
+\NormalTok{df\_gmean }\OtherTok{\textless{}{-}} \FunctionTok{func\_norm\_gmean}\NormalTok{(list\_gmean)}
+
+\NormalTok{df\_gmean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      gmean.raw gmean.norm
+## Oeko 0.3739039  0.4179807
+## Soz  0.3023657  0.3380094
+## Wirt 0.2182787  0.2440099
+## Sum  0.8945482  1.0000000
+\end{verbatim}
+
 \hypertarget{participants-of-city-administrations}{%
 \subsection{Participants of city
 administrations}\label{participants-of-city-administrations}}
@@ -728,48 +814,16 @@ experts}\label{participants-of-practitioners-and-experts}}
 \NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
   \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
   
-\NormalTok{  img }\OtherTok{\textless{}{-}} \FunctionTok{image\_graph}\NormalTok{(}\AttributeTok{width =} \DecValTok{800}\NormalTok{, }\AttributeTok{height =} \DecValTok{800}\NormalTok{, }\AttributeTok{res =} \DecValTok{24}\NormalTok{)}
-\NormalTok{  img }\OtherTok{\textless{}{-}} \FunctionTok{image\_read}\NormalTok{(str\_image\_filename)}
-  \FunctionTok{print}\NormalTok{(img)}
+  \CommentTok{\# img \textless{}{-} image\_graph(width = 800, height = 800, res = 24)}
+  \CommentTok{\# img \textless{}{-} image\_read(str\_image\_filename)}
+  \CommentTok{\# print(img)}
   
   \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
 \NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
   \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
 \NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
 \NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## # A tibble: 1 x 7
-##   format width height colorspace matte filesize density
-##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
-## 1 PNG     2100   2100 sRGB       TRUE    189485 118x118
-\end{verbatim}
-
-\begin{verbatim}
-## # A tibble: 1 x 7
-##   format width height colorspace matte filesize density
-##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
-## 1 PNG     2100   2100 sRGB       TRUE    194715 118x118
-\end{verbatim}
-
-\begin{verbatim}
-## # A tibble: 1 x 7
-##   format width height colorspace matte filesize density
-##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
-## 1 PNG     2100   2100 sRGB       TRUE    188161 118x118
-\end{verbatim}
-
-\begin{verbatim}
-## # A tibble: 1 x 7
-##   format width height colorspace matte filesize density
-##   <chr>  <int>  <int> <chr>      <lgl>    <int> <chr>  
-## 1 PNG     2100   2100 sRGB       TRUE    176500 118x118
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# extend file name by path}
 \NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
 \NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
@@ -788,23 +842,25 @@ images}\label{playground-for-inserting-images}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# \# install.packages(\textquotesingle{}magick\textquotesingle{})}
-\CommentTok{\# library(magick)}
-\CommentTok{\# }
-\CommentTok{\# \# img \textless{}{-} image\_read(str\_image\_filename)}
-\CommentTok{\# \# image\_info(img)}
-\CommentTok{\# \# img \textless{}{-} image\_scale(img, "600")}
-\CommentTok{\# img \textless{}{-} image\_graph(width = 800, height = 800, res = 24)}
+\CommentTok{\# install.packages(\textquotesingle{}magick\textquotesingle{})}
+\FunctionTok{library}\NormalTok{(magick)}
+
 \CommentTok{\# img \textless{}{-} image\_read(str\_image\_filename)}
-\CommentTok{\# }
-\CommentTok{\# print(img) \# or print(img)}
-\CommentTok{\# \# image\_display(img)}
+\CommentTok{\# image\_info(img)}
+\CommentTok{\# img \textless{}{-} image\_scale(img, "600")}
+\NormalTok{img }\OtherTok{\textless{}{-}} \FunctionTok{image\_graph}\NormalTok{(}\AttributeTok{width =} \DecValTok{800}\NormalTok{, }\AttributeTok{height =} \DecValTok{800}\NormalTok{, }\AttributeTok{res =} \DecValTok{24}\NormalTok{)}
+\NormalTok{img }\OtherTok{\textless{}{-}} \FunctionTok{image\_read}\NormalTok{(str\_image\_filename)}
+ 
+\CommentTok{\# print(img)}
+\FunctionTok{image\_display}\NormalTok{(img)}
 \end{Highlighting}
 \end{Shaded}
 
+\includegraphics[width=29.17in]{ahpsurvey_all_files/figure-latex/unnamed-chunk-26-1}
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
+\CommentTok{\# \# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
 \CommentTok{\# }
 \CommentTok{\# \# Produce graphic}
 \CommentTok{\# fig \textless{}{-} image\_graph(width = 800, height = 600, res = 96)}
@@ -818,9 +874,21 @@ images}\label{playground-for-inserting-images}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# library(ggplot2)}
+\CommentTok{\# \# install.packages("png")}
+\CommentTok{\# library(png)}
 \CommentTok{\# }
-\CommentTok{\# ggdraw() +}
-\CommentTok{\#   draw\_image(str\_image\_filename)}
+\CommentTok{\# img1 \textless{}{-} readPNG(str\_image\_filename, native = TRUE, info = FALSE)}
+\CommentTok{\# print(img1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \#install.packages("rsvg")}
+\CommentTok{\# library(rsvg)}
+\CommentTok{\# library(magick)}
+\CommentTok{\# tiger \textless{}{-} image\_read\_svg(\textquotesingle{}http://jeroen.github.io/images/tiger.svg\textquotesingle{}, width = 350)}
+\CommentTok{\# print(tiger)}
 \end{Highlighting}
 \end{Shaded}
 

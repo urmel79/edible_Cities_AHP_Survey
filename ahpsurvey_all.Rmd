@@ -124,10 +124,10 @@ func_readCSVdata_to_dataframe <- function(str_CSVfilename) {
 
 ```{r}
 func_genEigentrue_to_dataframe <- function(df_surveyData, vec_attributes) {
-  my_cr_eigen <- df_surveyData %>% 
+  list_mat_judgement <- df_surveyData %>% 
     ahp.mat(vec_attributes, negconvert = TRUE)
   
-  df_eigentrue <- ahp.indpref(my_cr_eigen, vec_attributes, method = "eigen")
+  df_eigentrue <- ahp.indpref(list_mat_judgement, vec_attributes, method = "eigen")
 
   return(df_eigentrue)
 }
@@ -191,9 +191,70 @@ func_visuPriosCRs <- function(df_surveyData, df_cr, arr_cr, consistency_thres=0.
                            round(mean(arr_cr),3))) +
   theme_minimal() +
   ggtitle("Violins displaying priorities and consistency ratios")
-  
+
   # save generated ggplot graphic to a PNG image file
   ggsave(filename = str_image_filename, width = 7, height = 7, dpi = 300)
+}
+```
+
+## Function for generating geometric mean values from individual judgement matrices
+
+```{r}
+func_aggpref_gmean <- function(df_surveyData, vec_attributes, arr_cr, consistency_thres=0.1, str_CRlabel) {
+  df_cr <- df_surveyData %>%
+    ahp.mat(vec_attributes, negconvert = TRUE) %>% 
+    ahp.cr(vec_attributes, ri=0.58) %>% 
+    data.frame() %>%
+    mutate(rowid = 1:length(arr_cr), arr_cr.dum = as.factor(ifelse(arr_cr <= consistency_thres, 1, 0)))
+  
+  # rename column with consistency ratios
+  colnames(df_cr)[1] <- str_CRlabel
+
+  # combine data frame 'df_cr' with raw survey data ('df_surveyData')
+  df_cr_wRaw <- cbind(df_cr, df_surveyData)
+  
+  # remove rows, where 'arr_cr.dum' == 0 (inconsistent data)
+  df_cr_wRaw_cons <- df_cr_wRaw[df_cr_wRaw$arr_cr.dum != 0, ]
+  
+  # get individual judgement matrices from last 3 columns
+  list_mat_judgement <- df_cr_wRaw_cons[tail(names(df_cr_wRaw_cons), 3)] %>% 
+    ahp.mat(vec_atts, negconvert = TRUE)
+  
+  # get geometric mean values from judgement matrices
+  list_gmean_l <- ahp.aggpref(list_mat_judgement, vec_atts, method = "eigen", aggmethod = "geometric")
+  
+  return(list_gmean_l)
+}
+```
+
+## Function for normalizing the geometric mean values
+
+```{r}
+func_norm_gmean <- function(list_gmeans) {
+  # normalization so that the sum of the geometric mean values is 1 (corresponds to 100%)
+  df_gmean_l <- data.frame(list_gmeans)
+  # rename column with geometric mean values (raw)
+  colnames(df_gmean_l)[1] <- "gmean.raw"
+  
+  gmean_sum <- 0
+  for ( val in list_gmeans ) {
+    gmean_sum <- gmean_sum + val
+  }
+  df_gmean_l["Sum", 1] <- gmean_sum
+  
+  for (idx in 1:length(list_gmeans)) {
+    gmean_norm <- list_gmeans[[idx]] / gmean_sum
+    df_gmean_l[idx, "gmean.norm"] <- gmean_norm
+  }
+  
+  gmean_sum_norm <- 0
+  # iterate over all rows except the last, because this is the sum itself
+  for ( row in 1:(nrow(df_gmean_l)-1) ) {
+    gmean_sum_norm <- gmean_sum_norm + df_gmean_l[row, 2]
+  }
+  df_gmean_l["Sum", 2] <- gmean_sum_norm
+  
+  return(df_gmean_l)
 }
 ```
 
@@ -337,6 +398,16 @@ write.table(df_outputTable, file = str_CSVfilename_output,
             fileEncoding = "UTF-8", row.names = FALSE,
             col.names = TRUE, sep = "\t", quote = TRUE)
 ```
+
+
+```{r}
+list_gmean <- func_aggpref_gmean(df_processed_survey_data, vec_atts, arr_CRs, consistency_thres, str_CRlabel)
+
+df_gmean <- func_norm_gmean(list_gmean)
+
+df_gmean
+```
+
 
 ## Participants of city administrations
 
@@ -511,21 +582,21 @@ write.table(df_outputTable, file = str_CSVfilename_output,
 ## Playground for inserting images
 
 ```{r}
-# # install.packages('magick')
-# library(magick)
-# 
-# # img <- image_read(str_image_filename)
-# # image_info(img)
-# # img <- image_scale(img, "600")
-# img <- image_graph(width = 800, height = 800, res = 24)
+# install.packages('magick')
+library(magick)
+
 # img <- image_read(str_image_filename)
-# 
-# print(img) # or print(img)
-# # image_display(img)
+# image_info(img)
+# img <- image_scale(img, "600")
+img <- image_graph(width = 800, height = 800, res = 24)
+img <- image_read(str_image_filename)
+ 
+# print(img)
+image_display(img)
 ```
 
 ```{r}
-# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))
+# # ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))
 # 
 # # Produce graphic
 # fig <- image_graph(width = 800, height = 600, res = 96)
@@ -537,11 +608,20 @@ write.table(df_outputTable, file = str_CSVfilename_output,
 
 ```{r}
 # library(ggplot2)
+# # install.packages("png")
+# library(png)
 # 
-# ggdraw() +
-#   draw_image(str_image_filename)
+# img1 <- readPNG(str_image_filename, native = TRUE, info = FALSE)
+# print(img1)
 ```
 
+```{r}
+# #install.packages("rsvg")
+# library(rsvg)
+# library(magick)
+# tiger <- image_read_svg('http://jeroen.github.io/images/tiger.svg', width = 350)
+# print(tiger)
+```
 
 
 
