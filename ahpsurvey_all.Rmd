@@ -588,7 +588,7 @@ library(magick)
 # img <- image_read(str_image_filename)
 # image_info(img)
 # img <- image_scale(img, "600")
-img <- image_graph(width = 800, height = 800, res = 24)
+img <- image_graph(width = 400, height = 400, res = 12)
 img <- image_read(str_image_filename)
  
 # print(img)
