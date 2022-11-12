@@ -1,124 +1,485 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
-\documentclass[
-]{article}
-\usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Application of the processed survey data in the analytical hierarchy process (AHP)},
-  pdfauthor={Björn Kasper; Henriette John},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
-\usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{255,255,255}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{\textbf{\colorbox[rgb]{0.97,0.90,0.90}{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.79,0.38,0.79}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.39,0.29,0.61}{\textbf{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.57,0.30,0.62}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.54,0.53,0.53}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.58,1.00}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.67,0.33,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.38,0.47,0.50}{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{\underline{#1}}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.58,1.00}{\textbf{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.39,0.29,0.61}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{1.00,0.33,0.00}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.69,0.50,0.00}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.12,0.11,0.11}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.43,0.16}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.00,0.43,0.16}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{\colorbox[rgb]{0.88,0.91,0.97}{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.24,0.68,0.91}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{1.00,0.33,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.34,0.68}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.75,0.01,0.01}{#1}}
-\usepackage{graphicx}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
+\documentclass [oneside,10pt,a4paper,ngerman,BCOR10mm,headsepline,parindent,final]{scrartcl}
 
-\title{Application of the processed survey data in the analytical
-hierarchy process (AHP)}
-\author{Björn Kasper\footnote{BG ETEM,
-  \href{mailto:kasper.bjoern@bgetem.de}{\nolinkurl{kasper.bjoern@bgetem.de}}} \and Henriette
-John\footnote{IÖR,
-  \href{mailto:h.john@ioer.de}{\nolinkurl{h.john@ioer.de}}}}
-\date{\today}
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    % \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    % \usepackage{caption}
+    % \DeclareCaptionFormat{nocaption}{}
+    % \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \usepackage[utf8]{inputenc}
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+    % Using fancy headers and footers
+    \usepackage{fancyhdr}
+    
+    % Used for entering author names and their affiliations
+    \usepackage[affil-it]{authblk}
+    
+    % Use bibliography% and configure it
+    \usepackage[babel,german=quotes]{csquotes}
+    \usepackage[backend=biber,style=authoryear,backref=true]{biblatex}
+    \bibliography{literature/notebook.bib}
+    \usepackage{url}                    %Output of nicely formatted Internet addresses
+    \setcounter{biburllcpenalty}{7000}  %Setting for counter to wrap URLs in literature references
+    \setcounter{biburlucpenalty}{8000}  %ditto
+
+
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{\textbf{\textsf{Application of the processed survey data in the analytical hierarchy process (AHP)}}}\author{Dipl.-Ing. Bj\"orn Kasper (\href{mailto:kasper.bjoern@bgetem.de}{kasper.bjoern@bgetem.de})}\affil{BG ETEM}\date{\today; version 0.1 (pre-release)}
+
+
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      bookmarksnumbered=true,
+      pdfauthor=Dipl.-Ing. Bj\"orn Kasper,
+      pdftitle=Application of the processed survey data in the analytical hierarchy process (AHP),
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      pdfpagemode={UseOutlines},
+      pdfview = {XYZ},
+      pdfstartview = {XYZ},
+      pdfstartpage = {1},
+      pdfborder={0 0 0}
+      }
+    % Slightly bigger margins than the latex defaults
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+
 
 \begin{document}
-\maketitle
+    
+    % Without changing the numbering style,
+    % page numbers and column titles should be turned off.
+    \pagestyle{empty}
+    
+    \maketitle\thispagestyle{empty}\begin{center}
+        \includegraphics[width=0.90\textwidth]{images/Cover_image.pdf}
+        \end{center}
+        \vfill
 
-{
-\setcounter{tocdepth}{2}
-\tableofcontents
-}
-\hypertarget{global-settings-and-dependencies}{%
+    \begin{abstract}
+    This is a placeholder for the abstract that needs to be added later.
+    \end{abstract}
+    \vfill
+    
+    \noindent
+    \begin{center}
+	    \begin{tabular}{>{\centering}m{0.2\textwidth}m{0.65\textwidth}}
+	    \begin{minipage}{\linewidth}
+	        \includegraphics{images/CC_BY-SA_40.png}
+	    \end{minipage}
+	    &
+	    \begin{minipage}{\linewidth}
+	        This work is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)}.
+	    \end{minipage}
+	    \end{tabular}
+	\end{center}
+
+    \newpage
+
+    % Activate own page style
+    \pagestyle{fancy}
+    % Delete all fields
+    \fancyhf{}
+    % \fancyhead[EL,OL]{$header$}
+    % \fancyfoot[EL,OL]{$footer$}
+    % Header leftside: chapter/section
+    \fancyhead[ER,OR]{\leftmark}
+    % Footer rightside: page number
+    \fancyfoot[ER,OR]{Seite \thepage}
+
+    \renewcommand{\sectionmark}[1]{
+        \markboth{\thesection{} #1}{}
+    }
+
+    
+    \tableofcontents
+    
+    
+
+
+    
+    \hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Why we use a
+\href{https://en.wikipedia.org/wiki/Project_Jupyter}{Jupyter} notebook
+to to publish the R program examples:
+
+Jupyter is a new \textbf{open source} alternative to the proprietary
+numerical software
+\href{https://en.wikipedia.org/wiki/Wolfram_Mathematica}{Mathematica}
+from \textbf{Wolfram Research} that is well on the way to becoming a
+\textbf{standard for exchanging research results}
+(\cite{Scientific_Paper_obsolete_2018};
+\cite{Future_of_Research_Paper_2018}).
+
+Originally Jupyter was intended as an IDE for the programming languages
+\textbf{Julia} and \textbf{Python}. Besides that it is also possible to
+install other interpreter kernels, such as the
+\textbf{\href{https://irkernel.github.io/installation/}{IRkernel}} for
+R. This can be interesting if the IDE \textbf{RStudio Desktop} is not
+available on the target platform used. For example, it is very difficult
+to install RStudio on the ARM-based embedded computer \textbf{Raspberry
+Pi} due to many technical dependencies. In contrast, using the R kernel
+in JupyterLab on the Raspberry Pi works very well and performant.
+
+    \hypertarget{global-settings-and-dependencies}{%
 \section{Global settings and
 dependencies}\label{global-settings-and-dependencies}}
 
@@ -130,39 +491,42 @@ The package \texttt{data.table} is used for reading and manipulating
 tables (\texttt{data.table} inherits from \texttt{data.frame}). Install
 and load it:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages("data.table")}
-\FunctionTok{library}\NormalTok{(data.table)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}data.table\PYZdq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{data.table}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{load-ggplot2}{%
+    \hypertarget{load-ggplot2}{%
 \subsection{\texorpdfstring{Load
 \texttt{ggplot2}}{Load ggplot2}}\label{load-ggplot2}}
 
 The package \texttt{ggplot2} is used for plotting diagrams. Install and
 load it:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages("ggplot2")}
-\FunctionTok{library}\NormalTok{(ggplot2)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}ggplot2\PYZdq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{ggplot2}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{load-tidyr-for-gather-function}{%
+    \hypertarget{load-tidyr-for-gather-function}{%
 \subsection{\texorpdfstring{Load \texttt{tidyr} for \emph{gather()}
 function}{Load tidyr for gather() function}}\label{load-tidyr-for-gather-function}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages("tidyr")}
-\FunctionTok{library}\NormalTok{(tidyr)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}tidyr\PYZdq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{load-dplyr-for-data-manipulation}{%
+    \hypertarget{load-dplyr-for-data-manipulation}{%
 \subsection{\texorpdfstring{Load \texttt{dplyr} for data
 manipulation}{Load dplyr for data manipulation}}\label{load-dplyr-for-data-manipulation}}
 
@@ -170,60 +534,29 @@ Load necessary library \texttt{dplyr} for data manipulation with
 functions like \texttt{select()}, \texttt{mutate()} and
 \texttt{left\_join()}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages("dplyr")}
-\FunctionTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}dplyr\PYZdq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\begin{verbatim}
-## 
-## Attache Paket: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## Die folgenden Objekte sind maskiert von 'package:data.table':
-## 
-##     between, first, last
-\end{verbatim}
-
-\begin{verbatim}
-## Die folgenden Objekte sind maskiert von 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## Die folgenden Objekte sind maskiert von 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\hypertarget{load-magick-for-image-manipulation}{%
+    \hypertarget{load-magick-for-image-manipulation}{%
 \subsection{\texorpdfstring{Load \texttt{magick} for image
 manipulation}{Load magick for image manipulation}}\label{load-magick-for-image-manipulation}}
 
 The library \texttt{magick} is the R API to \emph{ImageMagick}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages(\textquotesingle{}magick\textquotesingle{})}
-\FunctionTok{library}\NormalTok{(magick)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZsq{}magick\PYZsq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{magick}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\begin{verbatim}
-## Linking to ImageMagick 6.9.10.23
-## Enabled features: fontconfig, freetype, fftw, lcms, pango, webp, x11
-## Disabled features: cairo, ghostscript, heic, raw, rsvg
-\end{verbatim}
-
-\begin{verbatim}
-## Using 4 threads
-\end{verbatim}
-
-\hypertarget{use-pipes-for-better-coding}{%
+    \hypertarget{use-pipes-for-better-coding}{%
 \subsection{Use pipes for better
 coding}\label{use-pipes-for-better-coding}}
 
@@ -236,39 +569,30 @@ here: \url{https://statistik-dresden.de/archives/15679}.
 Before using pipes in R, you have to install and load the package
 \texttt{magrittr}:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages("magrittr")}
-\FunctionTok{library}\NormalTok{(magrittr)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}magrittr\PYZdq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\begin{verbatim}
-## 
-## Attache Paket: 'magrittr'
-\end{verbatim}
-
-\begin{verbatim}
-## Das folgende Objekt ist maskiert 'package:tidyr':
-## 
-##     extract
-\end{verbatim}
-
-\hypertarget{load-package-ahpsurvey}{%
+    \hypertarget{load-package-ahpsurvey}{%
 \subsection{\texorpdfstring{Load package
 \texttt{ahpsurvey}}{Load package ahpsurvey}}\label{load-package-ahpsurvey}}
 
 The package \texttt{ahpsurvey} contains all the necessary mathematical
 and statistical methods to run the analytical hierarchy process (AHP).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages("ahpsurvey")}
-\FunctionTok{library}\NormalTok{(ahpsurvey)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}ahpsurvey\PYZdq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{functions-for-processing-ahp}{%
+    \hypertarget{functions-for-processing-ahp}{%
 \section{Functions for processing
 AHP}\label{functions-for-processing-ahp}}
 
@@ -276,200 +600,208 @@ AHP}\label{functions-for-processing-ahp}}
 \subsection{Set globally used input and output
 folders}\label{set-globally-used-input-and-output-folders}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{str\_input\_path }\OtherTok{=} \StringTok{"./output\_data\_manipulated"}
-\NormalTok{str\_output\_path }\OtherTok{=} \StringTok{"./output\_data\_AHP"}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{str\PYZus{}input\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}manipulated\PYZdq{}}
+\PY{n}{str\PYZus{}output\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}AHP\PYZdq{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}{%
+    \hypertarget{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}{%
 \subsection{Function for reading in processed survey data from CSV files
 to data
 frames}\label{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}}
 
 Define a function for reading in a CSV file to a date frame.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_readCSVdata\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(str\_CSVfilename) \{}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename}\PY{p}{)} \PY{p}{\PYZob{}}
   
-\NormalTok{  df\_CSVdata }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}
-    \AttributeTok{file =}\NormalTok{ str\_CSVfilename, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{,}
-    \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \StringTok{"}\SpecialCharTok{\textbackslash{}"}\StringTok{"}
-\NormalTok{    )}
+  \PY{n}{df\PYZus{}CSVdata} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{fread}\PY{p}{(}
+    \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,}
+    \PY{n}{header} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}\PYZdq{}\PYZdq{}}
+    \PY{p}{)}
   
-  \FunctionTok{return}\NormalTok{(df\_CSVdata)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}CSVdata}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-generating-a-data-frame-with-eigentrue-values-weights}{%
+    \hypertarget{function-for-generating-a-data-frame-with-eigentrue-values-weights}{%
 \subsection{\texorpdfstring{Function for generating a data frame with
 \emph{eigentrue values}
 (weights)}{Function for generating a data frame with eigentrue values (weights)}}\label{function-for-generating-a-data-frame-with-eigentrue-values-weights}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_genEigentrue\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes) \{}
-\NormalTok{  list\_mat\_judgement }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{)}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
   
-\NormalTok{  df\_eigentrue }\OtherTok{\textless{}{-}} \FunctionTok{ahp.indpref}\NormalTok{(list\_mat\_judgement, vec\_attributes, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{)}
+  \PY{n}{df\PYZus{}eigentrue} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{ahp.indpref}\PY{p}{(}\PY{n}{list\PYZus{}mat\PYZus{}judgement}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{)}
 
-  \FunctionTok{return}\NormalTok{(df\_eigentrue)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}eigentrue}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-generating-an-array-with-consistency-ratios}{%
+    \hypertarget{function-for-generating-an-array-with-consistency-ratios}{%
 \subsection{Function for generating an array with consistency
 ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_genCR\_to\_arr }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes) \{}
-\NormalTok{  arr\_cr }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{ahp.cr}\NormalTok{(vec\_attributes, }\AttributeTok{ri=}\FloatTok{0.58}\NormalTok{)}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{ahp.cr}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{ri}\PY{o}{=}\PY{l+m}{0.58}\PY{p}{)}
 
-  \FunctionTok{return}\NormalTok{(arr\_cr)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{n+nf}{return}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-generating-a-data-frame-with-consistency-ratios}{%
+    \hypertarget{function-for-generating-a-data-frame-with-consistency-ratios}{%
 \subsection{Function for generating a data frame with consistency
 ratios}\label{function-for-generating-a-data-frame-with-consistency-ratios}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_genCR\_to\_dataframe }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes, arr\_cr, }\AttributeTok{consistency\_thres=}\FloatTok{0.1}\NormalTok{, str\_CRlabel) \{}
-\NormalTok{  df\_cr }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{ahp.cr}\NormalTok{(vec\_attributes, }\AttributeTok{ri=}\FloatTok{0.58}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rowid =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(arr\_cr), }\AttributeTok{arr\_cr.dum =} \FunctionTok{as.factor}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(arr\_cr }\SpecialCharTok{\textless{}=}\NormalTok{ consistency\_thres, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)))}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{ahp.cr}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{ri}\PY{o}{=}\PY{l+m}{0.58}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{data.frame}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+    \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{length}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,} \PY{n}{arr\PYZus{}cr.dum} \PY{o}{=} \PY{n+nf}{as.factor}\PY{p}{(}\PY{n+nf}{ifelse}\PY{p}{(}\PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}=} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{l+m}{1}\PY{p}{,} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{p}{)}
   
-  \CommentTok{\# rename column with consistency ratios}
-  \FunctionTok{colnames}\NormalTok{(df\_cr)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ str\_CRlabel}
+  \PY{c+c1}{\PYZsh{} rename column with consistency ratios}
+  \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{)}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{str\PYZus{}CRlabel}
 
-  \FunctionTok{return}\NormalTok{(df\_cr)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-visualising-individual-priorities-and-consistency-ratios}{%
-\subsection{Function for visualising individual priorities and
+    \hypertarget{function-for-visualizing-individual-priorities-and-consistency-ratios}{%
+\subsection{Function for visualizing individual priorities and
 consistency
-ratios}\label{function-for-visualising-individual-priorities-and-consistency-ratios}}
+ratios}\label{function-for-visualizing-individual-priorities-and-consistency-ratios}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_visuPriosCRs }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, df\_cr, arr\_cr, }\AttributeTok{consistency\_thres=}\FloatTok{0.1}\NormalTok{, vec\_attributes, df\_eigentrue, vec\_labels, str\_image\_filename) \{}
-\NormalTok{  df\_cr\_sel }\OtherTok{\textless{}{-}}\NormalTok{ df\_cr }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{select}\NormalTok{(arr\_cr.dum, rowid)}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}visuPriosCRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{n}{df\PYZus{}cr\PYZus{}sel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+    \PY{n+nf}{select}\PY{p}{(}\PY{n}{arr\PYZus{}cr.dum}\PY{p}{,} \PY{n}{rowid}\PY{p}{)}
 
-\NormalTok{  df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{ahp.mat}\NormalTok{(}\AttributeTok{atts =}\NormalTok{ vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{ahp.indpref}\NormalTok{(vec\_attributes, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rowid =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_eigentrue)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{left\_join}\NormalTok{(df\_cr\_sel, }\AttributeTok{by =} \StringTok{\textquotesingle{}rowid\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{gather}\NormalTok{(}\FunctionTok{all\_of}\NormalTok{(vec\_attributes), }\AttributeTok{key =} \StringTok{"var"}\NormalTok{, }\AttributeTok{value =} \StringTok{"pref"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ var, }\AttributeTok{y =}\NormalTok{ pref)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_violin}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{color =} \StringTok{"transparent"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"gray"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{height =} \DecValTok{0}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.1}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ arr\_cr.dum)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \DecValTok{0}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.3}\NormalTok{, }\AttributeTok{color =} \StringTok{"\#808080"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_x\_discrete}\NormalTok{(}\StringTok{"Attribute"}\NormalTok{, }\AttributeTok{label =}\NormalTok{ vec\_labels) }\SpecialCharTok{+}
-  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\StringTok{"Weight (dominant eigenvalue)"}\NormalTok{, }
-                     \AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\NormalTok{percent, }
-                     \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.7}\NormalTok{,}\FloatTok{0.1}\NormalTok{))) }\SpecialCharTok{+}
-  \FunctionTok{guides}\NormalTok{(}\AttributeTok{color=}\FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title=}\ConstantTok{NULL}\NormalTok{))}\SpecialCharTok{+}
-  \FunctionTok{scale\_color\_discrete}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{), }
-                       \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"CR \textgreater{}"}\NormalTok{, consistency\_thres), }
-                                  \FunctionTok{paste}\NormalTok{(}\StringTok{"CR \textless{}"}\NormalTok{, consistency\_thres))) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{caption =} \FunctionTok{paste}\NormalTok{(}\StringTok{"n ="}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(df\_surveyData), }\StringTok{","}\NormalTok{, }\StringTok{"Mean CR ="}\NormalTok{,}
-                           \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(arr\_cr),}\DecValTok{3}\NormalTok{))) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Violins displaying priorities and consistency ratios"}\NormalTok{)}
+  \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+  \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{atts} \PY{o}{=} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+  \PY{n+nf}{ahp.indpref}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+  \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}eigentrue}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+  \PY{n+nf}{left\PYZus{}join}\PY{p}{(}\PY{n}{df\PYZus{}cr\PYZus{}sel}\PY{p}{,} \PY{n}{by} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{rowid\PYZsq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+  \PY{n+nf}{gather}\PY{p}{(}\PY{n+nf}{all\PYZus{}of}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{)}\PY{p}{,} \PY{n}{key} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{var\PYZdq{}}\PY{p}{,} \PY{n}{value} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{pref\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+  \PY{n+nf}{ggplot}\PY{p}{(}\PY{n+nf}{aes}\PY{p}{(}\PY{n}{x} \PY{o}{=} \PY{n}{var}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{pref}\PY{p}{)}\PY{p}{)} \PY{o}{+} 
+  \PY{n+nf}{geom\PYZus{}violin}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0.6}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.8}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{transparent\PYZdq{}}\PY{p}{,} \PY{n}{fill} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{gray\PYZdq{}}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{geom\PYZus{}jitter}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0.6}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{0}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.1}\PY{p}{,} \PY{n+nf}{aes}\PY{p}{(}\PY{n}{color} \PY{o}{=} \PY{n}{arr\PYZus{}cr.dum}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{geom\PYZus{}boxplot}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.3}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}808080\PYZdq{}}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{scale\PYZus{}x\PYZus{}discrete}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Attribute\PYZdq{}}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{vec\PYZus{}labels}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{scale\PYZus{}y\PYZus{}continuous}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Weight (dominant eigenvalue)\PYZdq{}}\PY{p}{,} 
+                     \PY{n}{labels} \PY{o}{=} \PY{n}{scales}\PY{o}{::}\PY{n}{percent}\PY{p}{,} 
+                     \PY{n}{breaks} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{n+nf}{seq}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{0.7}\PY{p}{,}\PY{l+m}{0.1}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{guides}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{n+nf}{guide\PYZus{}legend}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{k+kc}{NULL}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+  \PY{n+nf}{scale\PYZus{}color\PYZus{}discrete}\PY{p}{(}\PY{n}{breaks} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{1}\PY{p}{)}\PY{p}{,} 
+                       \PY{n}{labels} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR \PYZgt{}\PYZdq{}}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{)}\PY{p}{,} 
+                                  \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR \PYZlt{}\PYZdq{}}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{labs}\PY{p}{(}\PY{k+kc}{NULL}\PY{p}{,} \PY{n}{caption} \PY{o}{=} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{n =\PYZdq{}}\PY{p}{,} \PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{,\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Mean CR =\PYZdq{}}\PY{p}{,}
+                           \PY{n+nf}{round}\PY{p}{(}\PY{n+nf}{mean}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{theme\PYZus{}minimal}\PY{p}{(}\PY{p}{)} \PY{o}{+}
+  \PY{n+nf}{ggtitle}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Violins displaying priorities and consistency ratios\PYZdq{}}\PY{p}{)}
 
-  \CommentTok{\# save generated ggplot graphic to a PNG image file}
-  \FunctionTok{ggsave}\NormalTok{(}\AttributeTok{filename =}\NormalTok{ str\_image\_filename, }\AttributeTok{width =} \DecValTok{7}\NormalTok{, }\AttributeTok{height =} \DecValTok{7}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{c+c1}{\PYZsh{} save generated ggplot graphic to a PNG image file}
+  \PY{n+nf}{ggsave}\PY{p}{(}\PY{n}{filename} \PY{o}{=} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{7}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{7}\PY{p}{,} \PY{n}{dpi} \PY{o}{=} \PY{l+m}{300}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}{%
+    \hypertarget{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}{%
 \subsection{Function for generating geometric mean values from
 individual judgement
 matrices}\label{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_aggpref\_gmean }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df\_surveyData, vec\_attributes, arr\_cr, }\AttributeTok{consistency\_thres=}\FloatTok{0.1}\NormalTok{, str\_CRlabel) \{}
-\NormalTok{  df\_cr }\OtherTok{\textless{}{-}}\NormalTok{ df\_surveyData }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{ahp.mat}\NormalTok{(vec\_attributes, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{ahp.cr}\NormalTok{(vec\_attributes, }\AttributeTok{ri=}\FloatTok{0.58}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rowid =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(arr\_cr), }\AttributeTok{arr\_cr.dum =} \FunctionTok{as.factor}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(arr\_cr }\SpecialCharTok{\textless{}=}\NormalTok{ consistency\_thres, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)))}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}aggpref\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{ahp.cr}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{ri}\PY{o}{=}\PY{l+m}{0.58}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{data.frame}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+    \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{length}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,} \PY{n}{arr\PYZus{}cr.dum} \PY{o}{=} \PY{n+nf}{as.factor}\PY{p}{(}\PY{n+nf}{ifelse}\PY{p}{(}\PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}=} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{l+m}{1}\PY{p}{,} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{p}{)}
   
-  \CommentTok{\# rename column with consistency ratios}
-  \FunctionTok{colnames}\NormalTok{(df\_cr)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ str\_CRlabel}
+  \PY{c+c1}{\PYZsh{} rename column with consistency ratios}
+  \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{)}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{str\PYZus{}CRlabel}
 
-  \CommentTok{\# combine data frame \textquotesingle{}df\_cr\textquotesingle{} with raw survey data (\textquotesingle{}df\_surveyData\textquotesingle{})}
-\NormalTok{  df\_cr\_wRaw }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_cr, df\_surveyData)}
+  \PY{c+c1}{\PYZsh{} combine data frame \PYZsq{}df\PYZus{}cr\PYZsq{} with raw survey data (\PYZsq{}df\PYZus{}surveyData\PYZsq{})}
+  \PY{n}{df\PYZus{}cr\PYZus{}wRaw} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{df\PYZus{}surveyData}\PY{p}{)}
   
-  \CommentTok{\# remove rows, where \textquotesingle{}arr\_cr.dum\textquotesingle{} == 0 (inconsistent data)}
-\NormalTok{  df\_cr\_wRaw\_cons }\OtherTok{\textless{}{-}}\NormalTok{ df\_cr\_wRaw[df\_cr\_wRaw}\SpecialCharTok{$}\NormalTok{arr\_cr.dum }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{, ]}
+  \PY{c+c1}{\PYZsh{} remove rows, where \PYZsq{}arr\PYZus{}cr.dum\PYZsq{} == 0 (inconsistent data)}
+  \PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr\PYZus{}wRaw}\PY{p}{[}\PY{n}{df\PYZus{}cr\PYZus{}wRaw}\PY{o}{\PYZdl{}}\PY{n}{arr\PYZus{}cr.dum} \PY{o}{!=} \PY{l+m}{0}\PY{p}{,} \PY{p}{]}
   
-  \CommentTok{\# get individual judgement matrices from last 3 columns}
-\NormalTok{  list\_mat\_judgement }\OtherTok{\textless{}{-}}\NormalTok{ df\_cr\_wRaw\_cons[}\FunctionTok{tail}\NormalTok{(}\FunctionTok{names}\NormalTok{(df\_cr\_wRaw\_cons), }\DecValTok{3}\NormalTok{)] }\SpecialCharTok{\%\textgreater{}\%} 
-    \FunctionTok{ahp.mat}\NormalTok{(vec\_atts, }\AttributeTok{negconvert =} \ConstantTok{TRUE}\NormalTok{)}
+  \PY{c+c1}{\PYZsh{} get individual judgement matrices from last 3 columns}
+  \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons}\PY{p}{[}\PY{n+nf}{tail}\PY{p}{(}\PY{n+nf}{names}\PY{p}{(}\PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons}\PY{p}{)}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
   
-  \CommentTok{\# get geometric mean values from judgement matrices}
-\NormalTok{  list\_gmean\_l }\OtherTok{\textless{}{-}} \FunctionTok{ahp.aggpref}\NormalTok{(list\_mat\_judgement, vec\_atts, }\AttributeTok{method =} \StringTok{"eigen"}\NormalTok{, }\AttributeTok{aggmethod =} \StringTok{"geometric"}\NormalTok{)}
+  \PY{c+c1}{\PYZsh{} get geometric mean values from judgement matrices}
+  \PY{n}{list\PYZus{}gmean\PYZus{}l} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{ahp.aggpref}\PY{p}{(}\PY{n}{list\PYZus{}mat\PYZus{}judgement}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{,} \PY{n}{aggmethod} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{geometric\PYZdq{}}\PY{p}{)}
   
-  \FunctionTok{return}\NormalTok{(list\_gmean\_l)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{n+nf}{return}\PY{p}{(}\PY{n}{list\PYZus{}gmean\PYZus{}l}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{function-for-normalizing-the-geometric-mean-values}{%
+    \hypertarget{function-for-normalizing-the-geometric-mean-values}{%
 \subsection{Function for normalizing the geometric mean
 values}\label{function-for-normalizing-the-geometric-mean-values}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func\_norm\_gmean }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(list\_gmeans) \{}
-  \CommentTok{\# normalization so that the sum of the geometric mean values is 1 (corresponds to 100\%)}
-\NormalTok{  df\_gmean\_l }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(list\_gmeans)}
-  \CommentTok{\# rename column with geometric mean values (raw)}
-  \FunctionTok{colnames}\NormalTok{(df\_gmean\_l)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"gmean.raw"}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}norm\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{c+c1}{\PYZsh{} normalization so that the sum of the geometric mean values is 1 (corresponds to 100\PYZpc{})}
+  \PY{n}{df\PYZus{}gmean\PYZus{}l} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.frame}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} rename column with geometric mean values (raw)}
+  \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{)}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.raw\PYZdq{}}
   
-\NormalTok{  gmean\_sum }\OtherTok{\textless{}{-}} \DecValTok{0}
-  \ControlFlowTok{for}\NormalTok{ ( val }\ControlFlowTok{in}\NormalTok{ list\_gmeans ) \{}
-\NormalTok{    gmean\_sum }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum }\SpecialCharTok{+}\NormalTok{ val}
-\NormalTok{  \}}
-\NormalTok{  df\_gmean\_l[}\StringTok{"Sum"}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum}
+  \PY{n}{gmean\PYZus{}sum} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
+  \PY{n+nf}{for }\PY{p}{(} \PY{n}{val} \PY{n}{in} \PY{n}{list\PYZus{}gmeans} \PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n}{gmean\PYZus{}sum} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{gmean\PYZus{}sum} \PY{o}{+} \PY{n}{val}
+  \PY{p}{\PYZcb{}}
+  \PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{gmean\PYZus{}sum}
   
-  \ControlFlowTok{for}\NormalTok{ (idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(list\_gmeans)) \{}
-\NormalTok{    gmean\_norm }\OtherTok{\textless{}{-}}\NormalTok{ list\_gmeans[[idx]] }\SpecialCharTok{/}\NormalTok{ gmean\_sum}
-\NormalTok{    df\_gmean\_l[idx, }\StringTok{"gmean.norm"}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_norm}
-\NormalTok{  \}}
+  \PY{n+nf}{for }\PY{p}{(}\PY{n}{idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{length}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n}{gmean\PYZus{}norm} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{list\PYZus{}gmeans}\PY{p}{[[}\PY{n}{idx}\PY{p}{]]} \PY{o}{/} \PY{n}{gmean\PYZus{}sum}
+    \PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{[}\PY{n}{idx}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{gmean\PYZus{}norm}
+  \PY{p}{\PYZcb{}}
   
-\NormalTok{  gmean\_sum\_norm }\OtherTok{\textless{}{-}} \DecValTok{0}
-  \CommentTok{\# iterate over all rows except the last, because this is the sum itself}
-  \ControlFlowTok{for}\NormalTok{ ( row }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(df\_gmean\_l)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) ) \{}
-\NormalTok{    gmean\_sum\_norm }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum\_norm }\SpecialCharTok{+}\NormalTok{ df\_gmean\_l[row, }\DecValTok{2}\NormalTok{]}
-\NormalTok{  \}}
-\NormalTok{  df\_gmean\_l[}\StringTok{"Sum"}\NormalTok{, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ gmean\_sum\_norm}
+  \PY{n}{gmean\PYZus{}sum\PYZus{}norm} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
+  \PY{c+c1}{\PYZsh{} iterate over all rows except the last, because this is the sum itself}
+  \PY{n+nf}{for }\PY{p}{(} \PY{n}{row} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{p}{(}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{)}\PY{l+m}{\PYZhy{}1}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n}{gmean\PYZus{}sum\PYZus{}norm} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{gmean\PYZus{}sum\PYZus{}norm} \PY{o}{+} \PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{l+m}{2}\PY{p}{]}
+  \PY{p}{\PYZcb{}}
+  \PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+m}{2}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{gmean\PYZus{}sum\PYZus{}norm}
   
-  \FunctionTok{return}\NormalTok{(df\_gmean\_l)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+  \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{create-data-frames-tables-handling-the-file-names-of-processed-survey-data}{%
+    \hypertarget{create-data-frames-tables-handling-the-file-names-of-processed-survey-data}{%
 \section{Create data frames (tables) handling the file names of
 processed survey
 data}\label{create-data-frames-tables-handling-the-file-names-of-processed-survey-data}}
@@ -478,419 +810,461 @@ data}\label{create-data-frames-tables-handling-the-file-names-of-processed-surve
 \subsection{File table for all
 participants}\label{file-table-for-all-participants}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_csvInputFiles\_all }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
-  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
-  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
-  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_all\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
-                \StringTok{"rdata\_all\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
-                \StringTok{"rdata\_all\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{,}
-                \StringTok{"rdata\_all\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_09{-}53.csv"}\NormalTok{),}
-  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
+  \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}env\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}soc\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}eco\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}crit\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{descriptions} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}}\PY{p}{)}
+\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{file-table-for-city-administrations}{%
+    \hypertarget{file-table-for-city-administrations}{%
 \subsection{File table for city
 administrations}\label{file-table-for-city-administrations}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_csvInputFiles\_CA }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
-  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
-  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
-  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_CA\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
-                \StringTok{"rdata\_CA\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
-                \StringTok{"rdata\_CA\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{,}
-                \StringTok{"rdata\_CA\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}28.csv"}\NormalTok{),}
-  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
+  \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}env\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}soc\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}eco\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}crit\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{descriptions} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}}\PY{p}{)}
+\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{file-table-for-non-governmental-organisations}{%
+    \hypertarget{file-table-for-non-governmental-organizations}{%
 \subsection{File table for non-governmental
-organisations}\label{file-table-for-non-governmental-organisations}}
+organizations}\label{file-table-for-non-governmental-organizations}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_csvInputFiles\_NGO }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
-  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
-  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
-  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_NGO\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
-                \StringTok{"rdata\_NGO\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
-                \StringTok{"rdata\_NGO\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{,}
-                \StringTok{"rdata\_NGO\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}40.csv"}\NormalTok{),}
-  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
+  \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}env\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}soc\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}eco\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}crit\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{descriptions} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}}\PY{p}{)}
+\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{file-table-for-practitioners-and-experts}{%
+    \hypertarget{file-table-for-practitioners-and-experts}{%
 \subsection{File table for practitioners and
 experts}\label{file-table-for-practitioners-and-experts}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_csvInputFiles\_PE }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
-  \AttributeTok{file\_idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}
-  \AttributeTok{keys =} \FunctionTok{c}\NormalTok{(}\StringTok{"env"}\NormalTok{, }\StringTok{"soc"}\NormalTok{, }\StringTok{"eco"}\NormalTok{, }\StringTok{"crit"}\NormalTok{),}
-  \AttributeTok{filenames =} \FunctionTok{c}\NormalTok{(}\StringTok{"rdata\_PE\_env\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{,}
-                \StringTok{"rdata\_PE\_soc\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{,}
-                \StringTok{"rdata\_PE\_eco\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{,}
-                \StringTok{"rdata\_PE\_crit\_AHP\_essbare\_Stadt\_2022{-}03{-}18\_10{-}41.csv"}\NormalTok{),}
-  \AttributeTok{descriptions =} \FunctionTok{c}\NormalTok{(}\StringTok{"environmental sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"social sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"economic sub{-}criteria"}\NormalTok{,}
-                   \StringTok{"criteria (main criteria)"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
+  \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}env\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}soc\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}eco\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{,}
+                \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}crit\PYZus{}AHP\PYZus{}essbare\PYZus{}Stadt\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{descriptions} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
+                   \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}}\PY{p}{)}
+\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}{%
+    \hypertarget{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}{%
 \section{\texorpdfstring{Exploit datasets of own survey with package
 \texttt{ahpsurvey} for each group of
 participants}{Exploit datasets of own survey with package ahpsurvey for each group of participants}}\label{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_attributes\_labels\_all }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
-  \AttributeTok{idx =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{,}
-  \AttributeTok{attr =} \FunctionTok{c}\NormalTok{(}\StringTok{"Klima"}\NormalTok{, }\StringTok{"BioV"}\NormalTok{, }\StringTok{"KlW"}\NormalTok{,}
-           \StringTok{"Wiss"}\NormalTok{, }\StringTok{"Gem"}\NormalTok{, }\StringTok{"Bet"}\NormalTok{,}
-           \StringTok{"Quali"}\NormalTok{, }\StringTok{"WSK"}\NormalTok{, }\StringTok{"Bez"}\NormalTok{,}
-           \StringTok{"Oeko"}\NormalTok{, }\StringTok{"Soz"}\NormalTok{, }\StringTok{"Wirt"}\NormalTok{),}
-  \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Klima"}\NormalTok{, }\StringTok{"Biologische Vielfalt"}\NormalTok{, }\StringTok{"Kreislaufwirtschaft"}\NormalTok{,}
-             \StringTok{"Wissensvermittlung"}\NormalTok{, }\StringTok{"Gemeinschaftsbildung"}\NormalTok{, }\StringTok{"Beteiligung"}\NormalTok{,}
-             \StringTok{"Lebensmittelqualitaet"}\NormalTok{, }\StringTok{"lokale Wertschoepfungsketten"}\NormalTok{, }\StringTok{"Bezahlbarkeit"}\NormalTok{,}
-             \StringTok{"Oekologisch"}\NormalTok{, }\StringTok{"Sozial"}\NormalTok{, }\StringTok{"Wirtschaftlich"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
+  \PY{n}{idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{12}\PY{p}{,}
+  \PY{n}{attr} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Klima\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{BioV\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{KlW\PYZdq{}}\PY{p}{,}
+           \PY{l+s}{\PYZdq{}}\PY{l+s}{Wiss\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gem\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Bet\PYZdq{}}\PY{p}{,}
+           \PY{l+s}{\PYZdq{}}\PY{l+s}{Quali\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{WSK\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Bez\PYZdq{}}\PY{p}{,}
+           \PY{l+s}{\PYZdq{}}\PY{l+s}{Oeko\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Soz\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wirt\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{labels} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Klima\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Biologische Vielfalt\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Kreislaufwirtschaft\PYZdq{}}\PY{p}{,}
+             \PY{l+s}{\PYZdq{}}\PY{l+s}{Wissensvermittlung\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gemeinschaftsbildung\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Beteiligung\PYZdq{}}\PY{p}{,}
+             \PY{l+s}{\PYZdq{}}\PY{l+s}{Lebensmittelqualitaet\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{lokale Wertschoepfungsketten\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Bezahlbarkeit\PYZdq{}}\PY{p}{,}
+             \PY{l+s}{\PYZdq{}}\PY{l+s}{Oekologisch\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Sozial\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Wirtschaftlich\PYZdq{}}\PY{p}{)}
+\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{all-participants}{%
+    \hypertarget{all-participants}{%
 \subsection{All participants}\label{all-participants}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
-\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
+\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
 
-\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"all"}
+\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{all\PYZdq{}}
 
-\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
 
-\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_all) ) \{}
-  \CommentTok{\# create data frame from current input CSV file}
-\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_all[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
+  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
-\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
-\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
-  \CommentTok{\# shift row interval for next iteration}
-\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
-\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
+  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
+  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
+  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
+  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
   
-  \CommentTok{\# generate data frame with eigentrue values (weights) }
-\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
+  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
   
-  \CommentTok{\# generate an array with consistency ratios}
-\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
-  \CommentTok{\# generate a extended data frame with consistency ratios}
-\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
-\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_all[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
+  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
+  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
   
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
-  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
-\NormalTok{\}}
+  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\PY{p}{\PYZcb{}}
 
-\CommentTok{\# extend file name by path}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\PY{c+c1}{\PYZsh{} extend file name by path}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
 
-\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
-\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
-            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
-            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
+\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
+            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
+            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{list\_gmean }\OtherTok{\textless{}{-}} \FunctionTok{func\_aggpref\_gmean}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{25}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{list\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}aggpref\PYZus{}gmean}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
 
-\NormalTok{df\_gmean }\OtherTok{\textless{}{-}} \FunctionTok{func\_norm\_gmean}\NormalTok{(list\_gmean)}
+\PY{n}{df\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}norm\PYZus{}gmean}\PY{p}{(}\PY{n}{list\PYZus{}gmean}\PY{p}{)}
 
-\NormalTok{df\_gmean}
-\end{Highlighting}
-\end{Shaded}
+\PY{n}{df\PYZus{}gmean}
+\end{Verbatim}
+\end{tcolorbox}
 
-\begin{verbatim}
-##      gmean.raw gmean.norm
-## Oeko 0.3739039  0.4179807
-## Soz  0.3023657  0.3380094
-## Wirt 0.2182787  0.2440099
-## Sum  0.8945482  1.0000000
-\end{verbatim}
+    A data.frame: 4 × 2
+\begin{tabular}{r|ll}
+  & gmean.raw & gmean.norm\\
+  & <dbl> & <dbl>\\
+\hline
+	Oeko & 0.3739039 & 0.4179807\\
+	Soz & 0.3023657 & 0.3380094\\
+	Wirt & 0.2182787 & 0.2440099\\
+	Sum & 0.8945482 & 1.0000000\\
+\end{tabular}
 
-\hypertarget{participants-of-city-administrations}{%
+
+    
+    \hypertarget{participants-of-city-administrations}{%
 \subsection{Participants of city
 administrations}\label{participants-of-city-administrations}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
-\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{26}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
+\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
 
-\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"CA"}
+\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CA\PYZdq{}}
 
-\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
 
-\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_CA) ) \{}
-  \CommentTok{\# create data frame from current input CSV file}
-\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_CA[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
+  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
-\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
-\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
-  \CommentTok{\# shift row interval for next iteration}
-\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
-\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
+  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
+  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
+  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
+  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
   
-  \CommentTok{\# generate data frame with eigentrue values (weights) }
-\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
+  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
   
-  \CommentTok{\# generate an array with consistency ratios}
-\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
-  \CommentTok{\# generate a extended data frame with consistency ratios}
-\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
-\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_CA[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
+  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
+  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
   
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
-  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
-\NormalTok{\}}
+  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\PY{p}{\PYZcb{}}
 
-\CommentTok{\# extend file name by path}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\PY{c+c1}{\PYZsh{} extend file name by path}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
 
-\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
-\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
-            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
-            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
+\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
+            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
+            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{participants-of-non-governmental-organisations}{%
+    \hypertarget{participants-of-non-governmental-organizations}{%
 \subsection{Participants of non-governmental
-organisations}\label{participants-of-non-governmental-organisations}}
+organizations}\label{participants-of-non-governmental-organizations}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
-\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{27}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
+\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
 
-\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"NGO"}
+\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{NGO\PYZdq{}}
 
-\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
 
-\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_NGO) ) \{}
-  \CommentTok{\# create data frame from current input CSV file}
-\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_NGO[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
+  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
-\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
-\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
-  \CommentTok{\# shift row interval for next iteration}
-\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
-\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
+  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
+  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
+  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
+  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
   
-  \CommentTok{\# generate data frame with eigentrue values (weights) }
-\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
+  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
   
-  \CommentTok{\# generate an array with consistency ratios}
-\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
-  \CommentTok{\# generate a extended data frame with consistency ratios}
-\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
-\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_NGO[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
+  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
+  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
   
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
-  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
-\NormalTok{\}}
+  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\PY{p}{\PYZcb{}}
 
-\CommentTok{\# extend file name by path}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\PY{c+c1}{\PYZsh{} extend file name by path}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
 
-\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
-\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
-            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
-            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
+\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
+            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
+            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{participants-of-practitioners-and-experts}{%
+    \hypertarget{participants-of-practitioners-and-experts}{%
 \subsection{Participants of practitioners and
 experts}\label{participants-of-practitioners-and-experts}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{row\_start }\OtherTok{=} \DecValTok{1}
-\NormalTok{row\_end }\OtherTok{=} \DecValTok{3}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{28}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
+\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
 
-\NormalTok{str\_participants\_group }\OtherTok{=} \StringTok{"PE"}
+\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{PE\PYZdq{}}
 
-\NormalTok{df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{()}
+\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
 
-\ControlFlowTok{for}\NormalTok{ ( file\_idx }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_csvInputFiles\_PE) ) \{}
-  \CommentTok{\# create data frame from current input CSV file}
-\NormalTok{  str\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_input\_path, df\_csvInputFiles\_PE[file\_idx, filenames], }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-\NormalTok{  df\_processed\_survey\_data }\OtherTok{\textless{}{-}} \FunctionTok{func\_readCSVdata\_to\_dataframe}\NormalTok{(str\_filename)}
+\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
+  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# create vectors for attributes and labels from a subset of data frame \textquotesingle{}df\_attributes\_labels\_all\textquotesingle{}}
-\NormalTok{  vec\_atts }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), attr]}
-\NormalTok{  vec\_labels }\OtherTok{\textless{}{-}}\NormalTok{ df\_attributes\_labels\_all[}\FunctionTok{c}\NormalTok{(row\_start}\SpecialCharTok{:}\NormalTok{row\_end), labels]}
-  \CommentTok{\# shift row interval for next iteration}
-\NormalTok{  row\_start }\OtherTok{=}\NormalTok{ row\_start }\SpecialCharTok{+} \DecValTok{3}
-\NormalTok{  row\_end }\OtherTok{=}\NormalTok{ row\_end }\SpecialCharTok{+} \DecValTok{3}
+  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
+  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
+  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
+  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
+  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
   
-  \CommentTok{\# generate data frame with eigentrue values (weights) }
-\NormalTok{  df\_eigentrue\_weights }\OtherTok{\textless{}{-}} \FunctionTok{func\_genEigentrue\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
+  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
   
-  \CommentTok{\# generate an array with consistency ratios}
-\NormalTok{  arr\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_arr}\NormalTok{(df\_processed\_survey\_data, vec\_atts)}
+  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
-  \CommentTok{\# generate a extended data frame with consistency ratios}
-\NormalTok{  consistency\_thres }\OtherTok{=} \FloatTok{0.1}
-\NormalTok{  str\_CRlabel }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"CR"}\NormalTok{, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  df\_CRs }\OtherTok{\textless{}{-}} \FunctionTok{func\_genCR\_to\_dataframe}\NormalTok{(df\_processed\_survey\_data, vec\_atts, arr\_CRs, consistency\_thres, str\_CRlabel)}
+  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
+  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
+  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
   
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"ahp\_violin"}\NormalTok{, str\_participants\_group, df\_csvInputFiles\_PE[file\_idx, keys], }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_image\_filename, }\StringTok{".png"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{  str\_image\_filename }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_image\_filename, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
-  \FunctionTok{func\_visuPriosCRs}\NormalTok{(df\_processed\_survey\_data, df\_CRs, arr\_CRs, consistency\_thres, vec\_atts, df\_eigentrue\_weights, vec\_labels, str\_image\_filename)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
   
-  \CommentTok{\# img \textless{}{-} image\_graph(width = 800, height = 800, res = 24)}
-  \CommentTok{\# img \textless{}{-} image\_read(str\_image\_filename)}
-  \CommentTok{\# print(img)}
+  \PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}graph(width = 800, height = 800, res = 24)}
+  \PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}read(str\PYZus{}image\PYZus{}filename)}
+  \PY{c+c1}{\PYZsh{} print(img)}
   
-  \CommentTok{\# combine data frames of eigentrue values (weights) with consistency ratios}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_eigentrue\_weights)}
-  \CommentTok{\# add only specific columns of \textquotesingle{}df\_CRs\textquotesingle{} (omit column \textquotesingle{}row\_id\textquotesingle{})}
-\NormalTok{  df\_outputTable }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(df\_outputTable, df\_CRs[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)])}
-\NormalTok{\}}
+  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
+  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+\PY{p}{\PYZcb{}}
 
-\CommentTok{\# extend file name by path}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"rdata"}\NormalTok{, str\_participants\_group, }\StringTok{"eigentrue\_CRs"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"\_"}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_CSVfilename\_output, }\StringTok{".csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
-\NormalTok{str\_CSVfilename\_output }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(str\_output\_path, str\_CSVfilename\_output, }\AttributeTok{sep=}\StringTok{"/"}\NormalTok{)}
+\PY{c+c1}{\PYZsh{} extend file name by path}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
 
-\CommentTok{\# write data frame \textquotesingle{}df\_outputTable\textquotesingle{} to CSV file}
-\FunctionTok{write.table}\NormalTok{(df\_outputTable, }\AttributeTok{file =}\NormalTok{ str\_CSVfilename\_output,}
-            \AttributeTok{fileEncoding =} \StringTok{"UTF{-}8"}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{,}
-            \AttributeTok{col.names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\AttributeTok{quote =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
+\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
+            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
+            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\hypertarget{playground-for-inserting-images}{%
+    \hypertarget{playground-for-inserting-images}{%
 \subsection{Playground for inserting
 images}\label{playground-for-inserting-images}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# install.packages(\textquotesingle{}magick\textquotesingle{})}
-\FunctionTok{library}\NormalTok{(magick)}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{29}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} install.packages(\PYZsq{}magick\PYZsq{})}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{magick}\PY{p}{)}
 
-\CommentTok{\# img \textless{}{-} image\_read(str\_image\_filename)}
-\CommentTok{\# image\_info(img)}
-\CommentTok{\# img \textless{}{-} image\_scale(img, "600")}
-\NormalTok{img }\OtherTok{\textless{}{-}} \FunctionTok{image\_graph}\NormalTok{(}\AttributeTok{width =} \DecValTok{800}\NormalTok{, }\AttributeTok{height =} \DecValTok{800}\NormalTok{, }\AttributeTok{res =} \DecValTok{24}\NormalTok{)}
-\NormalTok{img }\OtherTok{\textless{}{-}} \FunctionTok{image\_read}\NormalTok{(str\_image\_filename)}
+\PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}read(str\PYZus{}image\PYZus{}filename)}
+\PY{c+c1}{\PYZsh{} image\PYZus{}info(img)}
+\PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}scale(img, \PYZdq{}600\PYZdq{})}
+\PY{n}{img} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{image\PYZus{}graph}\PY{p}{(}\PY{n}{width} \PY{o}{=} \PY{l+m}{400}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{400}\PY{p}{,} \PY{n}{res} \PY{o}{=} \PY{l+m}{12}\PY{p}{)}
+\PY{n}{img} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{image\PYZus{}read}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
  
-\CommentTok{\# print(img)}
-\FunctionTok{image\_display}\NormalTok{(img)}
-\end{Highlighting}
-\end{Shaded}
+\PY{c+c1}{\PYZsh{} print(img)}
+\PY{n+nf}{image\PYZus{}display}\PY{p}{(}\PY{n}{img}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\includegraphics[width=29.17in]{ahpsurvey_all_files/figure-latex/unnamed-chunk-26-1}
+    \begin{Verbatim}[commandchars=\\\{\}, frame=single, framerule=2mm, rulecolor=\color{outerrorbackground}]
+Error in magick\_image\_display(image, animate): R: unable to open X server `' @ error/animate.c/AnimateImages/301
+Traceback:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
-\CommentTok{\# }
-\CommentTok{\# \# Produce graphic}
-\CommentTok{\# fig \textless{}{-} image\_graph(width = 800, height = 600, res = 96)}
-\CommentTok{\# ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
-\CommentTok{\# invisible(dev.off())}
-\CommentTok{\# }
-\CommentTok{\# print(fig)}
-\end{Highlighting}
-\end{Shaded}
+1. image\_display(img)
+2. magick\_image\_display(image, animate)
+    \end{Verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# library(ggplot2)}
-\CommentTok{\# \# install.packages("png")}
-\CommentTok{\# library(png)}
-\CommentTok{\# }
-\CommentTok{\# img1 \textless{}{-} readPNG(str\_image\_filename, native = TRUE, info = FALSE)}
-\CommentTok{\# print(img1)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{30}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} \PYZsh{} ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
+\PY{c+c1}{\PYZsh{} }
+\PY{c+c1}{\PYZsh{} \PYZsh{} Produce graphic}
+\PY{c+c1}{\PYZsh{} fig \PYZlt{}\PYZhy{} image\PYZus{}graph(width = 800, height = 600, res = 96)}
+\PY{c+c1}{\PYZsh{} ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
+\PY{c+c1}{\PYZsh{} invisible(dev.off())}
+\PY{c+c1}{\PYZsh{} }
+\PY{c+c1}{\PYZsh{} print(fig)}
+\end{Verbatim}
+\end{tcolorbox}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# \#install.packages("rsvg")}
-\CommentTok{\# library(rsvg)}
-\CommentTok{\# library(magick)}
-\CommentTok{\# tiger \textless{}{-} image\_read\_svg(\textquotesingle{}http://jeroen.github.io/images/tiger.svg\textquotesingle{}, width = 350)}
-\CommentTok{\# print(tiger)}
-\end{Highlighting}
-\end{Shaded}
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{31}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} library(ggplot2)}
+\PY{c+c1}{\PYZsh{} \PYZsh{} install.packages(\PYZdq{}png\PYZdq{})}
+\PY{c+c1}{\PYZsh{} library(png)}
+\PY{c+c1}{\PYZsh{} }
+\PY{c+c1}{\PYZsh{} img1 \PYZlt{}\PYZhy{} readPNG(str\PYZus{}image\PYZus{}filename, native = TRUE, info = FALSE)}
+\PY{c+c1}{\PYZsh{} print(img1)}
+\end{Verbatim}
+\end{tcolorbox}
 
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{32}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} \PYZsh{}install.packages(\PYZdq{}rsvg\PYZdq{})}
+\PY{c+c1}{\PYZsh{} library(rsvg)}
+\PY{c+c1}{\PYZsh{} library(magick)}
+\PY{c+c1}{\PYZsh{} tiger \PYZlt{}\PYZhy{} image\PYZus{}read\PYZus{}svg(\PYZsq{}http://jeroen.github.io/images/tiger.svg\PYZsq{}, width = 350)}
+\PY{c+c1}{\PYZsh{} print(tiger)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    % Use bibliography
+    \printbibheading[heading=bibnumbered]
+    \printbibliography[heading=subbibliography,keyword={URL},title={Online references}]
+    \printbibliography[heading=subbibliography,keyword={book},title={Books, technical reports and others}]
+    %\printbibliography[heading=subbibliography,title={Others}]
+    
 
 \end{document}
