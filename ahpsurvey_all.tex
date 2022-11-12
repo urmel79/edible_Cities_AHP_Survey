@@ -492,9 +492,10 @@ tables (\texttt{data.table} inherits from \texttt{data.frame}). Install
 and load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{1}{\boxspacing}
+\prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}data.table\PYZdq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{data.table}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{data.table}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -507,9 +508,10 @@ The package \texttt{ggplot2} is used for plotting diagrams. Install and
 load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{2}{\boxspacing}
+\prompt{In}{incolor}{34}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}ggplot2\PYZdq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{ggplot2}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ggplot2}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -519,9 +521,10 @@ load it:
 function}{Load tidyr for gather() function}}\label{load-tidyr-for-gather-function}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{3}{\boxspacing}
+\prompt{In}{incolor}{35}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}tidyr\PYZdq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -535,9 +538,10 @@ functions like \texttt{select()}, \texttt{mutate()} and
 \texttt{left\_join()}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{5}{\boxspacing}
+\prompt{In}{incolor}{36}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}dplyr\PYZdq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{dplyr}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -549,9 +553,10 @@ manipulation}{Load magick for image manipulation}}\label{load-magick-for-image-m
 The library \texttt{magick} is the R API to \emph{ImageMagick}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{7}{\boxspacing}
+\prompt{In}{incolor}{37}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZsq{}magick\PYZsq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{magick}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{magick}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -563,16 +568,17 @@ coding}\label{use-pipes-for-better-coding}}
 \textbf{HINT:} The pipe functionality is already available by loading
 the library \texttt{tidyr} - so you don't have to load it explicitly.
 
-What pipes like `\%\textgreater\%' are and how to use them is described
-here: \url{https://statistik-dresden.de/archives/15679}.
+What pipes like \texttt{\%\textgreater{}\%} are and how to use them is
+described here: \url{https://statistik-dresden.de/archives/15679}.
 
 Before using pipes in R, you have to install and load the package
 \texttt{magrittr}:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\boxspacing}
+\prompt{In}{incolor}{38}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}magrittr\PYZdq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{magrittr}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -585,9 +591,10 @@ The package \texttt{ahpsurvey} contains all the necessary mathematical
 and statistical methods to run the analytical hierarchy process (AHP).
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\boxspacing}
+\prompt{In}{incolor}{39}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}ahpsurvey\PYZdq{})}
+\PY{n+nf}{require}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
@@ -694,37 +701,39 @@ consistency
 ratios}\label{function-for-visualizing-individual-priorities-and-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{64}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}visuPriosCRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr\PYZus{}sel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
     \PY{n+nf}{select}\PY{p}{(}\PY{n}{arr\PYZus{}cr.dum}\PY{p}{,} \PY{n}{rowid}\PY{p}{)}
 
-  \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{atts} \PY{o}{=} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
-  \PY{n+nf}{ahp.indpref}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
-  \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}eigentrue}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{left\PYZus{}join}\PY{p}{(}\PY{n}{df\PYZus{}cr\PYZus{}sel}\PY{p}{,} \PY{n}{by} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{rowid\PYZsq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{gather}\PY{p}{(}\PY{n+nf}{all\PYZus{}of}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{)}\PY{p}{,} \PY{n}{key} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{var\PYZdq{}}\PY{p}{,} \PY{n}{value} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{pref\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{ggplot}\PY{p}{(}\PY{n+nf}{aes}\PY{p}{(}\PY{n}{x} \PY{o}{=} \PY{n}{var}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{pref}\PY{p}{)}\PY{p}{)} \PY{o}{+} 
-  \PY{n+nf}{geom\PYZus{}violin}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0.6}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.8}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{transparent\PYZdq{}}\PY{p}{,} \PY{n}{fill} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{gray\PYZdq{}}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{geom\PYZus{}jitter}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0.6}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{0}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.1}\PY{p}{,} \PY{n+nf}{aes}\PY{p}{(}\PY{n}{color} \PY{o}{=} \PY{n}{arr\PYZus{}cr.dum}\PY{p}{)}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{geom\PYZus{}boxplot}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.3}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}808080\PYZdq{}}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{scale\PYZus{}x\PYZus{}discrete}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Attribute\PYZdq{}}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{vec\PYZus{}labels}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{scale\PYZus{}y\PYZus{}continuous}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Weight (dominant eigenvalue)\PYZdq{}}\PY{p}{,} 
-                     \PY{n}{labels} \PY{o}{=} \PY{n}{scales}\PY{o}{::}\PY{n}{percent}\PY{p}{,} 
-                     \PY{n}{breaks} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{n+nf}{seq}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{0.7}\PY{p}{,}\PY{l+m}{0.1}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{guides}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{n+nf}{guide\PYZus{}legend}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{k+kc}{NULL}\PY{p}{)}\PY{p}{)}\PY{o}{+}
-  \PY{n+nf}{scale\PYZus{}color\PYZus{}discrete}\PY{p}{(}\PY{n}{breaks} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{1}\PY{p}{)}\PY{p}{,} 
-                       \PY{n}{labels} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR \PYZgt{}\PYZdq{}}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{)}\PY{p}{,} 
-                                  \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR \PYZlt{}\PYZdq{}}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{labs}\PY{p}{(}\PY{k+kc}{NULL}\PY{p}{,} \PY{n}{caption} \PY{o}{=} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{n =\PYZdq{}}\PY{p}{,} \PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{,\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Mean CR =\PYZdq{}}\PY{p}{,}
-                           \PY{n+nf}{round}\PY{p}{(}\PY{n+nf}{mean}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{theme\PYZus{}minimal}\PY{p}{(}\PY{p}{)} \PY{o}{+}
-  \PY{n+nf}{ggtitle}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Violins displaying priorities and consistency ratios\PYZdq{}}\PY{p}{)}
+  \PY{n}{plot} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+      \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{atts} \PY{o}{=} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+      \PY{n+nf}{ahp.indpref}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
+      \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}eigentrue}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+      \PY{n+nf}{left\PYZus{}join}\PY{p}{(}\PY{n}{df\PYZus{}cr\PYZus{}sel}\PY{p}{,} \PY{n}{by} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{rowid\PYZsq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+      \PY{n+nf}{gather}\PY{p}{(}\PY{n+nf}{all\PYZus{}of}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{)}\PY{p}{,} \PY{n}{key} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{var\PYZdq{}}\PY{p}{,} \PY{n}{value} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{pref\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
+      \PY{n+nf}{ggplot}\PY{p}{(}\PY{n+nf}{aes}\PY{p}{(}\PY{n}{x} \PY{o}{=} \PY{n}{var}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{pref}\PY{p}{)}\PY{p}{)} \PY{o}{+} 
+      \PY{n+nf}{geom\PYZus{}violin}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0.6}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.8}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{transparent\PYZdq{}}\PY{p}{,} \PY{n}{fill} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{gray\PYZdq{}}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{geom\PYZus{}jitter}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0.6}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{0}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.1}\PY{p}{,} \PY{n+nf}{aes}\PY{p}{(}\PY{n}{color} \PY{o}{=} \PY{n}{arr\PYZus{}cr.dum}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{geom\PYZus{}boxplot}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m}{0}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{0.3}\PY{p}{,} \PY{n}{color} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZsh{}808080\PYZdq{}}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{scale\PYZus{}x\PYZus{}discrete}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Attribute\PYZdq{}}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{vec\PYZus{}labels}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{scale\PYZus{}y\PYZus{}continuous}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Weight (dominant eigenvalue)\PYZdq{}}\PY{p}{,} 
+                         \PY{n}{labels} \PY{o}{=} \PY{n}{scales}\PY{o}{::}\PY{n}{percent}\PY{p}{,} 
+                         \PY{n}{breaks} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{n+nf}{seq}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{0.7}\PY{p}{,}\PY{l+m}{0.1}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{guides}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{n+nf}{guide\PYZus{}legend}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{k+kc}{NULL}\PY{p}{)}\PY{p}{)}\PY{o}{+}
+      \PY{n+nf}{scale\PYZus{}color\PYZus{}discrete}\PY{p}{(}\PY{n}{breaks} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{1}\PY{p}{)}\PY{p}{,} 
+                           \PY{n}{labels} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR \PYZgt{}\PYZdq{}}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{)}\PY{p}{,} 
+                                      \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR \PYZlt{}\PYZdq{}}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{labs}\PY{p}{(}\PY{k+kc}{NULL}\PY{p}{,} \PY{n}{caption} \PY{o}{=} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{n =\PYZdq{}}\PY{p}{,} \PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{,\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Mean CR =\PYZdq{}}\PY{p}{,}
+                               \PY{n+nf}{round}\PY{p}{(}\PY{n+nf}{mean}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{theme\PYZus{}minimal}\PY{p}{(}\PY{p}{)} \PY{o}{+}
+      \PY{n+nf}{ggtitle}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Violins displaying priorities and consistency ratios\PYZdq{}}\PY{p}{)}
 
   \PY{c+c1}{\PYZsh{} save generated ggplot graphic to a PNG image file}
   \PY{n+nf}{ggsave}\PY{p}{(}\PY{n}{filename} \PY{o}{=} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m}{7}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{7}\PY{p}{,} \PY{n}{dpi} \PY{o}{=} \PY{l+m}{300}\PY{p}{)}
+
+  \PY{n+nf}{print}\PY{p}{(}\PY{n}{plot}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
 \end{tcolorbox}
@@ -920,7 +929,7 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 \subsection{All participants}\label{all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
+\prompt{In}{incolor}{65}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -975,8 +984,32 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_0.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of all participants}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_1.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of all participants}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_2.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of all participants}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_3.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of all participants}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{25}{\boxspacing}
+\prompt{In}{incolor}{67}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{list\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}aggpref\PYZus{}gmean}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
 
@@ -1004,7 +1037,7 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 administrations}\label{participants-of-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{26}{\boxspacing}
+\prompt{In}{incolor}{68}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1059,12 +1092,36 @@ administrations}\label{participants-of-city-administrations}}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_45_0.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_45_1.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_45_2.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_45_3.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
     \hypertarget{participants-of-non-governmental-organizations}{%
 \subsection{Participants of non-governmental
 organizations}\label{participants-of-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{27}{\boxspacing}
+\prompt{In}{incolor}{69}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1119,12 +1176,36 @@ organizations}\label{participants-of-non-governmental-organizations}}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_0.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_1.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_2.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_3.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
     \hypertarget{participants-of-practitioners-and-experts}{%
 \subsection{Participants of practitioners and
 experts}\label{participants-of-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\boxspacing}
+\prompt{In}{incolor}{70}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1183,79 +1264,30 @@ experts}\label{participants-of-practitioners-and-experts}}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{playground-for-inserting-images}{%
-\subsection{Playground for inserting
-images}\label{playground-for-inserting-images}}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{29}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} install.packages(\PYZsq{}magick\PYZsq{})}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{magick}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}read(str\PYZus{}image\PYZus{}filename)}
-\PY{c+c1}{\PYZsh{} image\PYZus{}info(img)}
-\PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}scale(img, \PYZdq{}600\PYZdq{})}
-\PY{n}{img} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{image\PYZus{}graph}\PY{p}{(}\PY{n}{width} \PY{o}{=} \PY{l+m}{400}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m}{400}\PY{p}{,} \PY{n}{res} \PY{o}{=} \PY{l+m}{12}\PY{p}{)}
-\PY{n}{img} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{image\PYZus{}read}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
- 
-\PY{c+c1}{\PYZsh{} print(img)}
-\PY{n+nf}{image\PYZus{}display}\PY{p}{(}\PY{n}{img}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}, frame=single, framerule=2mm, rulecolor=\color{outerrorbackground}]
-Error in magick\_image\_display(image, animate): R: unable to open X server `' @ error/animate.c/AnimateImages/301
-Traceback:
-
-1. image\_display(img)
-2. magick\_image\_display(image, animate)
-    \end{Verbatim}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{30}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} \PYZsh{} ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
-\PY{c+c1}{\PYZsh{} }
-\PY{c+c1}{\PYZsh{} \PYZsh{} Produce graphic}
-\PY{c+c1}{\PYZsh{} fig \PYZlt{}\PYZhy{} image\PYZus{}graph(width = 800, height = 600, res = 96)}
-\PY{c+c1}{\PYZsh{} ggplot2::qplot(factor(cyl), data = mtcars, fill = factor(gear))}
-\PY{c+c1}{\PYZsh{} invisible(dev.off())}
-\PY{c+c1}{\PYZsh{} }
-\PY{c+c1}{\PYZsh{} print(fig)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{31}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} library(ggplot2)}
-\PY{c+c1}{\PYZsh{} \PYZsh{} install.packages(\PYZdq{}png\PYZdq{})}
-\PY{c+c1}{\PYZsh{} library(png)}
-\PY{c+c1}{\PYZsh{} }
-\PY{c+c1}{\PYZsh{} img1 \PYZlt{}\PYZhy{} readPNG(str\PYZus{}image\PYZus{}filename, native = TRUE, info = FALSE)}
-\PY{c+c1}{\PYZsh{} print(img1)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{32}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} \PYZsh{}install.packages(\PYZdq{}rsvg\PYZdq{})}
-\PY{c+c1}{\PYZsh{} library(rsvg)}
-\PY{c+c1}{\PYZsh{} library(magick)}
-\PY{c+c1}{\PYZsh{} tiger \PYZlt{}\PYZhy{} image\PYZus{}read\PYZus{}svg(\PYZsq{}http://jeroen.github.io/images/tiger.svg\PYZsq{}, width = 350)}
-\PY{c+c1}{\PYZsh{} print(tiger)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-
-\end{Verbatim}
-\end{tcolorbox}
-
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_0.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_1.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_2.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
+    \begin{figure}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_3.png}\end{center}
+        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
+        \label{fig:violins_all_attributes}
+    \end{figure}
+    
 
     % Add a bibliography block to the postdoc
     
