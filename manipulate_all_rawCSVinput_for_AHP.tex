@@ -517,7 +517,7 @@ CSV data (raw data from
 survey)}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data-raw-data-from-survey}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{3}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -532,23 +532,23 @@ survey)}\label{create-data-frame-table-handling-the-file-names-of-input-csv-data
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{practitioners and experts\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
 
-\PY{n}{df\PYZus{}csvInputFiles}
+\PY{n+nf}{print}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    A data.table: 4 × 4
-\begin{tabular}{llll}
- file\_idx & keys & filenames & descriptions\\
- <int> & <chr> & <chr> & <chr>\\
-\hline
-	 1 & all & rdata\_all\_AHP\_essbare\_Stadt\_2022-03-18\_09-53.csv & all target groups together         \\
-	 2 & CA  & rdata\_CA\_AHP\_essbare\_Stadt\_2022-03-18\_10-28.csv  & from city administrations          \\
-	 3 & NGO & rdata\_NGO\_AHP\_essbare\_Stadt\_2022-03-18\_10-40.csv & from non-governmental organisations\\
-	 4 & PE  & rdata\_PE\_AHP\_essbare\_Stadt\_2022-03-18\_10-41.csv  & practitioners and experts          \\
-\end{tabular}
+    \begin{Verbatim}[commandchars=\\\{\}]
+   file\_idx keys                                        filenames
+1:        1  all rdata\_all\_AHP\_essbare\_Stadt\_2022-03-18\_09-53.csv
+2:        2   CA  rdata\_CA\_AHP\_essbare\_Stadt\_2022-03-18\_10-28.csv
+3:        3  NGO rdata\_NGO\_AHP\_essbare\_Stadt\_2022-03-18\_10-40.csv
+4:        4   PE  rdata\_PE\_AHP\_essbare\_Stadt\_2022-03-18\_10-41.csv
+                          descriptions
+1:          all target groups together
+2:           from city administrations
+3: from non-governmental organisations
+4:           practitioners and experts
+    \end{Verbatim}
 
-
-    
     \hypertarget{functions-for-manipulation-of-raw-csv-input-data-of-survey}{%
 \section{Functions for manipulation of raw CSV input data of
 survey}\label{functions-for-manipulation-of-raw-csv-input-data-of-survey}}
