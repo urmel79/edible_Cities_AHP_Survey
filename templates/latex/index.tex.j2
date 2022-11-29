@@ -52,11 +52,20 @@
     % Prevent overflowing lines due to hard-to-break entities
     \sloppy
 
+((*- if nb.metadata["latex_metadata"]: -*))
+((*- if nb.metadata["latex_metadata"]["author"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author1"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author1"] -*))
+((*- endif *))
+((*- endif *))
+
     % Setup hyperref package
     \hypersetup{
       breaklinks=true,  % so long urls are correctly broken across lines
       bookmarksnumbered=true,
-      pdfauthor=((( nb.metadata["latex_metadata"]["author"] ))),
+      pdfauthor=((( nb_author ))),
       pdftitle=((( nb.metadata["latex_metadata"]["title"] ))),
       colorlinks=true,
       urlcolor=urlcolor,
@@ -104,6 +113,34 @@
 ((*- if nb.metadata["latex_metadata"]["affiliation"]: -*))
     \affil{((( nb.metadata["latex_metadata"]["affiliation"] )))}
 ((*- endif *))
+((*- endif *))
+
+((*- if nb.metadata["latex_metadata"]: -*))
+((*- if nb.metadata["latex_metadata"]["author1"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author1"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["affiliation1"]: -*))
+    ((*- set nb_affil = nb.metadata["latex_metadata"]["affiliation1"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["email1"]: -*))
+    ((*- set nb_email = nb.metadata["latex_metadata"]["email1"] -*))
+((*- endif *))
+\author[1]{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+\affil[1]{((( nb_affil )))}
+((*- endif *))
+
+((*- if nb.metadata["latex_metadata"]: -*))
+((*- if nb.metadata["latex_metadata"]["author2"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author2"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["affiliation2"]: -*))
+    ((*- set nb_affil = nb.metadata["latex_metadata"]["affiliation2"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["email2"]: -*))
+    ((*- set nb_email = nb.metadata["latex_metadata"]["email2"] -*))
+((*- endif *))
+\author[2]{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+\affil[2]{((( nb_affil )))}
 ((*- endif *))
 
 ((*- if nb.metadata["latex_metadata"]: -*))
