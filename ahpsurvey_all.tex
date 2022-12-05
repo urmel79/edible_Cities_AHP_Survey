@@ -178,7 +178,7 @@
 \author[1]{Bj\"orn Kasper (\href{mailto:kasper.bjoern@bgetem.de}{kasper.bjoern@bgetem.de})}
 \affil[1]{Berufsgenossenschaft Energie Textil Elektro Medienerzeugnisse}
 \author[2]{Henriette John (\href{mailto:h.john@ioer.de}{h.john@ioer.de})}
-\affil[2]{Leibniz-Institut für \"okologische Raumentwicklung}\date{\today; version 0.1 (pre-release)}
+\affil[2]{Leibniz Institute of Ecological Urban and Regional Development}\date{\today; version 0.1 (pre-release)}
 
 
     
@@ -468,7 +468,7 @@ to to publish the R program examples:
 Jupyter is a new \textbf{open source} alternative to the proprietary
 numerical software
 \href{https://en.wikipedia.org/wiki/Wolfram_Mathematica}{Mathematica}
-from \textbf{Wolfram Research} that is well on the way to becoming a
+from \textbf{Wolfram Research} that is well on the way to become a
 \textbf{standard for exchanging research results}
 (\cite{Scientific_Paper_obsolete_2018};
 \cite{Future_of_Research_Paper_2018}).
@@ -495,26 +495,28 @@ yet}\label{install-missing-packages-if-not-present-yet}}
 installed first with
 \texttt{apt\ install\ \textless{}package\ name\textgreater{}}.
 
-Dependencies for \texttt{magick}:\\
-- \texttt{libcurl4-openssl-dev} - \texttt{libmagick++-dev}
-
-Dependencies for \texttt{ahpsurvey}:\\
+Dependencies for package \texttt{ahpsurvey}:\\
 - R package \texttt{randomNames} (it depends on R ≥ 4.0, refer to
 \url{https://cran.r-project.org/web/packages/randomNames/index.html})
 
 Drawback for \textbf{Raspbian buster}: the dependency
 \texttt{randomNames} is not available for R v3.5.2 as it depends on R (≥
-4.0). Upgrading R following instruction on
+4.0). Upgrading R in Raspbian following the instruction on
 \url{https://cran.rstudio.com/bin/linux/debian/\#debian-buster-stable}
-do not work so far \ldots{}
+does not work so far \ldots{}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{3}{\boxspacing}
+\prompt{In}{incolor}{11}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{list.of.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data.table\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggplot2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{magick\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{magrittr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ahpsurvey\PYZdq{}}\PY{p}{)}
-\PY{n}{new.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{list.of.packages}\PY{p}{[}\PY{o}{!}\PY{p}{(}\PY{n}{list.of.packages} \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n+nf}{installed.packages}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Package\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{]}
-\PY{n+nf}{if}\PY{p}{(}\PY{n+nf}{length}\PY{p}{(}\PY{n}{new.packages}\PY{p}{)}\PY{p}{)} \PY{p}{\PYZob{}}
-    \PY{n+nf}{install.packages}\PY{p}{(}\PY{n}{new.packages}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} List of R packages that are used in this script}
+\PY{n}{list.of.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data.table\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggplot2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{magrittr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ahpsurvey\PYZdq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Query the already installed packages and save the missing ones in a new list}
+\PY{n}{missing.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{list.of.packages}\PY{p}{[}\PY{o}{!}\PY{p}{(}\PY{n}{list.of.packages} \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n+nf}{installed.packages}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Package\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{]}
+
+\PY{c+c1}{\PYZsh{} Install missing packages}
+\PY{n+nf}{if}\PY{p}{(}\PY{n+nf}{length}\PY{p}{(}\PY{n}{missing.packages}\PY{p}{)}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n+nf}{install.packages}\PY{p}{(}\PY{n}{missing.packages}\PY{p}{)}
 \PY{p}{\PYZcb{}} \PY{n}{else} \PY{p}{\PYZob{}}
     \PY{n+nf}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{All required packages are installed.\PYZdq{}}\PY{p}{)}
 \PY{p}{\PYZcb{}}
@@ -529,100 +531,68 @@ do not work so far \ldots{}
 \subsection{\texorpdfstring{Load package
 \texttt{data.table}}{Load package data.table}}\label{load-package-data.table}}
 
-The package \texttt{data.table} is used for reading and manipulating
-tables (\texttt{data.table} inherits from \texttt{data.frame}). Install
-and load it:
+The package \texttt{data.table} is used to read and manipulate tables
+(\texttt{data.table} inherits from \texttt{data.frame}). Install and
+load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{4}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{data.table}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{load-ggplot2}{%
-\subsection{\texorpdfstring{Load
-\texttt{ggplot2}}{Load ggplot2}}\label{load-ggplot2}}
+    \hypertarget{load-package-ggplot2}{%
+\subsection{\texorpdfstring{Load package
+\texttt{ggplot2}}{Load package ggplot2}}\label{load-package-ggplot2}}
 
-The package \texttt{ggplot2} is used for plotting diagrams. Install and
-load it:
+The package \texttt{ggplot2} is used to plot diagrams. Install and load
+it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{5}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ggplot2}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{load-tidyr-for-gather-function}{%
-\subsection{\texorpdfstring{Load \texttt{tidyr} for \emph{gather()}
-function}{Load tidyr for gather() function}}\label{load-tidyr-for-gather-function}}
+    \hypertarget{load-package-tidyr}{%
+\subsection{\texorpdfstring{Load package
+\texttt{tidyr}}{Load package tidyr}}\label{load-package-tidyr}}
+
+The package \texttt{tidyr} is used to \textbf{reshape} the dataframes
+and provides functions like \texttt{gather()} or \texttt{spread()}. Some
+examples for the application can be found here:
+\href{https://uc-r.github.io/tidyr}{Reshaping Your Data with
+tidyrReshaping Your Data with tidyr}.
+
+Install and load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{6}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{load-dplyr-for-data-manipulation}{%
-\subsection{\texorpdfstring{Load \texttt{dplyr} for data
-manipulation}{Load dplyr for data manipulation}}\label{load-dplyr-for-data-manipulation}}
+    \hypertarget{load-package-dplyr}{%
+\subsection{\texorpdfstring{Load package
+\texttt{dplyr}}{Load package dplyr}}\label{load-package-dplyr}}
 
-Load necessary library \texttt{dplyr} for data manipulation with
+The package \texttt{dplyr} is necessary to manipulate dataframes using
 functions like \texttt{select()}, \texttt{mutate()} and
-\texttt{left\_join()}.
+\texttt{left\_join()}. Install and load it:
+
+\textbf{Hint:} Setting the parameter \texttt{warn.conflicts=FALSE} when
+calling the \texttt{library()} function silences annoying messages about
+masked functions.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{7}{\boxspacing}
+\prompt{In}{incolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{)}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-Attache Paket: ‘dplyr’
-
-
-Die folgenden Objekte sind maskiert von ‘package:data.table’:
-
-    between, first, last
-
-
-Die folgenden Objekte sind maskiert von ‘package:stats’:
-
-    filter, lag
-
-
-Die folgenden Objekte sind maskiert von ‘package:base’:
-
-    intersect, setdiff, setequal, union
-
-
-    \end{Verbatim}
-
-    \hypertarget{load-magick-for-image-manipulation}{%
-\subsection{\texorpdfstring{Load \texttt{magick} for image
-manipulation}{Load magick for image manipulation}}\label{load-magick-for-image-manipulation}}
-
-The library \texttt{magick} is the R API to \emph{ImageMagick}.
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{8}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{magick}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-Linking to ImageMagick 6.9.10.23
-Enabled features: fontconfig, freetype, fftw, lcms, pango, webp, x11
-Disabled features: cairo, ghostscript, heic, raw, rsvg
-
-Using 16 threads
-
-    \end{Verbatim}
 
     \hypertarget{use-pipes-for-better-coding}{%
 \subsection{Use pipes for better
@@ -638,23 +608,11 @@ Before using pipes in R, you have to install and load the package
 \texttt{magrittr}:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\boxspacing}
+\prompt{In}{incolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{)}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-Attache Paket: ‘magrittr’
-
-
-Das folgende Objekt ist maskiert ‘package:tidyr’:
-
-    extract
-
-
-    \end{Verbatim}
 
     \hypertarget{load-package-ahpsurvey}{%
 \subsection{\texorpdfstring{Load package
@@ -664,7 +622,7 @@ The package \texttt{ahpsurvey} contains all the necessary mathematical
 and statistical methods to run the analytical hierarchy process (AHP).
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
 \end{Verbatim}
@@ -679,7 +637,7 @@ AHP}\label{functions-for-processing-ahp}}
 folders}\label{set-globally-used-input-and-output-folders}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\boxspacing}
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str\PYZus{}input\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}manipulated\PYZdq{}}
 \PY{n}{str\PYZus{}output\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}AHP\PYZdq{}}
@@ -694,7 +652,7 @@ frames}\label{function-for-reading-in-processed-survey-data-from-csv-files-to-da
 Define a function for reading in a CSV file to a date frame.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\boxspacing}
+\prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename}\PY{p}{)} \PY{p}{\PYZob{}}
   
@@ -714,7 +672,7 @@ Define a function for reading in a CSV file to a date frame.
 (weights)}{Function for generating a data frame with eigentrue values (weights)}}\label{function-for-generating-a-data-frame-with-eigentrue-values-weights}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
@@ -732,7 +690,7 @@ Define a function for reading in a CSV file to a date frame.
 ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{21}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -749,7 +707,7 @@ ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 ratios}\label{function-for-generating-a-data-frame-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -772,7 +730,7 @@ consistency
 ratios}\label{function-for-visualizing-individual-priorities-and-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{23}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}visuPriosCRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr\PYZus{}sel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -815,7 +773,7 @@ individual judgement
 matrices}\label{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{34}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}aggpref\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -850,7 +808,7 @@ matrices}\label{function-for-generating-geometric-mean-values-from-individual-ju
 values}\label{function-for-normalizing-the-geometric-mean-values}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}norm\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{c+c1}{\PYZsh{} normalization so that the sum of the geometric mean values is 1 (corresponds to 100\PYZpc{})}
@@ -891,7 +849,7 @@ data}\label{create-data-frames-tables-handling-the-file-names-of-processed-surve
 participants}\label{file-table-for-all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
+\prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -913,7 +871,7 @@ participants}\label{file-table-for-all-participants}}
 administrations}\label{file-table-for-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -935,7 +893,7 @@ administrations}\label{file-table-for-city-administrations}}
 organizations}\label{file-table-for-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{21}{\boxspacing}
+\prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -957,7 +915,7 @@ organizations}\label{file-table-for-non-governmental-organizations}}
 experts}\label{file-table-for-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{22}{\boxspacing}
+\prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -980,17 +938,17 @@ experts}\label{file-table-for-practitioners-and-experts}}
 participants}{Exploit datasets of own survey with package ahpsurvey for each group of participants}}\label{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{23}{\boxspacing}
+\prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{12}\PY{p}{,}
-  \PY{n}{attr} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Clim\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Bdiv\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{CiEc\PYZdq{}}\PY{p}{,}
-           \PY{l+s}{\PYZdq{}}\PY{l+s}{Kedu\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Comm\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Part\PYZdq{}}\PY{p}{,}
+  \PY{n}{attr} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Clim\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{BDiv\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{CiEc\PYZdq{}}\PY{p}{,}
+           \PY{l+s}{\PYZdq{}}\PY{l+s}{KEdu\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Comm\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Part\PYZdq{}}\PY{p}{,}
            \PY{l+s}{\PYZdq{}}\PY{l+s}{Qual\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{LVCs\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Affo\PYZdq{}}\PY{p}{,}
            \PY{l+s}{\PYZdq{}}\PY{l+s}{Envi\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Soci\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Econ\PYZdq{}}\PY{p}{)}\PY{p}{,}
-  \PY{n}{labels} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Local microclimate and hydrology regulation\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Biodiversity\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Circular economy\PYZdq{}}\PY{p}{,}
-             \PY{l+s}{\PYZdq{}}\PY{l+s}{Knowledge sharing and education \PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Community building and social justice\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Participation in food production\PYZdq{}}\PY{p}{,}
-             \PY{l+s}{\PYZdq{}}\PY{l+s}{Food quality and safety\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Local value chains/networks\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Affordability of food for all social strata\PYZdq{}}\PY{p}{,}
+  \PY{n}{labels} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Microclimate and Hydrology\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Biodiversity\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Circular economy\PYZdq{}}\PY{p}{,}
+             \PY{l+s}{\PYZdq{}}\PY{l+s}{Knowledge and Education\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Community Building\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Participation\PYZdq{}}\PY{p}{,}
+             \PY{l+s}{\PYZdq{}}\PY{l+s}{Food Quality and Safety\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Local Value Chains\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Food Affordability\PYZdq{}}\PY{p}{,}
              \PY{l+s}{\PYZdq{}}\PY{l+s}{Environment\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Society\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Economy\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
 \end{Verbatim}
@@ -1000,7 +958,7 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 \subsection{All participants}\label{all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
+\prompt{In}{incolor}{31}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1056,59 +1014,35 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_0.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_1.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_2.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_3.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{25}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{list\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}aggpref\PYZus{}gmean}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
-
-\PY{n}{df\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}norm\PYZus{}gmean}\PY{p}{(}\PY{n}{list\PYZus{}gmean}\PY{p}{)}
-
-\PY{n}{df\PYZus{}gmean}
-\end{Verbatim}
-\end{tcolorbox}
-
-    A data.frame: 4 × 2
-\begin{tabular}{r|ll}
-  & gmean.raw & gmean.norm\\
-  & <dbl> & <dbl>\\
-\hline
-	Envi & 0.3739039 & 0.4179807\\
-	Soci & 0.3023657 & 0.3380094\\
-	Econ & 0.2182787 & 0.2440099\\
-	Sum & 0.8945482 & 1.0000000\\
-\end{tabular}
-
-
     
     \hypertarget{participants-of-city-administrations}{%
 \subsection{Participants of city
 administrations}\label{participants-of-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{26}{\boxspacing}
+\prompt{In}{incolor}{50}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1164,25 +1098,25 @@ administrations}\label{participants-of-city-administrations}}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_0.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_1.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_2.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_47_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_3.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1192,7 +1126,7 @@ administrations}\label{participants-of-city-administrations}}
 organizations}\label{participants-of-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{27}{\boxspacing}
+\prompt{In}{incolor}{51}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1248,25 +1182,25 @@ organizations}\label{participants-of-non-governmental-organizations}}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_0.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_1.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_2.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_49_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_3.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1276,7 +1210,7 @@ organizations}\label{participants-of-non-governmental-organizations}}
 experts}\label{participants-of-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\boxspacing}
+\prompt{In}{incolor}{52}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
 \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
@@ -1336,28 +1270,56 @@ experts}\label{participants-of-practitioners-and-experts}}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_0.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_1.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_2.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_3.png}\end{center}
         \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
+    
+    \hypertarget{calculation-of-aggregated-preference-weights-for-consistent-datasets}{%
+\subsection{Calculation of aggregated preference weights for consistent
+datasets}\label{calculation-of-aggregated-preference-weights-for-consistent-datasets}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{36}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{list\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}aggpref\PYZus{}gmean}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
+
+\PY{n}{df\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}norm\PYZus{}gmean}\PY{p}{(}\PY{n}{list\PYZus{}gmean}\PY{p}{)}
+
+\PY{n}{df\PYZus{}gmean}
+\end{Verbatim}
+\end{tcolorbox}
+
+    A data.frame: 4 × 2
+\begin{tabular}{r|ll}
+  & gmean.raw & gmean.norm\\
+  & <dbl> & <dbl>\\
+\hline
+	Envi & 0.3739039 & 0.4179807\\
+	Soci & 0.3023657 & 0.3380094\\
+	Econ & 0.2182787 & 0.2440099\\
+	Sum & 0.8945482 & 1.0000000\\
+\end{tabular}
+
+
     
     \hypertarget{summary-and-outlook}{%
 \section{Summary and outlook}\label{summary-and-outlook}}
