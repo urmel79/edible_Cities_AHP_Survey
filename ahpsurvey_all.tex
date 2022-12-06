@@ -506,7 +506,7 @@ Drawback for \textbf{Raspbian buster}: the dependency
 does not work so far \ldots{}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\boxspacing}
+\prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} List of R packages that are used in this script}
 \PY{n}{list.of.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data.table\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggplot2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{magrittr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ahpsurvey\PYZdq{}}\PY{p}{)}
@@ -536,7 +536,7 @@ The package \texttt{data.table} is used to read and manipulate tables
 load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\boxspacing}
+\prompt{In}{incolor}{2}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{data.table}\PY{p}{)}
 \end{Verbatim}
@@ -550,7 +550,7 @@ The package \texttt{ggplot2} is used to plot diagrams. Install and load
 it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{3}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ggplot2}\PY{p}{)}
 \end{Verbatim}
@@ -569,7 +569,7 @@ tidyrReshaping Your Data with tidyr}.
 Install and load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{4}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
 \end{Verbatim}
@@ -588,7 +588,7 @@ calling the \texttt{library()} function silences annoying messages about
 masked functions.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{5}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
@@ -608,7 +608,7 @@ Before using pipes in R, you have to install and load the package
 \texttt{magrittr}:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{6}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
@@ -622,7 +622,7 @@ The package \texttt{ahpsurvey} contains all the necessary mathematical
 and statistical methods to run the analytical hierarchy process (AHP).
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{7}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
 \end{Verbatim}
@@ -637,22 +637,22 @@ AHP}\label{functions-for-processing-ahp}}
 folders}\label{set-globally-used-input-and-output-folders}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{8}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str\PYZus{}input\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}manipulated\PYZdq{}}
 \PY{n}{str\PYZus{}output\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}AHP\PYZdq{}}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}{%
-\subsection{Function for reading in processed survey data from CSV files
-to data
-frames}\label{function-for-reading-in-processed-survey-data-from-csv-files-to-data-frames}}
+    \hypertarget{function-to-read-in-the-processed-survey-data-from-csv-files-to-dataframes}{%
+\subsection{Function to read in the processed survey data from CSV files
+to
+dataframes}\label{function-to-read-in-the-processed-survey-data-from-csv-files-to-dataframes}}
 
 Define a function for reading in a CSV file to a date frame.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
+\prompt{In}{incolor}{9}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename}\PY{p}{)} \PY{p}{\PYZob{}}
   
@@ -672,7 +672,7 @@ Define a function for reading in a CSV file to a date frame.
 (weights)}{Function for generating a data frame with eigentrue values (weights)}}\label{function-for-generating-a-data-frame-with-eigentrue-values-weights}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{10}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
@@ -690,7 +690,7 @@ Define a function for reading in a CSV file to a date frame.
 ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{21}{\boxspacing}
+\prompt{In}{incolor}{11}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -707,7 +707,7 @@ ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 ratios}\label{function-for-generating-a-data-frame-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{22}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -730,7 +730,7 @@ consistency
 ratios}\label{function-for-visualizing-individual-priorities-and-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{23}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}visuPriosCRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr\PYZus{}sel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -773,7 +773,7 @@ individual judgement
 matrices}\label{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{34}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}aggpref\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -808,7 +808,7 @@ matrices}\label{function-for-generating-geometric-mean-values-from-individual-ju
 values}\label{function-for-normalizing-the-geometric-mean-values}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{25}{\boxspacing}
+\prompt{In}{incolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}norm\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{c+c1}{\PYZsh{} normalization so that the sum of the geometric mean values is 1 (corresponds to 100\PYZpc{})}
@@ -839,6 +839,67 @@ values}\label{function-for-normalizing-the-geometric-mean-values}}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \hypertarget{function-to-process-the-ahpsurvey-and-create-violin-plots}{%
+\subsection{Function to process the ahpsurvey and create violin
+plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{41}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}Process\PYZus{}ahpsurvey} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
+    \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
+
+    \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
+
+    \PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+        \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
+        \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+        \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}XXX\PYZsq{}}
+        \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
+        \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
+        \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+        \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
+        \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
+
+        \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
+        \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+        \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
+        \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
+        \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+        \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
+
+        \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+        \PY{n+nf}{print}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
+        \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+        \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
+        \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
+        \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+    \PY{p}{\PYZcb{}}
+
+    \PY{c+c1}{\PYZsh{} extend file name by path}
+    \PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+    \PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
+    \PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
+                \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
+                \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
+
     \hypertarget{create-data-frames-tables-handling-the-file-names-of-processed-survey-data}{%
 \section{Create data frames (tables) handling the file names of
 processed survey
@@ -849,7 +910,7 @@ data}\label{create-data-frames-tables-handling-the-file-names-of-processed-surve
 participants}\label{file-table-for-all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{26}{\boxspacing}
+\prompt{In}{incolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -871,7 +932,7 @@ participants}\label{file-table-for-all-participants}}
 administrations}\label{file-table-for-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{27}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -893,7 +954,7 @@ administrations}\label{file-table-for-city-administrations}}
 organizations}\label{file-table-for-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\boxspacing}
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -915,7 +976,7 @@ organizations}\label{file-table-for-non-governmental-organizations}}
 experts}\label{file-table-for-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{29}{\boxspacing}
+\prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -938,9 +999,9 @@ experts}\label{file-table-for-practitioners-and-experts}}
 participants}{Exploit datasets of own survey with package ahpsurvey for each group of participants}}\label{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{30}{\boxspacing}
+\prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
+\PY{n}{df\PYZus{}attributes\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{12}\PY{p}{,}
   \PY{n}{attr} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Clim\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{BDiv\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{CiEc\PYZdq{}}\PY{p}{,}
            \PY{l+s}{\PYZdq{}}\PY{l+s}{KEdu\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Comm\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Part\PYZdq{}}\PY{p}{,}
@@ -958,83 +1019,44 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 \subsection{All participants}\label{all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{31}{\boxspacing}
+\prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
-\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
-
-\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{all\PYZdq{}}
-
-\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
-
-\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
-  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
-  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
-  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
-  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
-  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
-  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
-  
-  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
-  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
-  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-
-  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
-  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
-  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
-  
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
-  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-\PY{p}{\PYZcb{}}
-
-\PY{c+c1}{\PYZsh{} extend file name by path}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
-\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
-            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
-            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}Process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{all\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_all\_env"
+[1] "ahp\_violin\_all\_soc"
+[1] "ahp\_violin\_all\_eco"
+    \end{Verbatim}
+
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_0.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of all participants}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_44_1.png}\end{center}
+        \caption{}
+        \label{}
+    \end{figure}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_all\_crit"
+    \end{Verbatim}
+
+    \begin{figure}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_44_3.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_1.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of all participants}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_44_4.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_2.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of all participants}
-        \label{fig:violins_all_attributes}
-    \end{figure}
-    
-    \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_42_3.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of all participants}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_44_5.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \hypertarget{participants-of-city-administrations}{%
@@ -1042,83 +1064,44 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 administrations}\label{participants-of-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{50}{\boxspacing}
+\prompt{In}{incolor}{35}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
-\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
-
-\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CA\PYZdq{}}
-
-\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
-
-\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
-  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
-  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
-  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
-  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
-  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
-  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
-  
-  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
-  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
-  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-
-  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
-  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
-  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
-  
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
-  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-\PY{p}{\PYZcb{}}
-
-\PY{c+c1}{\PYZsh{} extend file name by path}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
-\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
-            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
-            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}Process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{CA\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_CA\_env"
+[1] "ahp\_violin\_CA\_soc"
+[1] "ahp\_violin\_CA\_eco"
+    \end{Verbatim}
+
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_0.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_46_1.png}\end{center}
+        \caption{}
+        \label{}
+    \end{figure}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_CA\_crit"
+    \end{Verbatim}
+
+    \begin{figure}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_46_3.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_1.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_46_4.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_2.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
-        \label{fig:violins_all_attributes}
-    \end{figure}
-    
-    \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_3.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of city administrations}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_46_5.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \hypertarget{participants-of-non-governmental-organizations}{%
@@ -1126,83 +1109,44 @@ administrations}\label{participants-of-city-administrations}}
 organizations}\label{participants-of-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{51}{\boxspacing}
+\prompt{In}{incolor}{38}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
-\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
-
-\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{NGO\PYZdq{}}
-
-\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
-
-\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
-  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
-  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
-  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
-  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
-  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
-  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
-  
-  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
-  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
-  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-
-  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
-  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
-  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
-  
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
-  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-\PY{p}{\PYZcb{}}
-
-\PY{c+c1}{\PYZsh{} extend file name by path}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
-\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
-            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
-            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}Process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{NGO\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_NGO\_env"
+[1] "ahp\_violin\_NGO\_soc"
+[1] "ahp\_violin\_NGO\_eco"
+    \end{Verbatim}
+
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_0.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_48_1.png}\end{center}
+        \caption{}
+        \label{}
+    \end{figure}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_NGO\_crit"
+    \end{Verbatim}
+
+    \begin{figure}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_48_3.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_1.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_48_4.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_2.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
-        \label{fig:violins_all_attributes}
-    \end{figure}
-    
-    \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_3.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of non-governmental organizations}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_48_5.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \hypertarget{participants-of-practitioners-and-experts}{%
@@ -1210,87 +1154,44 @@ organizations}\label{participants-of-non-governmental-organizations}}
 experts}\label{participants-of-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{52}{\boxspacing}
+\prompt{In}{incolor}{40}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
-\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
-
-\PY{n}{str\PYZus{}participants\PYZus{}group} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{PE\PYZdq{}}
-
-\PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
-
-\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create data frame from current input CSV file}
-  \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of data frame \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}all\PYZsq{}}
-  \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
-  \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels\PYZus{}all}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
-  \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
-  \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
-  \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
-  
-  \PY{c+c1}{\PYZsh{} generate data frame with eigentrue values (weights) }
-  \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
-  \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-
-  \PY{c+c1}{\PYZsh{} generate a extended data frame with consistency ratios}
-  \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}
-  \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
-  
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-  \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-  \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{)}
-  
-  \PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}graph(width = 800, height = 800, res = 24)}
-  \PY{c+c1}{\PYZsh{} img \PYZlt{}\PYZhy{} image\PYZus{}read(str\PYZus{}image\PYZus{}filename)}
-  \PY{c+c1}{\PYZsh{} print(img)}
-  
-  \PY{c+c1}{\PYZsh{} combine data frames of eigentrue values (weights) with consistency ratios}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
-  \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
-  \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-\PY{p}{\PYZcb{}}
-
-\PY{c+c1}{\PYZsh{} extend file name by path}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.csv\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-\PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} write data frame \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file}
-\PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
-            \PY{n}{fileEncoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,} \PY{n}{row.names} \PY{o}{=} \PY{k+kc}{FALSE}\PY{p}{,}
-            \PY{n}{col.names} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}Process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{PE\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_PE\_env"
+[1] "ahp\_violin\_PE\_soc"
+[1] "ahp\_violin\_PE\_eco"
+    \end{Verbatim}
+
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_0.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_50_1.png}\end{center}
+        \caption{}
+        \label{}
+    \end{figure}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+[1] "ahp\_violin\_PE\_crit"
+    \end{Verbatim}
+
+    \begin{figure}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_50_3.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_1.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_50_4.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_2.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
-        \label{fig:violins_all_attributes}
-    \end{figure}
-    
-    \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_3.png}\end{center}
-        \caption{Violins displaying priorities and consistency ratios of participants of practitioners and experts}
-        \label{fig:violins_all_attributes}
+        \begin{center}\includegraphics[scale=0.6]{ahpsurvey_all_files/ahpsurvey_all_50_5.png}\end{center}
+        \caption{}
+        \label{}
     \end{figure}
     
     \hypertarget{calculation-of-aggregated-preference-weights-for-consistent-datasets}{%
