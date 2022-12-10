@@ -509,7 +509,7 @@ does not work so far \ldots{}
 \prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} List of R packages that are used in this script}
-\PY{n}{list.of.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data.table\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggplot2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{magrittr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ahpsurvey\PYZdq{}}\PY{p}{)}
+\PY{n}{list.of.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data.table\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ggplot2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{tidyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{dplyr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{magrittr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{ahpsurvey\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{knitr\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{IRdisplay\PYZdq{}}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Query the already installed packages and save the missing ones in a new list}
 \PY{n}{missing.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{list.of.packages}\PY{p}{[}\PY{o}{!}\PY{p}{(}\PY{n}{list.of.packages} \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n+nf}{installed.packages}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Package\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{]}
@@ -556,6 +556,25 @@ it:
 \end{Verbatim}
 \end{tcolorbox}
 
+    \hypertarget{load-packages-knitr-and-irdisplay}{%
+\subsection{\texorpdfstring{Load packages \texttt{knitr} and
+\texttt{IRdisplay}}{Load packages knitr and IRdisplay}}\label{load-packages-knitr-and-irdisplay}}
+
+The \texttt{kable()} function from the package \texttt{knitr} is used to
+output dataframes as a markdown tables.
+
+The \texttt{display\_markdown()} function from the package
+\texttt{IRdisplay} renders the markdown table in the notebook as well as
+in the PDF version.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{knitr}\PY{p}{)}
+\PY{n+nf}{library}\PY{p}{(}\PY{n}{IRdisplay}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
     \hypertarget{load-package-tidyr}{%
 \subsection{\texorpdfstring{Load package
 \texttt{tidyr}}{Load package tidyr}}\label{load-package-tidyr}}
@@ -569,7 +588,7 @@ tidyrReshaping Your Data with tidyr}.
 Install and load it:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{4}{\boxspacing}
+\prompt{In}{incolor}{5}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
 \end{Verbatim}
@@ -588,7 +607,7 @@ calling the \texttt{library()} function silences annoying messages about
 masked functions.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{5}{\boxspacing}
+\prompt{In}{incolor}{6}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
@@ -608,7 +627,7 @@ Before using pipes in R, you have to install and load the package
 \texttt{magrittr}:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{6}{\boxspacing}
+\prompt{In}{incolor}{7}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
@@ -622,7 +641,7 @@ The package \texttt{ahpsurvey} contains all the necessary mathematical
 and statistical methods to run the analytical hierarchy process (AHP).
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{7}{\boxspacing}
+\prompt{In}{incolor}{8}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
 \end{Verbatim}
@@ -637,7 +656,7 @@ AHP}\label{functions-for-processing-ahp}}
 folders}\label{set-globally-used-input-and-output-folders}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{8}{\boxspacing}
+\prompt{In}{incolor}{9}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str\PYZus{}input\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}manipulated\PYZdq{}}
 \PY{n}{str\PYZus{}output\PYZus{}path} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}AHP\PYZdq{}}
@@ -652,7 +671,7 @@ dataframes}\label{function-to-read-in-the-processed-survey-data-from-csv-files-t
 Define a function for reading in a CSV file to a date frame.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\boxspacing}
+\prompt{In}{incolor}{10}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename}\PY{p}{)} \PY{p}{\PYZob{}}
   
@@ -666,13 +685,40 @@ Define a function for reading in a CSV file to a date frame.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \hypertarget{function-to-format-dataframes-as-a-markdown-tables}{%
+\subsection{Function to format dataframes as a markdown
+tables}\label{function-to-format-dataframes-as-a-markdown-tables}}
+
+Following function formats given dataframes as markdown tables using the
+\texttt{kable()} function from the \texttt{knitr} package.
+
+The \texttt{display\_markdown()} function from the package
+\texttt{IRdisplay} renders the markdown table in the notebook as well as
+in the PDF version.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}render\PYZus{}md\PYZus{}tables} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}table}\PY{p}{,} \PY{n}{str\PYZus{}table\PYZus{}header}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{c+c1}{\PYZsh{} format the dataframe as a markdown table using the \PYZsq{}kable()\PYZsq{} function from the \PYZsq{}knitr\PYZsq{} package}
+    \PY{n}{table\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{kable}\PY{p}{(}
+        \PY{n}{df\PYZus{}table}\PY{p}{,}
+        \PY{n}{format} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{markdown\PYZdq{}}\PY{p}{,}
+        \PY{c+c1}{\PYZsh{} digits = 2,}
+        \PY{n}{caption} \PY{o}{=} \PY{n}{str\PYZus{}table\PYZus{}header}\PY{p}{)}
+
+    \PY{n+nf}{display\PYZus{}markdown}\PY{p}{(}\PY{n+nf}{as.character}\PY{p}{(}\PY{n}{table\PYZus{}out}\PY{p}{)}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
+
     \hypertarget{function-for-generating-a-dataframe-with-eigentrue-values-weights}{%
 \subsection{\texorpdfstring{Function for generating a dataframe with
 \emph{eigentrue values}
 (weights)}{Function for generating a dataframe with eigentrue values (weights)}}\label{function-for-generating-a-dataframe-with-eigentrue-values-weights}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
@@ -690,7 +736,7 @@ Define a function for reading in a CSV file to a date frame.
 ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -707,7 +753,7 @@ ratios}\label{function-for-generating-an-array-with-consistency-ratios}}
 ratios}\label{function-for-generating-a-dataframe-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -730,7 +776,7 @@ consistency
 ratios}\label{function-for-visualizing-individual-priorities-and-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}visuPriosCRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue}\PY{p}{,} \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{str\PYZus{}title}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr\PYZus{}sel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -773,7 +819,7 @@ individual judgement
 matrices}\label{function-for-generating-geometric-mean-values-from-individual-judgement-matrices}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}aggpref\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{df\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -793,10 +839,10 @@ matrices}\label{function-for-generating-geometric-mean-values-from-individual-ju
   
   \PY{c+c1}{\PYZsh{} get individual judgement matrices from last 3 columns}
   \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons}\PY{p}{[}\PY{n+nf}{tail}\PY{p}{(}\PY{n+nf}{names}\PY{p}{(}\PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons}\PY{p}{)}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
-    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+    \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} get geometric mean values from judgement matrices}
-  \PY{n}{list\PYZus{}gmean\PYZus{}l} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{ahp.aggpref}\PY{p}{(}\PY{n}{list\PYZus{}mat\PYZus{}judgement}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{,} \PY{n}{aggmethod} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{geometric\PYZdq{}}\PY{p}{)}
+  \PY{n}{list\PYZus{}gmean\PYZus{}l} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{ahp.aggpref}\PY{p}{(}\PY{n}{list\PYZus{}mat\PYZus{}judgement}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{,} \PY{n}{aggmethod} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{geometric\PYZdq{}}\PY{p}{)}
   
   \PY{n+nf}{return}\PY{p}{(}\PY{n}{list\PYZus{}gmean\PYZus{}l}\PY{p}{)}
 \PY{p}{\PYZcb{}}
@@ -808,7 +854,7 @@ matrices}\label{function-for-generating-geometric-mean-values-from-individual-ju
 values}\label{function-for-normalizing-the-geometric-mean-values}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}norm\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{c+c1}{\PYZsh{} normalization so that the sum of the geometric mean values is 1 (corresponds to 100\PYZpc{})}
@@ -844,7 +890,7 @@ values}\label{function-for-normalizing-the-geometric-mean-values}}
 plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}process\PYZus{}ahpsurvey} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)} \PY{p}{\PYZob{}}
     \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
@@ -909,6 +955,68 @@ plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots}}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \hypertarget{function-to-calculate-aggregated-preference-weights-for-consistent-datasets}{%
+\subsection{Function to calculate aggregated preference weights for
+consistent
+datasets}\label{function-to-calculate-aggregated-preference-weights-for-consistent-datasets}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{func\PYZus{}calc\PYZus{}pref\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
+    \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
+
+    \PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
+        \PY{c+c1}{\PYZsh{} create dataframe from current input CSV file}
+        \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+        \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{descriptions}\PY{p}{]}
+
+        \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of dataframe \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}XXX\PYZsq{}}
+        \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
+        \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
+
+        \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+        \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
+        \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
+
+        \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+        \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
+
+        \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
+
+        \PY{n}{list\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}aggpref\PYZus{}gmean}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
+        
+        \PY{n}{df\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}norm\PYZus{}gmean}\PY{p}{(}\PY{n}{list\PYZus{}gmean}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} store dataframe of main criteria to calculate the total weights of sub\PYZhy{}criteria}
+        \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
+            \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}
+        \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
+            \PY{c+c1}{\PYZsh{} multiply column \PYZsq{}gmean.norm\PYZsq{} of sub\PYZhy{}criteria dataframe by \PYZsq{}Envi\PYZsq{} value from main criteria dataframe}
+            \PY{c+c1}{\PYZsh{} and store the result in the new column \PYZsq{}gmean.total\PYZsq{}}
+            \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Envi\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
+
+            \PY{c+c1}{\PYZsh{} sum up the values of the new column \PYZsq{}gmean.total\PYZsq{} and write to row \PYZsq{}Sum\PYZsq{} of the same column}
+            \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
+        \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
+            \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Soci\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
+
+            \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
+        \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
+            \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Econ\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
+
+            \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
+        \PY{p}{\PYZcb{}}
+
+        \PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{,} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Aggregated weights for \PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}file\PYZus{}description}\PY{p}{)}\PY{p}{)}
+    \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
+
     \hypertarget{create-dataframes-tables-handling-the-file-names-of-processed-survey-data}{%
 \section{Create dataframes (tables) handling the file names of processed
 survey
@@ -919,11 +1027,11 @@ data}\label{create-dataframes-tables-handling-the-file-names-of-processed-survey
 participants}\label{file-table-for-all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
-  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}\PY{p}{,}
   \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}crit\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}env\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}all\PYZus{}soc\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}09\PYZhy{}53.csv\PYZdq{}}\PY{p}{,}
@@ -933,19 +1041,63 @@ participants}\label{file-table-for-all-participants}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
+
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for all participants\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0947}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0526}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5684}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2842}}@{}}
+\caption{File table for all participants}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endhead
+1 & crit & rdata\_all\_crit\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv
+& criteria (main criteria) \\
+2 & env & rdata\_all\_env\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv &
+environmental sub-criteria \\
+3 & soc & rdata\_all\_soc\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv &
+social sub-criteria \\
+4 & eco & rdata\_all\_eco\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv &
+economic sub-criteria \\
+\bottomrule()
+\end{longtable}
+
+    
     \hypertarget{file-table-for-city-administrations}{%
 \subsection{File table for city
 administrations}\label{file-table-for-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{21}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
-  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}\PY{p}{,}
   \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}crit\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}env\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}CA\PYZus{}soc\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}28.csv\PYZdq{}}\PY{p}{,}
@@ -955,19 +1107,63 @@ administrations}\label{file-table-for-city-administrations}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
+
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for city administrations\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0957}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5638}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2872}}@{}}
+\caption{File table for city administrations}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endhead
+1 & crit & rdata\_CA\_crit\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
+criteria (main criteria) \\
+2 & env & rdata\_CA\_env\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
+environmental sub-criteria \\
+3 & soc & rdata\_CA\_soc\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
+social sub-criteria \\
+4 & eco & rdata\_CA\_eco\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
+economic sub-criteria \\
+\bottomrule()
+\end{longtable}
+
+    
     \hypertarget{file-table-for-non-governmental-organizations}{%
 \subsection{File table for non-governmental
 organizations}\label{file-table-for-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
+\prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
-  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}\PY{p}{,}
   \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}crit\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}env\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}NGO\PYZus{}soc\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}40.csv\PYZdq{}}\PY{p}{,}
@@ -977,19 +1173,63 @@ organizations}\label{file-table-for-non-governmental-organizations}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
+
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for non\PYZhy{}governmental organizations\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0947}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0526}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5684}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2842}}@{}}
+\caption{File table for non-governmental organizations}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endhead
+1 & crit & rdata\_NGO\_crit\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv
+& criteria (main criteria) \\
+2 & env & rdata\_NGO\_env\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv &
+environmental sub-criteria \\
+3 & soc & rdata\_NGO\_soc\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv &
+social sub-criteria \\
+4 & eco & rdata\_NGO\_eco\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv &
+economic sub-criteria \\
+\bottomrule()
+\end{longtable}
+
+    
     \hypertarget{file-table-for-practitioners-and-experts}{%
 \subsection{File table for practitioners and
 experts}\label{file-table-for-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{23}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
-  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}\PY{p}{,}
+  \PY{n}{keys} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}\PY{p}{,}
   \PY{n}{filenames} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}crit\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}env\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{,}
                 \PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZus{}PE\PYZus{}soc\PYZus{}AHP\PYZus{}edible\PYZus{}Cities\PYZus{}2022\PYZhy{}03\PYZhy{}18\PYZus{}10\PYZhy{}41.csv\PYZdq{}}\PY{p}{,}
@@ -999,16 +1239,59 @@ experts}\label{file-table-for-practitioners-and-experts}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}}\PY{p}{,}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
+
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for practitioners and experts\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}{%
-\section{\texorpdfstring{Exploit datasets of own survey with package
-\texttt{ahpsurvey} for each group of
-participants}{Exploit datasets of own survey with package ahpsurvey for each group of participants}}\label{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}}
+    \begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0957}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5638}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2872}}@{}}
+\caption{File table for practitioners and experts}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedleft
+file\_idx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+filenames
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+descriptions
+\end{minipage} \\
+\midrule()
+\endhead
+1 & crit & rdata\_PE\_crit\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
+criteria (main criteria) \\
+2 & env & rdata\_PE\_env\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
+environmental sub-criteria \\
+3 & soc & rdata\_PE\_soc\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
+social sub-criteria \\
+4 & eco & rdata\_PE\_eco\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
+economic sub-criteria \\
+\bottomrule()
+\end{longtable}
+
+    
+    \hypertarget{table-with-attributes-and-labels}{%
+\subsection{Table with attributes and
+labels}\label{table-with-attributes-and-labels}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{21}{\boxspacing}
+\prompt{In}{incolor}{24}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}attributes\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{c+c1}{\PYZsh{} idx = 1:12,}
@@ -1022,56 +1305,72 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
              \PY{l+s}{\PYZdq{}}\PY{l+s}{Food Quality and Safety\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Local Value Chains\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Food Affordability\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
 
-\PY{n+nf}{print.data.frame}\PY{p}{(}\PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} print.data.frame(df\PYZus{}attributes\PYZus{}labels, right=FALSE)}
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Table with attributes and labels\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-   attr labels
-1  Envi Environment
-2  Soci Society
-3  Econ Economy
-4  Clim Microclimate and Hydrology
-5  BDiv Biodiversity
-6  CiEc Circular economy
-7  KEdu Knowledge and Education
-8  Comm Community Building
-9  Part Participation
-10 Qual Food Quality and Safety
-11 LVCs Local Value Chains
-12 Affo Food Affordability
-    \end{Verbatim}
+    \begin{longtable}[]{@{}ll@{}}
+\caption{Table with attributes and labels}\tabularnewline
+\toprule()
+attr & labels \\
+\midrule()
+\endfirsthead
+\toprule()
+attr & labels \\
+\midrule()
+\endhead
+Envi & Environment \\
+Soci & Society \\
+Econ & Economy \\
+Clim & Microclimate and Hydrology \\
+BDiv & Biodiversity \\
+CiEc & Circular economy \\
+KEdu & Knowledge and Education \\
+Comm & Community Building \\
+Part & Participation \\
+Qual & Food Quality and Safety \\
+LVCs & Local Value Chains \\
+Affo & Food Affordability \\
+\bottomrule()
+\end{longtable}
+
+    
+    \hypertarget{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}{%
+\section{\texorpdfstring{Exploit datasets of own survey with package
+\texttt{ahpsurvey} for each group of
+participants}{Exploit datasets of own survey with package ahpsurvey for each group of participants}}\label{exploit-datasets-of-own-survey-with-package-ahpsurvey-for-each-group-of-participants}}
 
     \hypertarget{all-participants}{%
 \subsection{All participants}\label{all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{22}{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{all\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_44_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_51_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1081,32 +1380,32 @@ participants}{Exploit datasets of own survey with package ahpsurvey for each gro
 administrations}\label{participants-of-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{23}{\boxspacing}
+\prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{CA\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_53_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_53_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_53_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_46_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_53_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1116,32 +1415,32 @@ administrations}\label{participants-of-city-administrations}}
 organizations}\label{participants-of-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
+\prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{NGO\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_55_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_55_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_55_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_48_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_55_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1151,32 +1450,32 @@ organizations}\label{participants-of-non-governmental-organizations}}
 experts}\label{participants-of-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{25}{\boxspacing}
+\prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{PE\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_50_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_57_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_50_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_57_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_50_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_57_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_50_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{ahpsurvey_all_files/ahpsurvey_all_57_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1186,64 +1485,9 @@ experts}\label{participants-of-practitioners-and-experts}}
 datasets}\label{calculation-of-aggregated-preference-weights-for-consistent-datasets}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{97}{\boxspacing}
+\prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}csvInputFiles} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}
-\PY{n}{row\PYZus{}start} \PY{o}{=} \PY{l+m}{1}
-\PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
-
-\PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-    \PY{c+c1}{\PYZsh{} create dataframe from current input CSV file}
-    \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
-    \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{descriptions}\PY{p}{]}
-
-    \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
-    
-    \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset of dataframe \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}XXX\PYZsq{}}
-    \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
-    \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
-
-    \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
-    \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
-    \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
-
-    \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
-    \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
-
-    \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
-
-    \PY{n}{list\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}aggpref\PYZus{}gmean}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)}
-    \PY{n}{df\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}norm\PYZus{}gmean}\PY{p}{(}\PY{n}{list\PYZus{}gmean}\PY{p}{)}
-
-    \PY{c+c1}{\PYZsh{} store dataframe of main criteria to calculate the total weights of sub\PYZhy{}criteria}
-    \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
-        \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}
-    \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
-        \PY{c+c1}{\PYZsh{} multiply column \PYZsq{}gmean.norm\PYZsq{} of sub\PYZhy{}criteria dataframe by \PYZsq{}Envi\PYZsq{} value from main criteria dataframe}
-        \PY{c+c1}{\PYZsh{} and store the result in the new column \PYZsq{}gmean.total\PYZsq{}}
-        \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Envi\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
-
-        \PY{c+c1}{\PYZsh{} sum up the values of the new column \PYZsq{}gmean.total\PYZsq{} and write to row \PYZsq{}Sum\PYZsq{} of the same column}
-        \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
-    \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
-        \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Soci\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
-
-        \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
-    \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
-        \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Econ\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
-
-        \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
-    \PY{p}{\PYZcb{}}
-
-    \PY{c+c1}{\PYZsh{} format the dataframe as a markdown table using the \PYZsq{}kable()\PYZsq{} function from the \PYZsq{}knitr\PYZsq{} package}
-    \PY{n}{table\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{kable}\PY{p}{(}
-        \PY{n}{df\PYZus{}gmean}\PY{p}{,}
-        \PY{n}{format} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{markdown\PYZdq{}}\PY{p}{,}
-        \PY{c+c1}{\PYZsh{} digits = 2,}
-        \PY{n}{caption} \PY{o}{=} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Aggregated weights for \PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}file\PYZus{}description}\PY{p}{)}\PY{p}{)}
-
-    \PY{n+nf}{display\PYZus{}markdown}\PY{p}{(}\PY{n+nf}{as.character}\PY{p}{(}\PY{n}{table\PYZus{}out}\PY{p}{)}\PY{p}{)}
-\PY{p}{\PYZcb{}}
+\PY{n+nf}{func\PYZus{}calc\PYZus{}pref\PYZus{}weights}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -1320,384 +1564,6 @@ Sum & 0.8873365 & 1.0000000 & 0.2440099 \\
 \end{longtable}
 
     
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{27}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Envi\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
-\end{Verbatim}
-\end{tcolorbox}
-
-    0.417980667653015
-
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}multiply\PYZus{}test} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
-    \PY{n}{col.a} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{5}\PY{p}{,} \PY{l+m}{4}\PY{p}{)}\PY{p}{,}
-    \PY{n}{col.b} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+m}{8}\PY{p}{,} \PY{l+m}{4}\PY{p}{,} \PY{l+m}{7}\PY{p}{)}
-\PY{p}{)}
-
-\PY{n+nf}{print.data.frame}\PY{p}{(}\PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-  col.a col.b
-1     1     8
-2     5     4
-3     4     7
-    \end{Verbatim}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{29}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{o}{\PYZdl{}}\PY{n}{col.result} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{o}{\PYZdl{}}\PY{n}{col.b} \PY{o}{*} \PY{l+m}{2}
-
-\PY{n+nf}{print.data.frame}\PY{p}{(}\PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-  col.a col.b col.result
-1     1     8         16
-2     5     4          8
-3     4     7         14
-    \end{Verbatim}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{82}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} install.packages(\PYZdq{}knitr\PYZdq{})}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{knitr}\PY{p}{)}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{IRdisplay}\PY{p}{)}
-
-\PY{n}{table\PYZus{}kbl} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{kbl}\PY{p}{(}
-  \PY{n+nf}{head}\PY{p}{(}\PY{n}{mtcars}\PY{p}{)}\PY{p}{,}
-  \PY{n}{format} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{markdown\PYZdq{}}\PY{p}{,}
-  \PY{c+c1}{\PYZsh{}col.names = c(\PYZdq{}Measure\PYZdq{}, \PYZdq{}*M*\PYZdq{}, \PYZdq{}*SD*\PYZdq{}, \PYZdq{}*M*\PYZdq{}, \PYZdq{}*SD*\PYZdq{}),}
-  \PY{n}{digits} \PY{o}{=} \PY{l+m}{2}\PY{p}{,}
-  \PY{n}{caption} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Means and Standard Deviations of Three Measures of Graduate Programs of Education (\PYZdl{}n=122\PYZdl{})\PYZdq{}}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} print(as.character(table\PYZus{}kbl))}
-\PY{n+nf}{display\PYZus{}markdown}\PY{p}{(}\PY{n+nf}{as.character}\PY{p}{(}\PY{n}{table\PYZus{}kbl}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.2647}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0588}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0588}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0882}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0441}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0441}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}@{}}
-\caption{Means and Standard Deviations of Three Measures of Graduate
-Programs of Education (\(n=122\))}\tabularnewline
-\toprule()
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-mpg
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-cyl
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-disp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-hp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-drat
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-wt
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-qsec
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-vs
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-am
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-gear
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-carb
-\end{minipage} \\
-\midrule()
-\endfirsthead
-\toprule()
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-mpg
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-cyl
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-disp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-hp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-drat
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-wt
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-qsec
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-vs
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-am
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-gear
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-carb
-\end{minipage} \\
-\midrule()
-\endhead
-Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.62 & 16.46 & 0 & 1 & 4 &
-4 \\
-Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.88 & 17.02 & 0 & 1 & 4 &
-4 \\
-Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.32 & 18.61 & 1 & 1 & 4 &
-1 \\
-Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.21 & 19.44 & 1 & 0 & 3
-& 1 \\
-Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.44 & 17.02 & 0 & 0 &
-3 & 2 \\
-Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.46 & 20.22 & 1 & 0 & 3 & 1 \\
-\bottomrule()
-\end{longtable}
-
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{79}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} library(knitr)}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{kableExtra}\PY{p}{)}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{IRdisplay}\PY{p}{)}
-
-\PY{n+nf}{head}\PY{p}{(}\PY{n}{mtcars}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{kable}\PY{p}{(}
-    \PY{n}{format} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{markdown\PYZdq{}}\PY{p}{,}
-    \PY{n}{digits} \PY{o}{=} \PY{l+m}{2}\PY{p}{,}
-    \PY{n}{caption} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Means and Standard Deviations of Three Measures of Graduate Programs of Education (\PYZdl{}n=122\PYZdl{})\PYZdq{}}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{as.character}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-  \PY{n+nf}{display\PYZus{}markdown}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.2647}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0588}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0588}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0882}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0441}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0441}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}@{}}
-\caption{Means and Standard Deviations of Three Measures of Graduate
-Programs of Education (\(n=122\))}\tabularnewline
-\toprule()
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-mpg
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-cyl
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-disp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-hp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-drat
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-wt
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-qsec
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-vs
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-am
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-gear
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-carb
-\end{minipage} \\
-\midrule()
-\endfirsthead
-\toprule()
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-mpg
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-cyl
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-disp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-hp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-drat
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-wt
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-qsec
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-vs
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-am
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-gear
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-carb
-\end{minipage} \\
-\midrule()
-\endhead
-Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.62 & 16.46 & 0 & 1 & 4 &
-4 \\
-Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.88 & 17.02 & 0 & 1 & 4 &
-4 \\
-Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.32 & 18.61 & 1 & 1 & 4 &
-1 \\
-Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.21 & 19.44 & 1 & 0 & 3
-& 1 \\
-Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.44 & 17.02 & 0 & 0 &
-3 & 2 \\
-Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.46 & 20.22 & 1 & 0 & 3 & 1 \\
-\bottomrule()
-\end{longtable}
-
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{80}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} library(knitr)}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{kableExtra}\PY{p}{)}
-\PY{n+nf}{library}\PY{p}{(}\PY{n}{IRdisplay}\PY{p}{)}
-
-\PY{n+nf}{kable}\PY{p}{(}
-    \PY{n+nf}{head}\PY{p}{(}\PY{n}{mtcars}\PY{p}{)}\PY{p}{,}
-    \PY{n}{format} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{markdown\PYZdq{}}\PY{p}{,}
-    \PY{n}{digits} \PY{o}{=} \PY{l+m}{2}\PY{p}{,}
-    \PY{n}{caption} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Means and Standard Deviations of Three Measures of Graduate Programs of Education (\PYZdl{}n=122\PYZdl{})\PYZdq{}}
-    \PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-    \PY{n+nf}{as.character}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
-    \PY{n+nf}{display\PYZus{}markdown}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.2647}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0588}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0588}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0882}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0441}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0441}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0735}}@{}}
-\caption{Means and Standard Deviations of Three Measures of Graduate
-Programs of Education (\(n=122\))}\tabularnewline
-\toprule()
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-mpg
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-cyl
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-disp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-hp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-drat
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-wt
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-qsec
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-vs
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-am
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-gear
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-carb
-\end{minipage} \\
-\midrule()
-\endfirsthead
-\toprule()
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-mpg
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-cyl
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-disp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-hp
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-drat
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-wt
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-qsec
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-vs
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-am
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-gear
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-carb
-\end{minipage} \\
-\midrule()
-\endhead
-Mazda RX4 & 21.0 & 6 & 160 & 110 & 3.90 & 2.62 & 16.46 & 0 & 1 & 4 &
-4 \\
-Mazda RX4 Wag & 21.0 & 6 & 160 & 110 & 3.90 & 2.88 & 17.02 & 0 & 1 & 4 &
-4 \\
-Datsun 710 & 22.8 & 4 & 108 & 93 & 3.85 & 2.32 & 18.61 & 1 & 1 & 4 &
-1 \\
-Hornet 4 Drive & 21.4 & 6 & 258 & 110 & 3.08 & 3.21 & 19.44 & 1 & 0 & 3
-& 1 \\
-Hornet Sportabout & 18.7 & 8 & 360 & 175 & 3.15 & 3.44 & 17.02 & 0 & 0 &
-3 & 2 \\
-Valiant & 18.1 & 6 & 225 & 105 & 2.76 & 3.46 & 20.22 & 1 & 0 & 3 & 1 \\
-\bottomrule()
-\end{longtable}
-
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{36}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{n}{col.result}\PY{p}{]}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    38
-
-    
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{136}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} multiply columns of dataframe and store the result in a new column}
-\PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{o}{\PYZdl{}}\PY{n}{col.result} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{o}{\PYZdl{}}\PY{n}{col.a} \PY{o}{*} \PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{o}{\PYZdl{}}\PY{n}{col.b}
-
-\PY{n+nf}{print.data.frame}\PY{p}{(}\PY{n}{df\PYZus{}multiply\PYZus{}test}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-  col.a col.b col.result
-1     1     8          8
-2     5     4         20
-3     4     7         28
-    \end{Verbatim}
-
     \hypertarget{summary-and-outlook}{%
 \section{Summary and outlook}\label{summary-and-outlook}}
 
