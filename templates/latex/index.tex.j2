@@ -99,19 +99,17 @@
 
 ((*- if nb.metadata["latex_metadata"]: -*))
 ((*- if nb.metadata["latex_metadata"]["author"]: -*))
-((*- set nb_author = nb.metadata["latex_metadata"]["author"] -*))
-((*- if nb.metadata["latex_metadata"]["email"]: -*))
-((*- set nb_email = nb.metadata["latex_metadata"]["email"] -*))
-    \author{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author"] -*))
 ((*- endif *))
-((*- endif *))
-((*- else -*))
-    \author{Bj\"orn Kasper}
-((*- endif *))
-
-((*- if nb.metadata["latex_metadata"]: -*))
 ((*- if nb.metadata["latex_metadata"]["affiliation"]: -*))
-    \affil{((( nb.metadata["latex_metadata"]["affiliation"] )))}
+    ((*- set nb_affil = nb.metadata["latex_metadata"]["affiliation"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["email"]: -*))
+    ((*- set nb_email = nb.metadata["latex_metadata"]["email"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author"]: -*))
+\author{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+\affil{((( nb_affil )))}
 ((*- endif *))
 ((*- endif *))
 
@@ -125,8 +123,10 @@
 ((*- if nb.metadata["latex_metadata"]["email1"]: -*))
     ((*- set nb_email = nb.metadata["latex_metadata"]["email1"] -*))
 ((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author1"]: -*))
 \author[1]{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
 \affil[1]{((( nb_affil )))}
+((*- endif *))
 ((*- endif *))
 
 ((*- if nb.metadata["latex_metadata"]: -*))
@@ -139,8 +139,10 @@
 ((*- if nb.metadata["latex_metadata"]["email2"]: -*))
     ((*- set nb_email = nb.metadata["latex_metadata"]["email2"] -*))
 ((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author2"]: -*))
 \author[2]{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
 \affil[2]{((( nb_affil )))}
+((*- endif *))
 ((*- endif *))
 
 ((*- if nb.metadata["latex_metadata"]: -*))
@@ -180,11 +182,13 @@
     ((*- endif *))
     ((*- endblock abstract *))
     
+    ((*- if nb.metadata["latex_metadata"]: -*))
+    ((*- if nb.metadata["latex_metadata"]["CC_logo"]: -*))
     \noindent
     \begin{center}
 	    \begin{tabular}{>{\centering}m{0.2\textwidth}m{0.65\textwidth}}
 	    \begin{minipage}{\linewidth}
-	        \includegraphics{images/CC_BY-SA_40.png}
+	        \includegraphics{((( nb.metadata["latex_metadata"]["CC_logo"] )))}
 	    \end{minipage}
 	    &
 	    \begin{minipage}{\linewidth}
@@ -192,6 +196,8 @@
 	    \end{minipage}
 	    \end{tabular}
 	\end{center}
+    ((*- endif *))
+    ((*- endif *))
 
     \newpage
 
