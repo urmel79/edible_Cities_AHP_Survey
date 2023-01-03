@@ -23,6 +23,16 @@ runtime:
     /home/bk/.local/share/jupyter/runtime
 ```
 
+HINT:  
+If the paths with `.local/share/ ..` are not displayed first, the search order should be changed 
+(see: [Jupyter Paths priority order](https://discourse.jupyter.org/t/jupyter-paths-priority-order/7771)).
+
+```bash
+$ export JUPYTER_PREFER_ENV_PATH=0
+```
+
+To have the change loaded automatically, the command can be added to `~/.bashrc`.
+
 ## Call `nbconvert` command
 
 Call `nbconvert` command to produce LaTeX or PDF output either:

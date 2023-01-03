@@ -52,11 +52,20 @@
     % Prevent overflowing lines due to hard-to-break entities
     \sloppy
 
+((*- if nb.metadata["latex_metadata"]: -*))
+((*- if nb.metadata["latex_metadata"]["author"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author1"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author1"] -*))
+((*- endif *))
+((*- endif *))
+
     % Setup hyperref package
     \hypersetup{
       breaklinks=true,  % so long urls are correctly broken across lines
       bookmarksnumbered=true,
-      pdfauthor=((( nb.metadata["latex_metadata"]["author"] ))),
+      pdfauthor=((( nb_author ))),
       pdftitle=((( nb.metadata["latex_metadata"]["title"] ))),
       colorlinks=true,
       urlcolor=urlcolor,
@@ -90,19 +99,49 @@
 
 ((*- if nb.metadata["latex_metadata"]: -*))
 ((*- if nb.metadata["latex_metadata"]["author"]: -*))
-((*- set nb_author = nb.metadata["latex_metadata"]["author"] -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["affiliation"]: -*))
+    ((*- set nb_affil = nb.metadata["latex_metadata"]["affiliation"] -*))
+((*- endif *))
 ((*- if nb.metadata["latex_metadata"]["email"]: -*))
-((*- set nb_email = nb.metadata["latex_metadata"]["email"] -*))
-    \author{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+    ((*- set nb_email = nb.metadata["latex_metadata"]["email"] -*))
 ((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author"]: -*))
+\author{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+\affil{((( nb_affil )))}
 ((*- endif *))
-((*- else -*))
-    \author{Bj\"orn Kasper}
 ((*- endif *))
 
 ((*- if nb.metadata["latex_metadata"]: -*))
-((*- if nb.metadata["latex_metadata"]["affiliation"]: -*))
-    \affil{((( nb.metadata["latex_metadata"]["affiliation"] )))}
+((*- if nb.metadata["latex_metadata"]["author1"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author1"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["affiliation1"]: -*))
+    ((*- set nb_affil = nb.metadata["latex_metadata"]["affiliation1"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["email1"]: -*))
+    ((*- set nb_email = nb.metadata["latex_metadata"]["email1"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author1"]: -*))
+\author[1]{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+\affil[1]{((( nb_affil )))}
+((*- endif *))
+((*- endif *))
+
+((*- if nb.metadata["latex_metadata"]: -*))
+((*- if nb.metadata["latex_metadata"]["author2"]: -*))
+    ((*- set nb_author = nb.metadata["latex_metadata"]["author2"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["affiliation2"]: -*))
+    ((*- set nb_affil = nb.metadata["latex_metadata"]["affiliation2"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["email2"]: -*))
+    ((*- set nb_email = nb.metadata["latex_metadata"]["email2"] -*))
+((*- endif *))
+((*- if nb.metadata["latex_metadata"]["author2"]: -*))
+\author[2]{((( nb_author ))) (\href{mailto:((( nb_email )))}{((( nb_email )))})}
+\affil[2]{((( nb_affil )))}
 ((*- endif *))
 ((*- endif *))
 
@@ -143,11 +182,13 @@
     ((*- endif *))
     ((*- endblock abstract *))
     
+    ((*- if nb.metadata["latex_metadata"]: -*))
+    ((*- if nb.metadata["latex_metadata"]["CC_logo"]: -*))
     \noindent
     \begin{center}
 	    \begin{tabular}{>{\centering}m{0.2\textwidth}m{0.65\textwidth}}
 	    \begin{minipage}{\linewidth}
-	        \includegraphics{images/CC_BY-SA_40.png}
+	        \includegraphics{((( nb.metadata["latex_metadata"]["CC_logo"] )))}
 	    \end{minipage}
 	    &
 	    \begin{minipage}{\linewidth}
@@ -155,6 +196,8 @@
 	    \end{minipage}
 	    \end{tabular}
 	\end{center}
+    ((*- endif *))
+    ((*- endif *))
 
     \newpage
 
