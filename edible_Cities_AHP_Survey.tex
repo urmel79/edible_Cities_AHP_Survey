@@ -33,8 +33,11 @@
 
     \usepackage{iftex}
     \ifPDFTeX
-        \usepackage[T1]{fontenc}
         \usepackage[utf8]{inputenc}
+        \usepackage[T1]{fontenc}
+        % Without the 'lmodern' package, 'pdflatex' substitutes the Type 1 fonts 
+        % against the bitmap based Type 3 fonts and you get a very pixelated typeface.
+        \usepackage{lmodern}
     \else
         \usepackage{fontspec}
         \usepackage{unicode-math}
@@ -468,28 +471,34 @@ to install RStudio on the ARM-based embedded computer \textbf{Raspberry
 Pi} due to many technical dependencies. In contrast, using the R kernel
 in JupyterLab on the Raspberry Pi works very well and performant.
 
-    \hypertarget{global-loading-of-the-used-r-packages-and-definition-of-globally-used-functions}{%
-\section{Global loading of the used R packages and definition of
-globally used
-functions}\label{global-loading-of-the-used-r-packages-and-definition-of-globally-used-functions}}
+    \hypertarget{loading-of-used-r-packages-and-definition-of-global-functions}{%
+\section{Loading of used R packages and definition of global
+functions}\label{loading-of-used-r-packages-and-definition-of-global-functions}}
 
 \hypertarget{install-missing-packages-if-not-present-yet}{%
 \subsection{Install missing packages if not present
 yet}\label{install-missing-packages-if-not-present-yet}}
 
-\textbf{Attention:} For some R packages several dependencies have to be
-installed first with
-\texttt{apt\ install\ \textless{}package\ name\textgreater{}}.
+In order to load the R packages used in the next sections, they must be
+installed in the R environment. The following function checks for the
+presence of the packages and installs the missing ones.
 
-Dependencies for package \texttt{ahpsurvey}:\\
-- R package \texttt{randomNames} (it depends on R ≥ 4.0, refer to
-\url{https://cran.r-project.org/web/packages/randomNames/index.html})
+\textbf{Attention:} For some R packages, several dependencies have to be
+installed first using the package manager of the operating system,
+e.g.~\texttt{apt\ install\ \textless{}package\ name\textgreater{}}.
 
-Drawback for \textbf{Raspbian buster}: the dependency
-\texttt{randomNames} is not available for R v3.5.2 as it depends on R (≥
-4.0). Upgrading R in Raspbian following the instruction on
+In general, the use of R version ≥ 4.0 is strongly recommended. In
+particular, the \texttt{ahpsurvey} package, which is essential for
+calculating the AHP, depends on the \texttt{randomNames} package.
+However, this is only available starting with R version ≥ 4.0 (refer to
+\url{https://cran.r-project.org/web/packages/randomNames/index.html}).
+
+This can be problematic especially with slightly older systems --
+e.g.~on the operating system \textbf{Raspbian buster} for the very
+well-known \textbf{Raspberry Pi}, R is only available in version 3.5.2.
+Upgrading R in Raspbian following the instructions on
 \url{https://cran.rstudio.com/bin/linux/debian/\#debian-buster-stable}
-does not work so far \ldots{}
+has not succeeded for the authors so far.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
@@ -521,12 +530,18 @@ does not work so far \ldots{}
 [1] "All required packages are installed."
     \end{Verbatim}
 
+    \hypertarget{load-r-packages}{%
+\subsection{Load R packages}\label{load-r-packages}}
+
+After all the necessary R packages have been installed in the previous
+section, they can be loaded in the following subsections.
+
     \hypertarget{load-package-data.table}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{data.table}}{Load package data.table}}\label{load-package-data.table}}
 
-The package \texttt{data.table} is used to read and manipulate tables
-(\texttt{data.table} inherits from \texttt{data.frame}).
+The \texttt{data.table} package is used for \textbf{reading and editing
+tables}. Note: the package inherits from \texttt{data.frame}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{2}{\boxspacing}
@@ -536,10 +551,11 @@ The package \texttt{data.table} is used to read and manipulate tables
 \end{tcolorbox}
 
     \hypertarget{load-package-ggplot2}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{ggplot2}}{Load package ggplot2}}\label{load-package-ggplot2}}
 
-The package \texttt{ggplot2} is used to plot diagrams.
+The package \texttt{ggplot2} is used to \textbf{plot beautiful
+diagrams}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{3}{\boxspacing}
@@ -549,15 +565,15 @@ The package \texttt{ggplot2} is used to plot diagrams.
 \end{tcolorbox}
 
     \hypertarget{load-packages-knitr-and-irdisplay}{%
-\subsection{\texorpdfstring{Load packages \texttt{knitr} and
+\subsubsection{\texorpdfstring{Load packages \texttt{knitr} and
 \texttt{IRdisplay}}{Load packages knitr and IRdisplay}}\label{load-packages-knitr-and-irdisplay}}
 
 The \texttt{kable()} function from the package \texttt{knitr} is used to
-output dataframes as a markdown tables.
+output dataframes as markdown tables.
 
 The \texttt{display\_markdown()} function from the package
-\texttt{IRdisplay} renders the markdown table in the notebook as well as
-in the PDF version.
+\texttt{IRdisplay} is used to \textbf{render markdown tables} in the
+notebook as well as in the compiled PDF output.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{4}{\boxspacing}
@@ -568,11 +584,11 @@ in the PDF version.
 \end{tcolorbox}
 
     \hypertarget{load-package-tidyr}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{tidyr}}{Load package tidyr}}\label{load-package-tidyr}}
 
-The package \texttt{tidyr} is used to \textbf{reshape} the dataframes
-and provides functions like \texttt{gather()} or \texttt{spread()}. Some
+The package \texttt{tidyr} is used to \textbf{reshape dataframes} and
+provides functions like \texttt{gather()} or \texttt{spread()}. Some
 examples for the application can be found here:
 \href{https://uc-r.github.io/tidyr}{Reshaping Your Data with tidyr}.
 
@@ -584,16 +600,16 @@ examples for the application can be found here:
 \end{tcolorbox}
 
     \hypertarget{load-package-dplyr}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{dplyr}}{Load package dplyr}}\label{load-package-dplyr}}
 
-The package \texttt{dplyr} is necessary to manipulate dataframes using
-functions like \texttt{select()}, \texttt{mutate()} and
-\texttt{left\_join()}.
+The package \texttt{dplyr} is necessary to \textbf{manipulate
+dataframes} using functions like \texttt{select()}, \texttt{mutate()}
+and \texttt{left\_join()}.
 
-\textbf{Hint:} Setting the parameter \texttt{warn.conflicts=FALSE} when
-calling the \texttt{library()} function silences annoying messages about
-masked functions.
+\textbf{Hint:} Annoying messages on package loading regarding masked
+functions can be suppressed by setting the \texttt{warn.conflicts=FALSE}
+parameter when calling the \texttt{library()} function.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{6}{\boxspacing}
@@ -603,7 +619,7 @@ masked functions.
 \end{tcolorbox}
 
     \hypertarget{load-package-magrittr}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{magrittr}}{Load package magrittr}}\label{load-package-magrittr}}
 
 The package \texttt{magrittr} provides the \textbf{pipe functionality}
@@ -625,12 +641,12 @@ Before pipes can be used in R, the package has to be loaded first:
 \end{tcolorbox}
 
     \hypertarget{load-package-forcats}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{forcats}}{Load package forcats}}\label{load-package-forcats}}
 
 The \texttt{fct\_inorder()} function from the package \texttt{forcats}
-is used to reorder the discrete levels of diagram axes according to the
-intended order of attributes.
+is used to \textbf{reorder the discrete levels of diagram axes}
+according to the intended order of attributes.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{8}{\boxspacing}
@@ -640,7 +656,7 @@ intended order of attributes.
 \end{tcolorbox}
 
     \hypertarget{load-package-ahpsurvey}{%
-\subsection{\texorpdfstring{Load package
+\subsubsection{\texorpdfstring{Load package
 \texttt{ahpsurvey}}{Load package ahpsurvey}}\label{load-package-ahpsurvey}}
 
 The package \texttt{ahpsurvey} contains all the necessary mathematical
@@ -658,12 +674,12 @@ and statistical methods to run the \textbf{analytical hierarchy process
 \subsection{Function to format dataframes as markdown
 tables}\label{function-to-format-dataframes-as-markdown-tables}}
 
-Following function formats given dataframes as markdown tables using the
-\texttt{kable()} function from the \texttt{knitr} package.
+Following function \textbf{formats given dataframes as markdown tables}
+using the \texttt{kable()} function from the \texttt{knitr} package.
 
 The \texttt{display\_markdown()} function from the package
-\texttt{IRdisplay} renders the markdown table in the Jupyter notebook as
-well as in the compiled PDF version.
+\texttt{IRdisplay} is used to \textbf{render markdown tables} in the
+notebook as well as in the compiled PDF output.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{10}{\boxspacing}
@@ -1875,25 +1891,25 @@ participants}{Visualize datasets of survey with package ahpsurvey for each group
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_75_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_76_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_75_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_76_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_75_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_76_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_75_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_76_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of all participants}
         \label{fig:violins_all_attributes}
     \end{figure}
@@ -1911,25 +1927,25 @@ administrations}\label{participants-of-city-administrations}}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_77_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_78_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_CA_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_77_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_78_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_CA_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_77_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_78_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_CA_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_77_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_78_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of city administrations}
         \label{fig:violins_CA_attributes}
     \end{figure}
@@ -1947,25 +1963,25 @@ organizations}\label{participants-of-non-governmental-organizations}}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_79_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_80_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_NGO_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_79_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_80_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_NGO_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_79_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_80_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_NGO_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_79_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_80_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of non-governmental organizations}
         \label{fig:violins_NGO_attributes}
     \end{figure}
@@ -1983,25 +1999,25 @@ experts}\label{participants-of-practitioners-and-experts}}
 \end{tcolorbox}
 
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_81_0.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_82_0.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_PE_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_81_1.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_82_1.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_PE_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_81_2.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_82_2.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_PE_attributes}
     \end{figure}
     
     \begin{figure}
-        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_81_3.png}\end{center}
+        \begin{center}\adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{edible_Cities_AHP_Survey_files/edible_Cities_AHP_Survey_82_3.png}\end{center}
         \caption{Series of violin plots that display the priorities and consistency ratios of practitioners and experts}
         \label{fig:violins_PE_attributes}
     \end{figure}
