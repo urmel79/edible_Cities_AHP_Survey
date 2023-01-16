@@ -6,21 +6,31 @@
 # Author:             Bjoern Kasper
 # Copyright:          GPL v3.0 and later
 # Date:               2022-08-29
-# Changed:            2022-08-30
+# Changed:            2023-01-13
 #
 # Short-Description:  Compile PDF from Jupyter notebook with BibLaTeX references
 #
-# Changelog:          2022-08-30: Changed handling of file names
+# Changelog:
+# - 2022-08-30: Changed handling of file names
+# - 2023-01-13: Added the possibility to choose the LaTeX compiler
 #
 ###
 
 CMD=$1
 NOTEBOOK_FILE=$2
 
+# LATEX_COMPILER="pdflatex"
+LATEX_COMPILER="xelatex"
+
+# funtion to run LaTeX command stored in a variable
+mylatex() {
+    $LATEX_COMPILER $1
+}
+
 USED_PROGRAMS_ARRAY=(
     "basename"
     "jupyter"
-    "xelatex"
+    $LATEX_COMPILER
     "biber"
     )
 
@@ -89,10 +99,10 @@ case "$CMD" in
             
             if ! [ -z $NOTEBOOK_FILE_BASE.ipynb ]; then
                 jupyter nbconvert $NOTEBOOK_FILE_BASE.ipynb --to latex
-                xelatex $NOTEBOOK_FILE_BASE.tex
+                mylatex $NOTEBOOK_FILE_BASE.tex
                 biber $NOTEBOOK_FILE_BASE.bcf
-                xelatex $NOTEBOOK_FILE_BASE.tex
-                xelatex $NOTEBOOK_FILE_BASE.tex
+                mylatex $NOTEBOOK_FILE_BASE.tex
+                mylatex $NOTEBOOK_FILE_BASE.tex
 
                 printf "Compiling was successful.\n";
             else
