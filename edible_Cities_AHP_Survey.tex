@@ -804,9 +804,9 @@ the \textbf{economic sub-criteria}.
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{function-to-prepare-the-data-and-store-it-in-new-dataframes}{%
-\subsubsection{!!! Function to prepare the data and store it in new
-dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
+    \hypertarget{function-to-adapt-the-exported-survey-data-to-saaty-scale}{%
+\subsubsection{!!! Function to adapt the exported survey data to Saaty
+scale}\label{function-to-adapt-the-exported-survey-data-to-saaty-scale}}
 
 For the \textbf{comparison of two attributes}, Saaty introduced a scale
 of following nine rating items (see \cite{Saaty_AHP_1987}):
@@ -932,8 +932,10 @@ bzw. Sub-Kriterien zurück.
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{func\PYZus{}scrambleData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{,} \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                              \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,} \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)} \PY{p}{\PYZob{}}
+\PY{n}{func\PYZus{}adaptData2SaatyScale} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{,}
+                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                      \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{c+c1}{\PYZsh{} Generate new dataframe ...}
   \PY{n}{df\PYZus{}outputData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.frame}\PY{p}{(}\PY{n+nf}{matrix}\PY{p}{(}\PY{n}{ncol} \PY{o}{=} \PY{l+m}{3}\PY{p}{,} \PY{n}{nrow} \PY{o}{=} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}
   \PY{c+c1}{\PYZsh{} ... and name the columns}
@@ -1146,10 +1148,10 @@ given algorithm, and write the results to output CSV files:
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
@@ -1182,10 +1184,10 @@ given algorithm, and write the results to output CSV files:
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
@@ -1216,10 +1218,10 @@ given algorithm, and write the results to output CSV files:
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{3}\PY{p}{]]}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{3}\PY{p}{]]}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
@@ -1250,10 +1252,10 @@ given algorithm, and write the results to output CSV files:
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{4}\PY{p}{]]}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                        \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{4}\PY{p}{]]}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
   \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
