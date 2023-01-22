@@ -492,7 +492,8 @@ In particular, the \texttt{ahpsurvey} package, which is essential for
 calculating the AHP, depends on the \texttt{randomNames} package.
 However, this is only available starting with R version \(\geq\) 4.0
 (refer to
-\url{https://cran.r-project.org/web/packages/randomNames/index.html}).
+\href{https://cran.r-project.org/web/packages/randomNames/index.html}{randomNames:
+Generate Random Given and Surnames}).
 
 This can be problematic especially with slightly older systems, e.g.~on
 the operating system \textbf{Raspbian buster} for the very well-known
@@ -502,7 +503,7 @@ in Raspbian following the instructions on
 has not succeeded for the authors so far.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{1}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} List of R packages that are used in this script}
 \PY{n}{list.of.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data.table\PYZdq{}}\PY{p}{,}
@@ -535,18 +536,20 @@ has not succeeded for the authors so far.
     \hypertarget{load-r-packages}{%
 \subsection{Load R packages}\label{load-r-packages}}
 
-After all the necessary R packages have been installed in the previous
-section, they can be loaded in the following subsections.
+After proving in the previous section that all required R packages are
+installed, they can be loaded in the following subsections.
 
     \hypertarget{load-package-data.table}{%
 \subsubsection{\texorpdfstring{Load package
 \texttt{data.table}}{Load package data.table}}\label{load-package-data.table}}
 
 The \texttt{data.table} package is used for \textbf{reading and editing
-tables}. Note: the package inherits from \texttt{data.frame}.
+tables}.
+
+\textbf{Note:} This package inherits from \texttt{data.frame}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{2}{\boxspacing}
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{data.table}\PY{p}{)}
 \end{Verbatim}
@@ -560,7 +563,7 @@ The package \texttt{ggplot2} is used to \textbf{plot beautiful
 diagrams}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{3}{\boxspacing}
+\prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ggplot2}\PY{p}{)}
 \end{Verbatim}
@@ -578,7 +581,7 @@ The \texttt{display\_markdown()} function from the package
 notebook as well as in the compiled PDF output.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{4}{\boxspacing}
+\prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{knitr}\PY{p}{)}
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{IRdisplay}\PY{p}{)}
@@ -592,10 +595,10 @@ notebook as well as in the compiled PDF output.
 The package \texttt{tidyr} is used to \textbf{reshape dataframes} and
 provides functions like \texttt{gather()} or \texttt{spread()}. Some
 examples for the application can be found here:
-\href{https://uc-r.github.io/tidyr}{Reshaping Your Data with tidyr}.
+\href{https://uc-r.github.io/tidyr}{Reshaping your data with tidyr}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{5}{\boxspacing}
+\prompt{In}{incolor}{21}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{tidyr}\PY{p}{)}
 \end{Verbatim}
@@ -610,11 +613,12 @@ dataframes} using functions like \texttt{select()}, \texttt{mutate()}
 and \texttt{left\_join()}.
 
 \textbf{Hint:} Annoying messages on package loading regarding masked
-functions can be suppressed by setting the \texttt{warn.conflicts=FALSE}
-parameter when calling the \texttt{library()} function.
+functions can be suppressed by setting the parameter
+\texttt{warn.conflicts=FALSE} when calling the \texttt{library()}
+function.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{6}{\boxspacing}
+\prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{dplyr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
@@ -628,15 +632,14 @@ The package \texttt{magrittr} provides the \textbf{pipe functionality}
 and can be used to create more effective code for processing large
 datasets. What pipes of the form like \texttt{\%\textgreater{}\%} are
 and how to use them is described here:
-\url{https://statistik-dresden.de/archives/15679}.
+\href{https://statistik-dresden.de/archives/15679}{R-Programmierung: Was
+ist \texttt{\%\textgreater{}\%}?}.
 
 \textbf{HINT:} The pipe functionality is already available by loading
 the library \texttt{tidyr} - so you don't have to load it explicitly.
 
-Before pipes can be used in R, the package has to be loaded first:
-
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{7}{\boxspacing}
+\prompt{In}{incolor}{23}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{magrittr}\PY{p}{,} \PY{n}{warn.conflicts}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{)}
 \end{Verbatim}
@@ -651,7 +654,7 @@ is used to \textbf{reorder the discrete levels of diagram axes}
 according to the intended order of attributes.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{8}{\boxspacing}
+\prompt{In}{incolor}{24}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{forcats}\PY{p}{)}
 \end{Verbatim}
@@ -666,7 +669,7 @@ and statistical methods to run the \textbf{analytical hierarchy process
 (AHP)}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{library}\PY{p}{(}\PY{n}{ahpsurvey}\PY{p}{)}
 \end{Verbatim}
@@ -684,34 +687,45 @@ The \texttt{display\_markdown()} function from the package
 notebook as well as in the compiled PDF output.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{10}{\boxspacing}
+\prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}render\PYZus{}md\PYZus{}tables} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}table}\PY{p}{,} \PY{n}{str\PYZus{}table\PYZus{}header}\PY{p}{)} \PY{p}{\PYZob{}}
-    \PY{c+c1}{\PYZsh{} format the dataframe as a markdown table using }
-    \PY{c+c1}{\PYZsh{} the \PYZsq{}kable()\PYZsq{} function from the \PYZsq{}knitr\PYZsq{} package}
+    \PY{c+c1}{\PYZsh{} Format the dataframe as a markdown table using }
+    \PY{c+c1}{\PYZsh{} the \PYZsq{}kable()\PYZsq{} function from the \PYZsq{}knitr\PYZsq{} package.}
     \PY{n}{table\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{kable}\PY{p}{(}
         \PY{n}{df\PYZus{}table}\PY{p}{,}
         \PY{n}{format} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{markdown\PYZdq{}}\PY{p}{,}
         \PY{c+c1}{\PYZsh{} digits = 2,}
         \PY{n}{caption} \PY{o}{=} \PY{n}{str\PYZus{}table\PYZus{}header}\PY{p}{)}
 
+    \PY{c+c1}{\PYZsh{} print(table\PYZus{}out)}
     \PY{n+nf}{display\PYZus{}markdown}\PY{p}{(}\PY{n+nf}{as.character}\PY{p}{(}\PY{n}{table\PYZus{}out}\PY{p}{)}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{prepare-raw-csv-input-data-from-scoscisurvey-for-analytical-hierarchy-process-ahp}{%
-\section{Prepare raw CSV input data from ScoSciSurvey for analytical
+    \hypertarget{prepare-raw-csv-input-data-from-sosci-survey-for-analytical-hierarchy-process-ahp}{%
+\section{Prepare raw CSV input data from SoSci Survey for analytical
 hierarchy process
-(AHP)}\label{prepare-raw-csv-input-data-from-scoscisurvey-for-analytical-hierarchy-process-ahp}}
+(AHP)}\label{prepare-raw-csv-input-data-from-sosci-survey-for-analytical-hierarchy-process-ahp}}
+
+The survey was conducted on the \href{https://www.soscisurvey.de/}{SoSci
+Survey} platform and the results were exported as CSV files.
+
+In this main section the CSV files are prepared in such a way that in
+the following main section the AHP can be carried out using the R
+package \texttt{ahpsurvey}.
 
     \hypertarget{set-globally-used-input-and-output-folders-for-preparing-raw-csv-data}{%
 \subsection{Set globally used input and output folders for preparing raw
 CSV
 data}\label{set-globally-used-input-and-output-folders-for-preparing-raw-csv-data}}
 
+The following global variables are used to store the input and output
+folders for CSV file preparation.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{11}{\boxspacing}
+\prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}prep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./input\PYZus{}data\PYZus{}from\PYZus{}survey\PYZdq{}}
 \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}manipulated\PYZdq{}}
@@ -722,24 +736,28 @@ data}\label{set-globally-used-input-and-output-folders-for-preparing-raw-csv-dat
 \subsection{Define functions to prepare the survey data for further
 analysis}\label{define-functions-to-prepare-the-survey-data-for-further-analysis}}
 
-The following functions are used to read the survey data from the CSV
-files and prepare the data structure for further analysis with the R
-package \texttt{ahpsurvey}.
+The following functions are used to read the survey data from the input
+CSV files, to prepare the data structure for further analysis with the R
+package \texttt{ahpsurvey} and to store the results in the output CSV
+files.
 
 \hypertarget{function-to-read-the-survey-data-from-csv-files-to-dataframe-objects}{%
 \subsubsection{Function to read the survey data from CSV files to
 dataframe
 objects}\label{function-to-read-the-survey-data-from-csv-files-to-dataframe-objects}}
 
-Define a function for reading in a CSV file to 4 different dateframes by
-selecting different columns.
+This function reads a CSV file and stores the data in four different
+dataframes by selecting different columns for each. In addition to the
+\textbf{main criteria} (all datasets), the four dataframes also contain
+the sub-datasets for \textbf{environmental}, the \textbf{social}, and
+the \textbf{economic sub-criteria}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{12}{\boxspacing}
+\prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename}\PY{p}{)} \PY{p}{\PYZob{}}
   
-  \PY{c+c1}{\PYZsh{} criteria (main criteria)}
+  \PY{c+c1}{\PYZsh{} Criteria (main criteria)}
   \PY{n}{df\PYZus{}mySurvey\PYZus{}1} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{fread}\PY{p}{(}
     \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,}
     \PY{n}{header} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}\PYZdq{}\PYZdq{}}\PY{p}{,}
@@ -749,7 +767,7 @@ selecting different columns.
                \PY{l+s}{\PYZdq{}}\PY{l+s}{RK04\PYZus{}01\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RK05\PYZus{}01\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RK06\PYZus{}01\PYZdq{}}\PY{p}{)}
     \PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} environmental sub\PYZhy{}criteria}
+  \PY{c+c1}{\PYZsh{} Environmental sub\PYZhy{}criteria}
   \PY{n}{df\PYZus{}mySurvey\PYZus{}2} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{fread}\PY{p}{(}
     \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,}
     \PY{n}{header} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}\PYZdq{}\PYZdq{}}\PY{p}{,}
@@ -759,7 +777,7 @@ selecting different columns.
                \PY{l+s}{\PYZdq{}}\PY{l+s}{RU04\PYZus{}01\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RU05\PYZus{}01\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RU06\PYZus{}01\PYZdq{}}\PY{p}{)}
     \PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} social sub\PYZhy{}criteria}
+  \PY{c+c1}{\PYZsh{} Social sub\PYZhy{}criteria}
   \PY{n}{df\PYZus{}mySurvey\PYZus{}3} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{fread}\PY{p}{(}
     \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,}
     \PY{n}{header} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}\PYZdq{}\PYZdq{}}\PY{p}{,}
@@ -769,7 +787,7 @@ selecting different columns.
                \PY{l+s}{\PYZdq{}}\PY{l+s}{RS04\PYZus{}01\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RS05\PYZus{}01\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{RS06\PYZus{}01\PYZdq{}}\PY{p}{)}
     \PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} economic sub\PYZhy{}criteria}
+  \PY{c+c1}{\PYZsh{} Economic sub\PYZhy{}criteria}
   \PY{n}{df\PYZus{}mySurvey\PYZus{}4} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{fread}\PY{p}{(}
     \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{UTF\PYZhy{}8\PYZdq{}}\PY{p}{,}
     \PY{n}{header} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}t\PYZdq{}}\PY{p}{,} \PY{n}{quote} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZbs{}\PYZdq{}\PYZdq{}}\PY{p}{,}
@@ -787,11 +805,132 @@ selecting different columns.
 \end{tcolorbox}
 
     \hypertarget{function-to-prepare-the-data-and-store-it-in-new-dataframes}{%
-\subsubsection{Function to prepare the data and store it in new
+\subsubsection{!!! Function to prepare the data and store it in new
 dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
 
+For the \textbf{comparison of two attributes}, Saaty introduced a scale
+of following nine rating items (see \cite{Saaty_AHP_1987}):
+
+\begin{longtable}[]{@{}rl@{}}
+\caption{Nine rating items according to Saaty (source:
+\cite{Vignettes_ahpsurvey_2019})}\tabularnewline
+\toprule()
+Rating & Definition \\
+\midrule()
+\endfirsthead
+\toprule()
+Rating & Definition \\
+\midrule()
+\endhead
+1 & Two characteristics are equally important \\
+2 & Between 1 and 3 \\
+3 & The preferred characteristics are slightly more important \\
+4 & Between 3 and 5 \\
+5 & The preferred characteristics are moderately more important \\
+6 & Between 5 and 7 \\
+7 & The preferred characteristics are strongly more important \\
+8 & Between 7 and 9 \\
+9 & The preferred characteristics are absolutely more important \\
+\bottomrule()
+\end{longtable}
+
+To be able to describe the comparison of two attributes uniquely,
+negative values as well as positive values are introduced for the rating
+items. \textbf{Negative} values prefer the \(Attribute\_X\) and
+\textbf{positive} values the \(Attribute\_Y\). A value of \textbf{\(1\)}
+means that both attributes are \textbf{equally weighted}. Note that the
+values \(0\) and \(\text{-}1\) \textbf{do not} exist. Thus, Saaty's
+17-step scale will result as follows:
+
+\[Attribute\_X\;\;\text{-}9\;\text{-}8\;\text{-}7\;\ldots\;\text{-}3\;\text{-}2\;1\;2\;3\;\ldots\;7\;8\;9\;Attribute\_Y\]
+
+The package \texttt{ahpsurvey} employs the 17-step scale according to
+Saaty (see \cite{Vignettes_ahpsurvey_2019}).
+
+Da auf der verwendeten Umfrage-Plattform
+\href{https://www.soscisurvey.de/}{SoSci Survey} die 17-step scale nach
+Saaty technisch nicht gut umsetzbar war und dem überwiegend
+nicht-wissenschaftlichen Zielgruppe der Befragten diese Skalierung zu
+feingranular.
+
+Daher wurde eine andere Herangehensweise gewählt. Bei dieser gab es eine
+zwei-stufige Abfrage. In Stufe 1 wurde zunächst gefragt, ob und falls
+ja, welches der beiden Attribute präferiert wird und damit eine höhere
+Gewichtung erhält. In Stufe 1 ergab sich folgende Codierung:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\text{-}1\): \(Attribute\_X\) und \(Attribute\_Y\) \textbf{gleich
+  wichtig}
+\item
+  \(1\): \(Attribute\_X\) \textbf{wichtiger} als \(Attribute\_Y\)
+\item
+  \(2\): \(Attribute\_X\) weniger wichtig als \(Attribute\_Y\)
+\end{itemize}
+
+Bei unterschiedlicher Gewichtung musste der Befragte im 2. Schritt
+entscheiden, um wieviel wichtiger ihm das jeweilige Attribut ist auf
+einer Skala von 1 bis 8 ist, wobei die 1 der 2, die 2 der 3 usw und die
+8 der 9 auf der rating items nach Saaty entspricht. Siehe hierzu
+folgende Abbildung:
+
+Die Umfrage-Ergebnisse wurden in Form einer \textbf{codierten
+Skalierung} als CSV-Datei aus SoSci Survey exportiert. Mit folgender
+Funktion muss diese wieder auf die Saaty-Skala umgerechnet werden, um
+AHP mit dem R package \texttt{ahpsurvey} durchführen zu können.
+
+Die Werte der Codierung und die der Gewichtung müssen aus drei
+unterschiedlichen Spalten pro paarweisem Attribut-Vergleich der
+CSV-Datei entnommen werden. Beispielsweise enthält beim Vergleich der
+Attribute ``Microclimate and Hydrology (Clim)'' und ``Biodiversity
+(BDiv)'' die Spalte \texttt{AU01} die Codierung und die Spalten
+\texttt{RU01\_01} oder \texttt{RU02\_01} die Gewichtung.
+
+Folgende Beispiele zeigen die drei möglichen Fälle und die Umrechnung in
+die Saaty-Skala.
+
+\textbf{Fall 1:}
+
+\begin{itemize}
+\tightlist
+\item
+  wenn \texttt{AU01} \(= \text{-}1\), dann setze Gewichtung \(= 1\)
+\item
+  Werte in den Spalten \texttt{RU01\_01} und \texttt{RU02\_01} werden
+  ignoriert
+\item
+  die Attribute \texttt{Clim} und \texttt{BDiv} sind gleich wichtig
+\end{itemize}
+
+\textbf{Fall 2:}
+
+\begin{itemize}
+\tightlist
+\item
+  wenn \texttt{AU01} \(= 1\), dann setze Gewichtung \(= \text{-}1 *\)
+  \texttt{RU01\_01} \(- 1\)
+\item
+  das Attribut \texttt{Clim} ist wichtiger als \texttt{BDiv}
+\end{itemize}
+
+\textbf{Fall 3:}
+
+\begin{itemize}
+\tightlist
+\item
+  wenn \texttt{AU01} \(= 2\), dann setze Gewichtung \$= \$
+  \texttt{RU02\_01} \(+ 1\)
+\item
+  das Attribut \texttt{Clim} ist weniger wichtig als \texttt{BDiv}
+\end{itemize}
+
+Die Funktion gibt ein neues Dataframe mit den auf die Saaty-Skala
+umgerechneten Gewichtungen aus drei paarweisen Vergleichen der Kriterien
+bzw. Sub-Kriterien zurück.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}scrambleData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{,} \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
                               \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,} \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)} \PY{p}{\PYZob{}}
@@ -802,7 +941,7 @@ dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
   
   \PY{c+c1}{\PYZsh{} Generate 1. column}
   \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-    \PY{c+c1}{\PYZsh{} filter column names by vector element}
+    \PY{c+c1}{\PYZsh{} Filter column names by vector element}
     \PY{n+nf}{if }\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)}
         \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{,} \PY{n}{with}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{]} \PY{o}{==} \PY{l+m}{1}\PY{p}{)} \PY{p}{\PYZob{}}
       \PY{n}{int\PYZus{}tmp\PYZus{}val} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{as.integer}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)}
@@ -827,7 +966,7 @@ dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
   
   \PY{c+c1}{\PYZsh{} Generate 2. column}
   \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-    \PY{c+c1}{\PYZsh{} filter column names by vector element}
+    \PY{c+c1}{\PYZsh{} Filter column names by vector element}
     \PY{n+nf}{if }\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)}
         \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{,} \PY{n}{with}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{]} \PY{o}{==} \PY{l+m}{1}\PY{p}{)} \PY{p}{\PYZob{}}
       \PY{n}{int\PYZus{}tmp\PYZus{}val} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{as.integer}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)}
@@ -852,7 +991,7 @@ dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
   
   \PY{c+c1}{\PYZsh{} Generate 3. column}
   \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-    \PY{c+c1}{\PYZsh{} filter column names by vector element}
+    \PY{c+c1}{\PYZsh{} Filter column names by vector element}
     \PY{n+nf}{if }\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)}
         \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{[}\PY{l+m}{3}\PY{p}{]}\PY{p}{,} \PY{n}{with}\PY{o}{=}\PY{k+kc}{FALSE}\PY{p}{]} \PY{o}{==} \PY{l+m}{1}\PY{p}{)} \PY{p}{\PYZob{}}
       \PY{n}{int\PYZus{}tmp\PYZus{}val} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{as.integer}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}inputData}\PY{p}{)}
@@ -875,7 +1014,7 @@ dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
     \PY{p}{\PYZcb{}}
   \PY{p}{\PYZcb{}}
   
-  \PY{c+c1}{\PYZsh{} return scrambled dataframe}
+  \PY{c+c1}{\PYZsh{} Return scrambled dataframe}
   \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}outputData}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
@@ -885,22 +1024,25 @@ dataframes}\label{function-to-prepare-the-data-and-store-it-in-new-dataframes}}
 \subsubsection{Function to write resulting dataframes to CSV
 files}\label{function-to-write-resulting-dataframes-to-csv-files}}
 
+With this function, the results of the data preparation are saved in
+output CSV files.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename}\PY{p}{,}
                                            \PY{n}{df\PYZus{}dataframe}\PY{p}{,} \PY{n}{str\PYZus{}filenameExtension}\PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} Split file name on second underscore, was found here: }
-  \PY{c+c1}{\PYZsh{} https://stackoverflow.com/a/32398489}
+  \PY{c+c1}{\PYZsh{} How to split the file name on second underscore,}
+  \PY{c+c1}{\PYZsh{} was found here: https://stackoverflow.com/a/32398489}
   \PY{n}{list\PYZus{}str\PYZus{}split} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{strsplit}\PY{p}{(}\PY{n+nf}{sub}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{(\PYZca{}[\PYZca{}\PYZus{}]+\PYZus{}[\PYZca{}\PYZus{}]+)\PYZus{}(.*)\PYZdl{}\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZbs{}\PYZbs{}1 \PYZbs{}\PYZbs{}2\PYZsq{}}\PY{p}{,}
                                  \PY{n}{str\PYZus{}CSVfilename}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{ \PYZsq{}}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} extend the file name prefix and glue together with old suffix}
+  \PY{c+c1}{\PYZsh{} Extend the file name prefix and glue together with old suffix}
   \PY{n}{str\PYZus{}CSVfilename\PYZus{}extended} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{list\PYZus{}str\PYZus{}split}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{,}
                                     \PY{n}{str\PYZus{}filenameExtension}\PY{p}{,}
                                     \PY{n}{list\PYZus{}str\PYZus{}split}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{[}\PY{l+m}{2}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} extend file name by path}
+  \PY{c+c1}{\PYZsh{} Extend file name by path}
   \PY{n}{str\PYZus{}CSVfilename\PYZus{}extended} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}path}\PY{p}{,} \PY{n}{str\PYZus{}CSVfilename\PYZus{}extended}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   
   \PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}dataframe}\PY{p}{,} \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}extended}\PY{p}{,}
@@ -916,7 +1058,7 @@ files}\label{function-to-write-resulting-dataframes-to-csv-files}}
 survey)}\label{create-dataframe-handling-the-file-names-of-input-csv-data-raw-data-from-survey}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{31}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -990,7 +1132,7 @@ Walk over all input CSV files, select necessary columns, filter cells by
 given algorithm, and write the results to output CSV files:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{32}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{AK01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AK02\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AK03\PYZsq{}}\PY{p}{)}
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{RK01\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RK02\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RK03\PYZus{}01\PYZsq{}}\PY{p}{,}
@@ -998,18 +1140,18 @@ given algorithm, and write the results to output CSV files:
 \PY{n}{vec\PYZus{}colnames\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Envi\PYZus{}Soci\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Envi\PYZus{}Econ\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Soci\PYZus{}Econ\PYZsq{}}\PY{p}{)}
 
 \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create list of dataframes from current input CSV file}
+  \PY{c+c1}{\PYZsh{} Create a list of dataframes from current input CSV file}
   \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}prep}\PY{p}{,}
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} scramble the dataframes}
+  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
   \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
                                  \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}
@@ -1025,7 +1167,7 @@ Walk over all input CSV files, select necessary columns, filter cells by
 given algorithm, and write the results to output CSV files:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{AU01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AU02\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AU03\PYZsq{}}\PY{p}{)}
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{RU01\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RU02\PYZus{}01\PYZsq{}}\PY{p}{,}
@@ -1034,18 +1176,18 @@ given algorithm, and write the results to output CSV files:
 \PY{n}{vec\PYZus{}colnames\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Clim\PYZus{}BDiv\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Clim\PYZus{}CiEc\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{BDiv\PYZus{}CiEc\PYZsq{}}\PY{p}{)}
 
 \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create list of dataframes from current input CSV file}
+  \PY{c+c1}{\PYZsh{} Create a list of dataframes from current input CSV file}
   \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}prep}\PY{p}{,}
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} scramble the dataframes}
+  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
   \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
                                  \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{)}
@@ -1060,7 +1202,7 @@ Walk over all input CSV files, select necessary columns, filter cells by
 given algorithm, and write the results to output CSV files:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{34}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{AS01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AS02\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AS03\PYZsq{}}\PY{p}{)}
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{RS01\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RS02\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RS03\PYZus{}01\PYZsq{}}\PY{p}{,}
@@ -1068,18 +1210,18 @@ given algorithm, and write the results to output CSV files:
 \PY{n}{vec\PYZus{}colnames\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{KEdu\PYZus{}Comm\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{KEdu\PYZus{}Part\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Comm\PYZus{}Part\PYZsq{}}\PY{p}{)}
 
 \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create list of dataframes from current input CSV file}
+  \PY{c+c1}{\PYZsh{} Create a list of dataframes from current input CSV file}
   \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}prep}\PY{p}{,}
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} scramble the dataframes}
+  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
   \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{3}\PY{p}{]]}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
                                  \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{)}
@@ -1094,7 +1236,7 @@ Walk over all input CSV files, select necessary columns, filter cells by
 given algorithm, and write the results to output CSV files:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
+\prompt{In}{incolor}{35}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{AW01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AW02\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AW03\PYZsq{}}\PY{p}{)}
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{RW01\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RW02\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RW03\PYZus{}01\PYZsq{}}\PY{p}{,}
@@ -1102,18 +1244,18 @@ given algorithm, and write the results to output CSV files:
 \PY{n}{vec\PYZus{}colnames\PYZus{}out} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Qual\PYZus{}LVCs\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Qual\PYZus{}Affo\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{LVCs\PYZus{}Affo\PYZsq{}}\PY{p}{)}
 
 \PY{n+nf}{for }\PY{p}{(} \PY{n}{row\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} create list of dataframes from current input CSV file}
+  \PY{c+c1}{\PYZsh{} Create a list of dataframes from current input CSV file}
   \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}prep}\PY{p}{,}
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} scramble the dataframes}
+  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
   \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}scrambleData}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{4}\PY{p}{]]}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
                                         \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
                                  \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}
@@ -1131,7 +1273,7 @@ hierarchy process
 AHP}\label{set-globally-used-input-and-output-folders-for-processing-ahp}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{36}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}manipulated\PYZdq{}}
 \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{./output\PYZus{}data\PYZus{}AHP\PYZdq{}}
@@ -1150,7 +1292,7 @@ dataframes}\label{function-to-read-in-the-processed-survey-data-from-csv-files-t
 Define a function for reading in a CSV file to a date frame.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{21}{\boxspacing}
+\prompt{In}{incolor}{37}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename}\PY{p}{)} \PY{p}{\PYZob{}}
   
@@ -1170,7 +1312,7 @@ Define a function for reading in a CSV file to a date frame.
 (weights)}{Function to generate a dataframe with eigentrue values (weights)}}\label{function-to-generate-a-dataframe-with-eigentrue-values-weights}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{22}{\boxspacing}
+\prompt{In}{incolor}{38}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
@@ -1189,7 +1331,7 @@ Define a function for reading in a CSV file to a date frame.
 ratios}\label{function-to-generate-an-array-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{23}{\boxspacing}
+\prompt{In}{incolor}{39}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{)} \PY{p}{\PYZob{}}
   \PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}surveyData} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}}
@@ -1206,7 +1348,7 @@ ratios}\label{function-to-generate-an-array-with-consistency-ratios}}
 ratios}\label{function-to-generate-a-dataframe-with-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
+\prompt{In}{incolor}{40}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,}
                                     \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
@@ -1217,7 +1359,7 @@ ratios}\label{function-to-generate-a-dataframe-with-consistency-ratios}}
     \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{length}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,}
            \PY{n}{arr\PYZus{}cr.dum} \PY{o}{=} \PY{n+nf}{as.factor}\PY{p}{(}\PY{n+nf}{ifelse}\PY{p}{(}\PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}=} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{l+m}{1}\PY{p}{,} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} rename column with consistency ratios}
+  \PY{c+c1}{\PYZsh{} Rename column with consistency ratios}
   \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{)}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{str\PYZus{}CRlabel}
 
   \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{)}
@@ -1231,7 +1373,7 @@ consistency
 ratios}\label{function-to-visualize-individual-priorities-and-consistency-ratios}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{25}{\boxspacing}
+\prompt{In}{incolor}{41}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}visuPriosCRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{arr\PYZus{}cr}\PY{p}{,}
                               \PY{n}{consistency\PYZus{}thres} \PY{o}{=} \PY{l+m}{0.1}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,}
@@ -1322,7 +1464,7 @@ individual judgement
 matrices}\label{function-to-generate-geometric-mean-values-from-individual-judgement-matrices}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{26}{\boxspacing}
+\prompt{In}{incolor}{42}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}aggpref\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}surveyData}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,}
                                \PY{n}{arr\PYZus{}cr}\PY{p}{,} \PY{n}{consistency\PYZus{}thres}\PY{o}{=}\PY{l+m}{0.1}\PY{p}{,} \PY{n}{str\PYZus{}CRlabel}\PY{p}{)} \PY{p}{\PYZob{}}
@@ -1333,20 +1475,20 @@ matrices}\label{function-to-generate-geometric-mean-values-from-individual-judge
     \PY{n+nf}{mutate}\PY{p}{(}\PY{n}{rowid} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{length}\PY{p}{(}\PY{n}{arr\PYZus{}cr}\PY{p}{)}\PY{p}{,}
            \PY{n}{arr\PYZus{}cr.dum} \PY{o}{=} \PY{n+nf}{as.factor}\PY{p}{(}\PY{n+nf}{ifelse}\PY{p}{(}\PY{n}{arr\PYZus{}cr} \PY{o}{\PYZlt{}=} \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{l+m}{1}\PY{p}{,} \PY{l+m}{0}\PY{p}{)}\PY{p}{)}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} rename column with consistency ratios}
+  \PY{c+c1}{\PYZsh{} Rename column with consistency ratios}
   \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{)}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{str\PYZus{}CRlabel}
 
-  \PY{c+c1}{\PYZsh{} combine dataframe \PYZsq{}df\PYZus{}cr\PYZsq{} with raw survey data (\PYZsq{}df\PYZus{}surveyData\PYZsq{})}
+  \PY{c+c1}{\PYZsh{} Combine dataframe \PYZsq{}df\PYZus{}cr\PYZsq{} with raw survey data (\PYZsq{}df\PYZus{}surveyData\PYZsq{})}
   \PY{n}{df\PYZus{}cr\PYZus{}wRaw} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}cr}\PY{p}{,} \PY{n}{df\PYZus{}surveyData}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} remove rows, where \PYZsq{}arr\PYZus{}cr.dum\PYZsq{} == 0 (inconsistent data)}
+  \PY{c+c1}{\PYZsh{} Remove rows, where \PYZsq{}arr\PYZus{}cr.dum\PYZsq{} == 0 (inconsistent data)}
   \PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr\PYZus{}wRaw}\PY{p}{[}\PY{n}{df\PYZus{}cr\PYZus{}wRaw}\PY{o}{\PYZdl{}}\PY{n}{arr\PYZus{}cr.dum} \PY{o}{!=} \PY{l+m}{0}\PY{p}{,} \PY{p}{]}
   
-  \PY{c+c1}{\PYZsh{} get individual judgement matrices from last 3 columns}
+  \PY{c+c1}{\PYZsh{} Get individual judgement matrices from last 3 columns}
   \PY{n}{list\PYZus{}mat\PYZus{}judgement} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons}\PY{p}{[}\PY{n+nf}{tail}\PY{p}{(}\PY{n+nf}{names}\PY{p}{(}\PY{n}{df\PYZus{}cr\PYZus{}wRaw\PYZus{}cons}\PY{p}{)}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]} \PY{o}{\PYZpc{}\PYZgt{}\PYZpc{}} 
     \PY{n+nf}{ahp.mat}\PY{p}{(}\PY{n}{vec\PYZus{}attributes}\PY{p}{,} \PY{n}{negconvert} \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} get geometric mean values from judgement matrices}
+  \PY{c+c1}{\PYZsh{} Get geometric mean values from judgement matrices}
   \PY{n}{list\PYZus{}gmean\PYZus{}l} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{ahp.aggpref}\PY{p}{(}\PY{n}{list\PYZus{}mat\PYZus{}judgement}\PY{p}{,} \PY{n}{vec\PYZus{}attributes}\PY{p}{,}
                               \PY{n}{method} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{eigen\PYZdq{}}\PY{p}{,} \PY{n}{aggmethod} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{geometric\PYZdq{}}\PY{p}{)}
   
@@ -1360,13 +1502,13 @@ matrices}\label{function-to-generate-geometric-mean-values-from-individual-judge
 values}\label{function-to-normalize-the-geometric-mean-values}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{27}{\boxspacing}
+\prompt{In}{incolor}{43}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}norm\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)} \PY{p}{\PYZob{}}
-  \PY{c+c1}{\PYZsh{} normalization so that the sum of the geometric mean values is 1,}
+  \PY{c+c1}{\PYZsh{} Normalize the geometric means so that the sum of the values is 1,}
   \PY{c+c1}{\PYZsh{} what corresponds to 100\PYZpc{}}
   \PY{n}{df\PYZus{}gmean\PYZus{}l} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.frame}\PY{p}{(}\PY{n}{list\PYZus{}gmeans}\PY{p}{)}
-  \PY{c+c1}{\PYZsh{} rename column with geometric mean values (raw)}
+  \PY{c+c1}{\PYZsh{} Rename column with geometric mean values (raw)}
   \PY{n+nf}{colnames}\PY{p}{(}\PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{)}\PY{p}{[}\PY{l+m}{1}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.raw\PYZdq{}}
   
   \PY{n}{gmean\PYZus{}sum} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
@@ -1381,7 +1523,7 @@ values}\label{function-to-normalize-the-geometric-mean-values}}
   \PY{p}{\PYZcb{}}
   
   \PY{n}{gmean\PYZus{}sum\PYZus{}norm} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0}
-  \PY{c+c1}{\PYZsh{} iterate over all rows except the last, because this is the sum itself}
+  \PY{c+c1}{\PYZsh{} Iterate over all rows except the last, because this is the sum itself}
   \PY{n+nf}{for }\PY{p}{(} \PY{n}{row} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{p}{(}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{)}\PY{l+m}{\PYZhy{}1}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
     \PY{n}{gmean\PYZus{}sum\PYZus{}norm} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{gmean\PYZus{}sum\PYZus{}norm} \PY{o}{+} \PY{n}{df\PYZus{}gmean\PYZus{}l}\PY{p}{[}\PY{n}{row}\PY{p}{,} \PY{l+m}{2}\PY{p}{]}
   \PY{p}{\PYZcb{}}
@@ -1398,7 +1540,7 @@ with overlaid box
 plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots-with-overlaid-box-plots}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\boxspacing}
+\prompt{In}{incolor}{44}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}process\PYZus{}ahpsurvey} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,}
                                    \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,}
@@ -1409,41 +1551,40 @@ plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots-with-over
     \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}\PY{p}{)}
 
     \PY{n+nf}{for }\PY{p}{(}\PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)}\PY{p}{)} \PY{p}{\PYZob{}}
-        \PY{c+c1}{\PYZsh{} create dataframe from current input CSV file}
+        \PY{c+c1}{\PYZsh{} Create dataframe from current input CSV file}
         \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                               \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
         \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
 
-        \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset }
+        \PY{c+c1}{\PYZsh{} Create vectors for attributes and labels from a subset }
         \PY{c+c1}{\PYZsh{} of dataframe \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}XXX\PYZsq{}}
         \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
         \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
 
-        \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+        \PY{c+c1}{\PYZsh{} Shift row interval for next iteration}
         \PY{n}{row\PYZus{}start} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
         \PY{n}{row\PYZus{}end} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
 
-        \PY{c+c1}{\PYZsh{} create title string for violin plots}
-        \PY{c+c1}{\PYZsh{} hint: 1st paste() function is only used to break the code to a new line }
+        \PY{c+c1}{\PYZsh{} Create title string for violin plots}
+        \PY{c+c1}{\PYZsh{} Hint: 1st paste() function is only used to break the code to a new line }
         \PY{n}{str\PYZus{}violin\PYZus{}title} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Display priorities and \PYZdq{}}\PY{p}{,}
                              \PY{l+s}{\PYZdq{}}\PY{l+s}{consistency ratios for attributes:\PYZdq{}}\PY{p}{)}
         \PY{n}{str\PYZus{}violin\PYZus{}title} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}violin\PYZus{}title}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{[}\PY{l+m}{1}\PY{p}{]}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}
-        \PY{c+c1}{\PYZsh{} extend title string by looping through attributes,}
+        \PY{c+c1}{\PYZsh{} Extend title string by looping through attributes,}
         \PY{c+c1}{\PYZsh{} starting with 2nd element}
         \PY{n+nf}{for }\PY{p}{(}\PY{n}{idx} \PY{n}{in} \PY{l+m}{2}\PY{o}{:}\PY{n+nf}{length}\PY{p}{(}\PY{n}{vec\PYZus{}atts}\PY{p}{)}\PY{p}{)} \PY{p}{\PYZob{}}
             \PY{n}{str\PYZus{}violin\PYZus{}title} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}violin\PYZus{}title}\PY{p}{,}
                                       \PY{n}{vec\PYZus{}atts}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{, \PYZdq{}}\PY{p}{)}
         \PY{p}{\PYZcb{}}
-        \PY{c+c1}{\PYZsh{} print(str\PYZus{}violin\PYZus{}title)}
 
-        \PY{c+c1}{\PYZsh{} generate dataframe with eigentrue values (weights)}
+        \PY{c+c1}{\PYZsh{} Generate dataframe with eigentrue values (weights)}
         \PY{n}{df\PYZus{}eigentrue\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genEigentrue\PYZus{}to\PYZus{}dataframe}\PY{p}{(}
                                     \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
-        \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+        \PY{c+c1}{\PYZsh{} Generate an array with consistency ratios}
         \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
-        \PY{c+c1}{\PYZsh{} generate an extended dataframe with consistency ratios}
+        \PY{c+c1}{\PYZsh{} Generate an extended dataframe with consistency ratios}
         \PY{n}{consistency\PYZus{}thres} \PY{o}{\PYZlt{}\PYZhy{}} \PY{l+m}{0.1}
         \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
         \PY{n}{df\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,}
@@ -1459,13 +1600,13 @@ plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots-with-over
                           \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,}
                           \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{str\PYZus{}violin\PYZus{}title}\PY{p}{)}
 
-        \PY{c+c1}{\PYZsh{} combine dataframes of eigentrue values (weights) with consistency ratios}
+        \PY{c+c1}{\PYZsh{} Combine dataframes of eigentrue values (weights) with consistency ratios}
         \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{)}
-        \PY{c+c1}{\PYZsh{} add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
+        \PY{c+c1}{\PYZsh{} Add only specific columns of \PYZsq{}df\PYZus{}CRs\PYZsq{} (omit column \PYZsq{}row\PYZus{}id\PYZsq{})}
         \PY{n}{df\PYZus{}outputTable} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{cbind}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,} \PY{l+m}{3}\PY{p}{)}\PY{p}{]}\PY{p}{)}
     \PY{p}{\PYZcb{}}
 
-    \PY{c+c1}{\PYZsh{} extend file name by path}
+    \PY{c+c1}{\PYZsh{} Extend file name by path}
     \PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{rdata\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,}
                                     \PY{l+s}{\PYZdq{}}\PY{l+s}{eigentrue\PYZus{}CRs\PYZdq{}}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
     \PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
@@ -1473,7 +1614,7 @@ plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots-with-over
     \PY{n}{str\PYZus{}CSVfilename\PYZus{}output} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                                     \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
 
-    \PY{c+c1}{\PYZsh{} write dataframe \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file for}
+    \PY{c+c1}{\PYZsh{} Write dataframe \PYZsq{}df\PYZus{}outputTable\PYZsq{} to CSV file for}
     \PY{c+c1}{\PYZsh{} further statistical analysis}
     \PY{n+nf}{write.table}\PY{p}{(}\PY{n}{df\PYZus{}outputTable}\PY{p}{,}
         \PY{n}{file} \PY{o}{=} \PY{n}{str\PYZus{}CSVfilename\PYZus{}output}\PY{p}{,}
@@ -1490,7 +1631,7 @@ consistent
 datasets}\label{function-to-calculate-aggregated-preference-weights-for-consistent-datasets}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{29}{\boxspacing}
+\prompt{In}{incolor}{45}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{func\PYZus{}calc\PYZus{}pref\PYZus{}weights} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{function}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{,}
                                    \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
@@ -1499,23 +1640,23 @@ datasets}\label{function-to-calculate-aggregated-preference-weights-for-consiste
     \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{l+m}{3}
 
     \PY{n+nf}{for }\PY{p}{(} \PY{n}{file\PYZus{}idx} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n+nf}{nrow}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles}\PY{p}{)} \PY{p}{)} \PY{p}{\PYZob{}}
-        \PY{c+c1}{\PYZsh{} create dataframe from current input CSV file}
+        \PY{c+c1}{\PYZsh{} Create dataframe from current input CSV file}
         \PY{n}{str\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                               \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
         \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{descriptions}\PY{p}{]}
 
         \PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframe}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
         
-        \PY{c+c1}{\PYZsh{} create vectors for attributes and labels from a subset}
+        \PY{c+c1}{\PYZsh{} Create vectors for attributes and labels from a subset}
         \PY{c+c1}{\PYZsh{} of dataframe \PYZsq{}df\PYZus{}attributes\PYZus{}labels\PYZus{}XXX\PYZsq{}}
         \PY{n}{vec\PYZus{}atts} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{attr}\PY{p}{]}
         \PY{n}{vec\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{n}{row\PYZus{}start}\PY{o}{:}\PY{n}{row\PYZus{}end}\PY{p}{)}\PY{p}{,} \PY{n}{labels}\PY{p}{]}
 
-        \PY{c+c1}{\PYZsh{} shift row interval for next iteration}
+        \PY{c+c1}{\PYZsh{} Shift row interval for next iteration}
         \PY{n}{row\PYZus{}start} \PY{o}{=} \PY{n}{row\PYZus{}start} \PY{o}{+} \PY{l+m}{3}
         \PY{n}{row\PYZus{}end} \PY{o}{=} \PY{n}{row\PYZus{}end} \PY{o}{+} \PY{l+m}{3}
 
-        \PY{c+c1}{\PYZsh{} generate an array with consistency ratios}
+        \PY{c+c1}{\PYZsh{} Generate an array with consistency ratios}
         \PY{n}{arr\PYZus{}CRs} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}genCR\PYZus{}to\PYZus{}arr}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{)}
 
         \PY{n}{str\PYZus{}CRlabel} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{CR\PYZdq{}}\PY{p}{,} \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
@@ -1526,18 +1667,18 @@ datasets}\label{function-to-calculate-aggregated-preference-weights-for-consiste
         
         \PY{n}{df\PYZus{}gmean} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}norm\PYZus{}gmean}\PY{p}{(}\PY{n}{list\PYZus{}gmean}\PY{p}{)}
 
-        \PY{c+c1}{\PYZsh{} store dataframe of main criteria to calculate the total weights}
+        \PY{c+c1}{\PYZsh{} Store dataframe of main criteria to calculate the total weights}
         \PY{c+c1}{\PYZsh{} of sub\PYZhy{}criteria}
         \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{criteria (main criteria)\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
             \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}
         \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{environmental sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
-            \PY{c+c1}{\PYZsh{} multiply column \PYZsq{}gmean.norm\PYZsq{} of sub\PYZhy{}criteria dataframe}
+            \PY{c+c1}{\PYZsh{} Multiply column \PYZsq{}gmean.norm\PYZsq{} of sub\PYZhy{}criteria dataframe}
             \PY{c+c1}{\PYZsh{} by \PYZsq{}Envi\PYZsq{} value from main criteria dataframe}
-            \PY{c+c1}{\PYZsh{} and store the result in the new column \PYZsq{}gmean.total\PYZsq{}}
+            \PY{c+c1}{\PYZsh{} and store the results in the new column \PYZsq{}gmean.total\PYZsq{}}
             \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.total} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{df\PYZus{}gmean}\PY{o}{\PYZdl{}}\PY{n}{gmean.norm} \PY{o}{*} 
                                     \PY{n}{df\PYZus{}gmean\PYZus{}main\PYZus{}criteria}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Envi\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.norm\PYZdq{}}\PY{p}{]}
 
-            \PY{c+c1}{\PYZsh{} sum up the values of the new column \PYZsq{}gmean.total\PYZsq{} and write}
+            \PY{c+c1}{\PYZsh{} Sum up the values of the new column \PYZsq{}gmean.total\PYZsq{} and write}
             \PY{c+c1}{\PYZsh{} to row \PYZsq{}Sum\PYZsq{} of the same column}
             \PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Sum\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{sum}\PY{p}{(}\PY{n}{df\PYZus{}gmean}\PY{p}{[}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{gmean.total\PYZdq{}}\PY{p}{]}\PY{p}{)}
         \PY{p}{\PYZcb{}} \PY{n}{else} \PY{n+nf}{if }\PY{p}{(} \PY{n}{str\PYZus{}file\PYZus{}description} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{social sub\PYZhy{}criteria\PYZdq{}} \PY{p}{)} \PY{p}{\PYZob{}}
@@ -1569,7 +1710,7 @@ data}\label{create-dataframes-tables-handling-the-file-names-of-processed-survey
 participants}\label{file-table-for-all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{30}{\boxspacing}
+\prompt{In}{incolor}{46}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}all} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -1636,7 +1777,7 @@ economic sub-criteria \\
 administrations}\label{file-table-for-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{31}{\boxspacing}
+\prompt{In}{incolor}{47}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -1703,7 +1844,7 @@ economic sub-criteria \\
 organizations}\label{file-table-for-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{32}{\boxspacing}
+\prompt{In}{incolor}{48}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -1770,7 +1911,7 @@ economic sub-criteria \\
 experts}\label{file-table-for-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{33}{\boxspacing}
+\prompt{In}{incolor}{49}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{file\PYZus{}idx} \PY{o}{=} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{4}\PY{p}{,}
@@ -1837,7 +1978,7 @@ economic sub-criteria \\
 labels}\label{table-with-attributes-and-labels}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{34}{\boxspacing}
+\prompt{In}{incolor}{50}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{df\PYZus{}attributes\PYZus{}labels} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{data.table}\PY{p}{(}
   \PY{n}{attr} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Envi\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Soci\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Econ\PYZdq{}}\PY{p}{,}
@@ -1889,7 +2030,7 @@ participants}{Visualize datasets of survey with package ahpsurvey for each group
 \subsubsection{All participants}\label{all-participants}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{35}{\boxspacing}
+\prompt{In}{incolor}{51}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{all\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                        \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
@@ -1925,7 +2066,7 @@ participants}{Visualize datasets of survey with package ahpsurvey for each group
 administrations}\label{participants-of-city-administrations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{36}{\boxspacing}
+\prompt{In}{incolor}{52}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{CA\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                        \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
@@ -1961,7 +2102,7 @@ administrations}\label{participants-of-city-administrations}}
 organizations}\label{participants-of-non-governmental-organizations}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{37}{\boxspacing}
+\prompt{In}{incolor}{53}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{NGO\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                        \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
@@ -1997,7 +2138,7 @@ organizations}\label{participants-of-non-governmental-organizations}}
 experts}\label{participants-of-practitioners-and-experts}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{38}{\boxspacing}
+\prompt{In}{incolor}{54}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}process\PYZus{}ahpsurvey}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}PE}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{PE\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                        \PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
@@ -2033,7 +2174,7 @@ experts}\label{participants-of-practitioners-and-experts}}
 datasets}\label{calculate-aggregated-preference-weights-for-consistent-datasets}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{39}{\boxspacing}
+\prompt{In}{incolor}{55}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{func\PYZus{}calc\PYZus{}pref\PYZus{}weights}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{n}{str\PYZus{}input\PYZus{}path\PYZus{}ahp}\PY{p}{,}
                        \PY{n}{df\PYZus{}attributes\PYZus{}labels}\PY{p}{)}
