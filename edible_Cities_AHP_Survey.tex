@@ -516,7 +516,8 @@ has not succeeded for the authors so far.
                       \PY{l+s}{\PYZdq{}}\PY{l+s}{forcats\PYZdq{}}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Query the already installed packages and save the missing ones in a new list}
-\PY{n}{missing.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{list.of.packages}\PY{p}{[}\PY{o}{!}\PY{p}{(}\PY{n}{list.of.packages} \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n+nf}{installed.packages}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Package\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{]}
+\PY{n}{missing.packages} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n}{list.of.packages}\PY{p}{[}\PY{o}{!}\PY{p}{(}\PY{n}{list.of.packages} 
+                                       \PY{o}{\PYZpc{}in\PYZpc{}} \PY{n+nf}{installed.packages}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Package\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{]}
 
 \PY{c+c1}{\PYZsh{} Install missing packages}
 \PY{n+nf}{if}\PY{p}{(}\PY{n+nf}{length}\PY{p}{(}\PY{n}{missing.packages}\PY{p}{)}\PY{p}{)} \PY{p}{\PYZob{}}
@@ -1452,7 +1453,8 @@ plots}\label{function-to-process-the-ahpsurvey-and-create-violin-plots-with-over
         \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{ahp\PYZus{}violin\PYZdq{}}\PY{p}{,} \PY{n}{str\PYZus{}participants\PYZus{}group}\PY{p}{,}
                                     \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{file\PYZus{}idx}\PY{p}{,} \PY{n}{keys}\PY{p}{]}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZus{}\PYZdq{}}\PY{p}{)}
         \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{.png\PYZdq{}}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{)}
-        \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
+        \PY{n}{str\PYZus{}image\PYZus{}filename} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{paste}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}ahp}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} 
+                                    \PY{n}{sep} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
         \PY{n+nf}{func\PYZus{}visuPriosCRs}\PY{p}{(}\PY{n}{df\PYZus{}processed\PYZus{}survey\PYZus{}data}\PY{p}{,} \PY{n}{df\PYZus{}CRs}\PY{p}{,} \PY{n}{arr\PYZus{}CRs}\PY{p}{,}
                           \PY{n}{consistency\PYZus{}thres}\PY{p}{,} \PY{n}{vec\PYZus{}atts}\PY{p}{,} \PY{n}{df\PYZus{}eigentrue\PYZus{}weights}\PY{p}{,}
                           \PY{n}{vec\PYZus{}labels}\PY{p}{,} \PY{n}{str\PYZus{}image\PYZus{}filename}\PY{p}{,} \PY{n}{str\PYZus{}violin\PYZus{}title}\PY{p}{)}
@@ -1582,7 +1584,8 @@ participants}\label{file-table-for-all-participants}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
 
-\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for all participants\PYZdq{}}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}all}\PY{p}{,}
+                      \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for all participants\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -1648,7 +1651,8 @@ administrations}\label{file-table-for-city-administrations}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
 
-\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for city administrations\PYZdq{}}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}CA}\PY{p}{,}
+                      \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for city administrations\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -1714,7 +1718,8 @@ organizations}\label{file-table-for-non-governmental-organizations}}
                    \PY{l+s}{\PYZdq{}}\PY{l+s}{economic sub\PYZhy{}criteria\PYZdq{}}\PY{p}{)}
 \PY{p}{)}
 
-\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for non\PYZhy{}governmental organizations\PYZdq{}}\PY{p}{)}
+\PY{n+nf}{func\PYZus{}render\PYZus{}md\PYZus{}tables}\PY{p}{(}\PY{n}{df\PYZus{}csvInputFiles\PYZus{}NGO}\PY{p}{,}
+                      \PY{l+s}{\PYZdq{}}\PY{l+s}{File table for non\PYZhy{}governmental organizations\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
