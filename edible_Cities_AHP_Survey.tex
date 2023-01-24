@@ -1025,7 +1025,7 @@ comparisons of the criteria or sub-criterion.
     \PY{p}{\PYZcb{}}
   \PY{p}{\PYZcb{}}
   
-  \PY{c+c1}{\PYZsh{} Return scrambled dataframe}
+  \PY{c+c1}{\PYZsh{} Return rescaled dataframe}
   \PY{n+nf}{return}\PY{p}{(}\PY{n}{df\PYZus{}outputData}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
@@ -1156,16 +1156,17 @@ given algorithm, and write the results to output CSV files:
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} Adapt the encoded scale of the survey to the 17\PYZhy{}step Saaty\PYZsq{}s scale}
+  \PY{c+c1}{\PYZsh{} in the input dataframes}
+  \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{1}\PY{p}{]]}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write rescaled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
-                                 \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}
+                                 \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{crit\PYZdq{}}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
 \end{tcolorbox}
@@ -1192,16 +1193,17 @@ given algorithm, and write the results to output CSV files:
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} Adapt the encoded scale of the survey to the 17\PYZhy{}step Saaty\PYZsq{}s scale}
+  \PY{c+c1}{\PYZsh{} in the input dataframes}
+  \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{2}\PY{p}{]]}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write rescaled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
-                                 \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{)}
+                                 \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{env\PYZdq{}}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
 \end{tcolorbox}
@@ -1226,16 +1228,17 @@ given algorithm, and write the results to output CSV files:
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{3}\PY{p}{]]}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} Adapt the encoded scale of the survey to the 17\PYZhy{}step Saaty\PYZsq{}s scale}
+  \PY{c+c1}{\PYZsh{} in the input dataframes}
+  \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{3}\PY{p}{]]}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write rescaled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
-                                 \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{)}
+                                 \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{soc\PYZdq{}}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
 \end{tcolorbox}
@@ -1247,7 +1250,7 @@ Walk over all input CSV files, select necessary columns, filter cells by
 given algorithm, and write the results to output CSV files:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{40}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{AW01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AW02\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{AW03\PYZsq{}}\PY{p}{)}
 \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{RW01\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RW02\PYZus{}01\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{RW03\PYZus{}01\PYZsq{}}\PY{p}{,}
@@ -1260,16 +1263,17 @@ given algorithm, and write the results to output CSV files:
                         \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{/\PYZdq{}}\PY{p}{)}
   \PY{n}{list\PYZus{}dataframes} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}readCSVdata\PYZus{}to\PYZus{}dataframes}\PY{p}{(}\PY{n}{str\PYZus{}filename}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Scramble the dataframes}
-  \PY{n}{df\PYZus{}scrambledData} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{4}\PY{p}{]]}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
-                                                \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
+  \PY{c+c1}{\PYZsh{} Adapt the encoded scale of the survey to the 17\PYZhy{}step Saaty\PYZsq{}s scale}
+  \PY{c+c1}{\PYZsh{} in the input dataframes}
+  \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled} \PY{o}{\PYZlt{}\PYZhy{}} \PY{n+nf}{func\PYZus{}adaptData2SaatyScale}\PY{p}{(}\PY{n}{list\PYZus{}dataframes}\PY{p}{[[}\PY{l+m}{4}\PY{p}{]]}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}1}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}search\PYZus{}2}\PY{p}{,}
+                                                      \PY{n}{vec\PYZus{}colnames\PYZus{}out}\PY{p}{)}
   
-  \PY{c+c1}{\PYZsh{} Write scrambled dataframes to output CSV file}
+  \PY{c+c1}{\PYZsh{} Write rescaled dataframes to output CSV file}
   \PY{n+nf}{func\PYZus{}writeDataframe\PYZus{}to\PYZus{}CSVfile}\PY{p}{(}\PY{n}{str\PYZus{}output\PYZus{}path\PYZus{}prep}\PY{p}{,}
                                  \PY{n}{df\PYZus{}csvInputFiles}\PY{p}{[}\PY{n}{row\PYZus{}idx}\PY{p}{,} \PY{n}{filenames}\PY{p}{]}\PY{p}{,}
-                                 \PY{n}{df\PYZus{}scrambledData}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}
+                                 \PY{n}{df\PYZus{}surveyData\PYZus{}rescaled}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{eco\PYZdq{}}\PY{p}{)}
 \PY{p}{\PYZcb{}}
 \end{Verbatim}
 \end{tcolorbox}
