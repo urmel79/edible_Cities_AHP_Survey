@@ -1,0 +1,12 @@
+# Abstract
+
+The Analytic Hierarchy Process (AHP) is a common and now widely used method to decide on an alternative based on several different criteria. Often the weighting of the respective criteria is done by a small number of decision makers or even a single decision maker. The AHP is then relatively easy to implement, both organizationally and technically.
+
+Much less often, the weighting of criteria used for decision-making is done by a variety of different stakeholders. However, especially for decision-making with high social relevance, the involvement of many stakeholders is very important. At this point, the following questions arise:
+
+1. How do I collect the data?
+2. Which software or tool can perform an AHP with data from the survey of a large number of stakeholders?
+3. How can data collection and processing be combined in a way that is both organizationally and technically sensible and time-effective?
+
+As part of the DFG-funded project "Edible Cities", the objective was to evaluate different forms of urban agriculture using AHP with regard to their sustainability. The prerequisite for this was the involvement of numerous stakeholders from various target groups in the weighting of the previously selected criteria and sub-criteria. Die für die Gewichtung erforderlichen paarweisen Vergleiche der Kriterien und Unterkriterien sollten mittels einer online-Befragung durchgeführt werden, die idealerweise direkt im Anschluss automatisch den AHP rechnet. Da es sich in diesem Fall um überwiegend nicht-wissenschaftliche Stakeholder handelte, musste die Befragung einfach strukturiert werden. Das nach Kenntnis der Autoren einzig verfügbare kombinierte online-Tool zur Durchführung einer Befragung mit direkt anschließender Kriteriengewichtung "AHP-OS" von BPMSG (Business Performance Management Singapore) (https://bpmsg.com) schien genau vor diesem Hintergrund ungeeignet, da es zu stark darauf ausgelegt ist konsistente Datensätze zu generieren und die Teilnehmer ggf. mehrfach bittet ihre Entscheidungen zu überdenken und in Richtung Konsistenz anzupassen. Befragung und Gewichtung mussten daher organisatorisch und technisch voneinander getrennt werden.
+Das vorliegende Paper stellt erstmals eine Prozedur vor, bei der eigens mittels der online-Befragungsplattform SoSci Survey (https://www.soscisurvey.de/) erhobene Daten mit dem für R verfügbaren package "ahpsurvey" verarbeitet werden. Das R-package ahpsurvey stellt dahingehend nach Kenntnis der Autoren ebenfalls das einzig brauchbare verfügbare Tool dar.
