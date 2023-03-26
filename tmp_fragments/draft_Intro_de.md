@@ -1,4 +1,4 @@
-# Abstract
+# Einleitung
 
 Der Analytic Hierarchy Process (AHP) ist eine gängige und inzwischen weit verbreitete Methode, um auf der Basis mehrerer verschiedener Kriterien über eine Alternative zu entscheiden. Häufig erfolgt die Gewichtung der jeweiligen Kriterien durch eine geringe Anzahl von Entscheidungsträgern oder gar einen einzelnen Entscheidungsträger. Der AHP lässt sich dann organisatorisch wie auch technisch relativ einfach bewerkstelligen.
 
