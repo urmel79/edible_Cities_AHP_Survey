@@ -15,7 +15,11 @@ $ cat README.md | ./tools/github-markdown-toc/gh-md-toc - > toc.md
 
 ## How to cite the project
 
-To make this **software project citable**, the Github repository will soon be linked to my [Zenodo](https://zenodo.org) account ...
+To make this **software project citable**, the Github repository has been linked to my [Zenodo](https://zenodo.org) account starting with **release version 0.4pre**. This and all subsequent updates to the project are now synchronized with Zenodo.
+
+The **major advantage** of this linkage is that **release 1.3** (and all subsequent releases) can be **scientifically cited** via their following **unique [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier)**: 
+
+[![DOI](https://zenodo.org/badge/565209300.svg)](https://zenodo.org/badge/latestdoi/565209300)
 
 ## Aim of the project
 
