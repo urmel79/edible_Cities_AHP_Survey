@@ -8,7 +8,7 @@ authors:
   given-names: "Henriette"
   orcid: "https://orcid.org/0000-0003-3299-5762"
 title: "Introducing a procedure to perform the Analytic Hierarchy Process with own survey data obtained from SoSci Survey platform using R-package ahpsurvey"
-version: v0.4pre\_zenodo
-doi: 10.5281/zenodo.7774748
+version: v0.5pre\_zenodo
+doi: 10.5281/zenodo.7774935
 date-released: 2023-03-27
 url: "https://github.com/urmel79/edible_Cities_AHP_Survey_ssh"
