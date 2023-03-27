@@ -8,6 +8,11 @@ auto-generate the TOC with the command line tool 'gh-md-toc' (https://github.com
 $ cat README.md | ./tools/github-markdown-toc/gh-md-toc - > toc.md
 -->
 
+* [How to cite the project](#how-to-cite-the-project)
+* [Aim of the project](#aim-of-the-project)
+* [Short introduction](#short-introduction)
+* [License](#license)
+
 ## How to cite the project
 
 To make this **software project citable**, the Github repository will soon be linked to my [Zenodo](https://zenodo.org) account ...
