@@ -42,6 +42,9 @@
     ((*- endif *))
 ((*- endif *))
 
+    % increase title page by shifting title and authors something upwards
+    \setlength{\droptitle}{-3em}
+
 ((* endblock packages *))
 
 %==============================================================================
@@ -164,8 +167,15 @@
     
     ((*- if nb.metadata["latex_metadata"]: -*))
     ((*- if nb.metadata["latex_metadata"]["cover_image"]: -*))
+
+    ((*- if nb.metadata["latex_metadata"]["cover_image_textwidth"]: -*))
+        ((*- set cover_image_width = nb.metadata["latex_metadata"]["cover_image_textwidth"] -*))
+    ((*- else -*))
+        ((*- set cover_image_width = 0.9 -*))
+    ((*- endif *))
+
         \begin{center}
-        \includegraphics[width=0.90\textwidth]{((( nb.metadata["latex_metadata"]["cover_image"] )))}
+        \includegraphics[width=((( cover_image_width )))\textwidth]{((( nb.metadata["latex_metadata"]["cover_image"] )))}
         \end{center}
         \vfill
     ((*- endif *))

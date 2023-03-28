@@ -92,6 +92,9 @@
     \setcounter{biburllcpenalty}{7000}  %Setting for counter to wrap URLs in literature references
     \setcounter{biburlucpenalty}{8000}  %ditto
 
+    % increase title page by shifting title and authors something upwards
+    \setlength{\droptitle}{-3em}
+
 
 
     
@@ -178,7 +181,7 @@
     % Document parameters
     % Document title
     \title{\textbf{\textsf{Introducing a procedure to perform the Analytic Hierarchy Process with own survey data obtained from \emph{SoSci Survey} platform using R-package \emph{ahpsurvey}}}}\author[1]{Bj\"orn Kasper (\href{mailto:kasper.bjoern@bgetem.de}{kasper.bjoern@bgetem.de})}
-\affil[1]{Berufsgenossenschaft Energie Textil Elektro Medienerzeugnisse}\author[2]{Henriette John (\href{mailto:h.john@ioer.de}{h.john@ioer.de})}
+\affil[1]{Test and Certification Body for Electrical Engineering at BG ETEM}\author[2]{Henriette John (\href{mailto:h.john@ioer.de}{h.john@ioer.de})}
 \affil[2]{Leibniz Institute of Ecological Urban and Regional Development}\date{\today; version 0.3 (pre-release)}
 
 
@@ -412,15 +415,28 @@
     % page numbers and column titles should be turned off.
     \pagestyle{empty}
     
-    \maketitle\thispagestyle{empty}\begin{center}
-        \includegraphics[width=0.90\textwidth]{images/Cover_image.pdf}
+    \maketitle\thispagestyle{empty}
+
+        \begin{center}
+        \includegraphics[width=0.9\textwidth]{images/Cover_image.pdf}
         \end{center}
         \vfill
 
     \begin{abstract}
-    This is a placeholder for the abstract that needs to be added later.
+    Anyone who wants to seriously deal with the emerging topic of our time ``Artificial Intelligence (AI)'' cannot avoid dealing with the basic mathematical models and algorithms from the field of ``Machine Learning (ML)'' as a subset of AI. However, someone who opens the door for the first time to this equally very exciting as well as arbitrarily complex and, at first glance, confusing world will very quickly be overwhelmed. Here, it is a good idea to consult introductory and systematic tutorials. Therefore, this Getting Started tutorial systematically demonstrates the typical ML work process step-by-step using the very powerful and performant ``Support Vector Classifier (SVC)'' and the widely known and exceptionally beginner-friendly ``Iris Dataset''. Furthermore, the selection of the ``correct'' SVC kernel and its parameters are described and their effects on the classification result are shown.
     \end{abstract}
-    \vfill
+    \vfill\noindent
+    \begin{center}
+	    \begin{tabular}{>{\centering}m{0.2\textwidth}m{0.65\textwidth}}
+	    \begin{minipage}{\linewidth}
+	        \includegraphics{images/CC_BY-SA_40.png}
+	    \end{minipage}
+	    &
+	    \begin{minipage}{\linewidth}
+	        This work is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)}.
+	    \end{minipage}
+	    \end{tabular}
+	\end{center}
 
     \newpage
 
@@ -883,16 +899,14 @@ of nine rating items shown in the following table (see
 \begin{longtable}[]{@{}rl@{}}
 \caption{Nine rating items according to Saaty (adapted from source:
 \cite{Vignettes_ahpsurvey_2019})}\tabularnewline
-\toprule\noalign{}
+\toprule()
 Rating & Definition \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 Rating & Definition \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 1 & Two attributes are equally important \\
 2 & Between 1 and 3 \\
 3 & The preferred attribute is slightly more important \\
@@ -902,6 +916,7 @@ Rating & Definition \\
 7 & The preferred attribute is strongly more important \\
 8 & Between 7 and 9 \\
 9 & The preferred attribute is absolutely more important \\
+\bottomrule()
 \end{longtable}
 
 To be able to describe the comparison of two attributes uniquely,
@@ -1166,7 +1181,7 @@ survey)}\label{create-dataframe-handling-the-file-names-of-input-csv-data-raw-da
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3298}}@{}}
 \caption{File table for handling the file names of input CSV data (raw
 data from survey)}\tabularnewline
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1176,9 +1191,9 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1188,10 +1203,8 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 1 & all & rdata\_all\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv & all
 target groups together \\
 2 & CA & rdata\_CA\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv & City
@@ -1200,6 +1213,7 @@ Administrations \\
 Non-Governmental Organisations \\
 4 & PE & rdata\_PE\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
 Practitioners and Experts \\
+\bottomrule()
 \end{longtable}
 
     
@@ -1815,16 +1829,14 @@ labels}\label{table-with-attributes-criteria-and-sub-criteria-and-their-labels}}
 
     \begin{longtable}[]{@{}lll@{}}
 \caption{Table with attributes and labels}\tabularnewline
-\toprule\noalign{}
+\toprule()
 attr & labels & descriptions \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 attr & labels & descriptions \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 Envi & Environment & main criterion \\
 Soci & Society & main criterion \\
 Econ & Economy & main criterion \\
@@ -1837,6 +1849,7 @@ Part & Participation & social sub-criterion \\
 Qual & Food Quality and Safety & economic sub-criterion \\
 LVCs & Local Value Chains & economic sub-criterion \\
 Affo & Food Affordability & economic sub-criterion \\
+\bottomrule()
 \end{longtable}
 
     
@@ -1876,7 +1889,7 @@ participants}\label{file-table-for-all-participants}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5684}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2842}}@{}}
 \caption{File table for all participants}\tabularnewline
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1886,9 +1899,9 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1898,10 +1911,8 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 1 & crit & rdata\_all\_crit\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv
 & criteria (main criteria) \\
 2 & env & rdata\_all\_env\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv &
@@ -1910,6 +1921,7 @@ environmental sub-criteria \\
 social sub-criteria \\
 4 & eco & rdata\_all\_eco\_AHP\_edible\_Cities\_2022-03-18\_09-53.csv &
 economic sub-criteria \\
+\bottomrule()
 \end{longtable}
 
     
@@ -1944,7 +1956,7 @@ administrations}\label{file-table-for-city-administrations}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5638}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2872}}@{}}
 \caption{File table for city administrations}\tabularnewline
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1954,9 +1966,9 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1966,10 +1978,8 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 1 & crit & rdata\_CA\_crit\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
 criteria (main criteria) \\
 2 & env & rdata\_CA\_env\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
@@ -1978,6 +1988,7 @@ environmental sub-criteria \\
 social sub-criteria \\
 4 & eco & rdata\_CA\_eco\_AHP\_edible\_Cities\_2022-03-18\_10-28.csv &
 economic sub-criteria \\
+\bottomrule()
 \end{longtable}
 
     
@@ -2012,7 +2023,7 @@ organizations}\label{file-table-for-non-governmental-organizations}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5684}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2842}}@{}}
 \caption{File table for non-governmental organizations}\tabularnewline
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2022,9 +2033,9 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2034,10 +2045,8 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 1 & crit & rdata\_NGO\_crit\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv
 & criteria (main criteria) \\
 2 & env & rdata\_NGO\_env\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv &
@@ -2046,6 +2055,7 @@ environmental sub-criteria \\
 social sub-criteria \\
 4 & eco & rdata\_NGO\_eco\_AHP\_edible\_Cities\_2022-03-18\_10-40.csv &
 economic sub-criteria \\
+\bottomrule()
 \end{longtable}
 
     
@@ -2080,7 +2090,7 @@ experts}\label{file-table-for-practitioners-and-experts}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5638}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2872}}@{}}
 \caption{File table for practitioners and experts}\tabularnewline
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2090,9 +2100,9 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedleft
 file\_idx
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2102,10 +2112,8 @@ filenames
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 descriptions
 \end{minipage} \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 1 & crit & rdata\_PE\_crit\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
 criteria (main criteria) \\
 2 & env & rdata\_PE\_env\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
@@ -2114,6 +2122,7 @@ environmental sub-criteria \\
 social sub-criteria \\
 4 & eco & rdata\_PE\_eco\_AHP\_edible\_Cities\_2022-03-18\_10-41.csv &
 economic sub-criteria \\
+\bottomrule()
 \end{longtable}
 
     
@@ -2279,78 +2288,74 @@ datasets}\label{calculate-aggregated-preference-weights-for-consistent-datasets}
 
     \begin{longtable}[]{@{}lrr@{}}
 \caption{Aggregated weights for criteria (main criteria)}\tabularnewline
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 Envi & 0.3739039 & 0.4179807 \\
 Soci & 0.3023657 & 0.3380094 \\
 Econ & 0.2182787 & 0.2440099 \\
 Sum & 0.8945482 & 1.0000000 \\
+\bottomrule()
 \end{longtable}
 
     
     \begin{longtable}[]{@{}lrrr@{}}
 \caption{Aggregated weights for environmental
 sub-criteria}\tabularnewline
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm & gmean.total \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm & gmean.total \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 Clim & 0.2741300 & 0.3089871 & 0.1291506 \\
 BDiv & 0.3291718 & 0.3710277 & 0.1550824 \\
 CiEc & 0.2838874 & 0.3199852 & 0.1337476 \\
 Sum & 0.8871892 & 1.0000000 & 0.4179807 \\
+\bottomrule()
 \end{longtable}
 
     
     \begin{longtable}[]{@{}lrrr@{}}
 \caption{Aggregated weights for social sub-criteria}\tabularnewline
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm & gmean.total \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm & gmean.total \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 KEdu & 0.3018698 & 0.3512801 & 0.1187360 \\
 Comm & 0.3212634 & 0.3738480 & 0.1263641 \\
 Part & 0.2362090 & 0.2748719 & 0.0929093 \\
 Sum & 0.8593422 & 1.0000000 & 0.3380094 \\
+\bottomrule()
 \end{longtable}
 
     
     \begin{longtable}[]{@{}lrrr@{}}
 \caption{Aggregated weights for economic sub-criteria}\tabularnewline
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm & gmean.total \\
-\midrule\noalign{}
+\midrule()
 \endfirsthead
-\toprule\noalign{}
+\toprule()
 & gmean.raw & gmean.norm & gmean.total \\
-\midrule\noalign{}
+\midrule()
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
 Qual & 0.2329901 & 0.2625724 & 0.0640703 \\
 LVCs & 0.3666029 & 0.4131498 & 0.1008127 \\
 Affo & 0.2877435 & 0.3242777 & 0.0791270 \\
 Sum & 0.8873365 & 1.0000000 & 0.2440099 \\
+\bottomrule()
 \end{longtable}
 
     
